@@ -6,9 +6,7 @@ const Main = styled.div`
   contain: content;
 `;
 
-const MainContent = styled((props) => {
-  return <Main {...props} />;
-})`
+const MainContent = styled((props) =><Main {...props} />)`
   & {
     height: ${(props) => props.style?.height};
     width: ${(props) => props.style?.width};

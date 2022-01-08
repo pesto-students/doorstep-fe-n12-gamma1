@@ -6,9 +6,7 @@ const CustomLabel = styled.label`
   color: ${Theme.Colors.primary};
 `;
 
-const CLabel = styled((props) => {
-  return <CustomLabel {...props} />;
-})`
+const CLabel = styled((props) => <CustomLabel {...props} />)`
   & {
     text-align: ${(props) => props.style?.textAlign};
     margin: ${(props) => props.children.props.style?.margin};
