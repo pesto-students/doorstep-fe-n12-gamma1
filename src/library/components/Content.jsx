@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Colors from "../styleHelpers/customTheme";
+import Theme from "../styleHelpers/customTheme";
 
 const Main = styled.div`
   contain: content;
@@ -16,10 +16,22 @@ const MainContent = styled((props) => {
     text-align: ${(props) => props.style?.textAlign};
   }
   && .Container {
-    border: 1px solid ${Colors.primary};
+    border: 1px solid ${Theme.Colors.primary};
     box-sizing: border-box;
-    border-radius: 14px;
+    border-radius: ${Theme.CommonTheme.borderRadius};
     padding: 10px;
+  }
+
+  && .LoginContent{
+    height: 60vh;
+    width: 50vw;
+    margin: 0;
+    text-align: center;
+  }
+
+  && .LogoContainer{
+    margin: 3rem 0 2rem 0; 
+    text-align: center;
   }
 
   && .MainContainer {

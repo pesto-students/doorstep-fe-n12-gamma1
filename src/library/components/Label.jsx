@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Colors from "../styleHelpers/customTheme";
+import Theme from "../styleHelpers/customTheme";
 
 const CustomLabel = styled.label`
-  color: ${Colors.primary};
+  color: ${Theme.Colors.primary};
 `;
 
 const CLabel = styled((props) => {
@@ -11,11 +11,14 @@ const CLabel = styled((props) => {
 })`
   & {
     text-align: ${(props) => props.style?.textAlign};
-    
-  }
-  & h6 {
     margin: ${(props) => props.children.props.style?.margin};
     font-style: ${(props) => props.children.props.style?.fontStyle};
+  }
+  & h6 {
+    margin:0;
+  }
+  && .ItalicFont{
+    font-style: italic;
   }
 `;
 export default CLabel;

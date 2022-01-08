@@ -1,7 +1,8 @@
 import React from 'react'
 
-let Colors= {
-    primary:'#2592AA',
+let Theme= {
+    Colors:{
+      primary:'#2592AA',
     tabIconDefault: '#959292',
     tabBar: '#fefefe',
     errorBackground: 'red',
@@ -9,6 +10,10 @@ let Colors= {
     warningBackground: '#EAEB5E',
     warningText: '#666804',
     noticeText: '#fff'
+    },
+    CommonTheme:{
+      borderRadius:'14px'
+    }
   };
   
-  export default Colors ;
+  export default Theme ;

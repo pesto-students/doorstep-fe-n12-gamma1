@@ -1,13 +1,13 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import styled from "styled-components";
-import Colors from "../styleHelpers/customTheme"
+import Theme from "../styleHelpers/customTheme";
 
 const Btn = styled(Button)`
   && {
-    border: 1px solid ${Colors.primary};
-    color: ${Colors.primary};
-    radius: 14px;
+    border: 1px solid ${Theme.Colors.primary};
+    color: ${Theme.Colors.primary};
+    border-radius: ${Theme.CommonTheme.borderRadius};
   }
 `;
 
@@ -33,4 +33,3 @@ const Buttons = styled((props) => {
   }
 `;
 export default Buttons;
-

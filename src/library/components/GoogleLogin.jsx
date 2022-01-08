@@ -2,22 +2,22 @@ import { styled } from "@mui/material";
 import React from "react";
 // , { useState }
 import { GoogleLogin } from "react-google-login";
-import Colors from "../styleHelpers/customTheme";
+import Theme from "../styleHelpers/customTheme";
+
 
 const CustomGoogleLogin = styled(GoogleLogin)`
   width: 25vw;
   height: auto;
   margin: 10px;
   box-shadow: none !important;
-  border: 1px solid ${Colors.primary}!important;
-  color: ${Colors.primary}!important;
-  border-radius: 14px !important;
+  border: 1px solid ${Theme.Colors.primary}!important;
+  color: ${Theme.Colors.primary}!important;
+  border-radius: ${Theme.CommonTheme.borderRadius}!important;
   justify-content: center; ;
 `;
 
 const GLogin = ({ children }) => {
-  const clientId =
-    "737423385254-lolcijd6n4834nn94heseis2gptsashc.apps.googleusercontent.com";
+  const clientId =process.env.REACT_APP_CLIENT_ID;
   //   const [showLoginButton, setShowLoginButton] = useState(true);
   //   const [showLogoutButton, setShowLogoutButton] = useState(false);
   const onLoginSuccess = (res) => {
@@ -41,7 +41,6 @@ const GLogin = ({ children }) => {
       buttonText={children}
       onSuccess={onLoginSuccess}
       onFailure={onLoginFailure}
-      isSignedIn={true}
       cookiePolicy={"single_host_origin"}
     />
   );
