@@ -3,6 +3,7 @@ import React from 'react'
 let Theme= {
     Colors:{
       primary:'#2592AA',
+      white:"#ffffff",
     tabIconDefault: '#959292',
     tabBar: '#fefefe',
     errorBackground: 'red',

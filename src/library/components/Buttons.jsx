@@ -6,9 +6,14 @@ import Theme from "../styleHelpers/customTheme";
 const Btn = styled(Button)`
   && {
     border: 1px solid ${Theme.Colors.primary};
-    color: ${Theme.Colors.primary};
+    color: ${Theme.Colors.white};
     border-radius: ${Theme.CommonTheme.borderRadius};
+    background-color:${Theme.Colors.primary}
   }
+  &&.MuiButton-root:hover {
+    background-color: ${Theme.Colors.primary};
+    color: ${Theme.Colors.white};
+}
 `;
 
 const Buttons = styled((props) => {
@@ -20,16 +25,16 @@ const Buttons = styled((props) => {
     margin: ${(props) => props.style?.margin};
     text-align: ${(props) => props.style?.textAlign};
   }
-  && .Small {
-    width: 15rem;
+  &&.Small {
+    width: min(50vw, 20vw);
     height: auto;
     margin: 5px;
   }
 
-  && .Large {
-    width: 25rem;
+  &&.Large {
+    width: min(50vw, 30vw);
     height: auto;
-    margin: 10px;
+    margin:10px;
   }
 `;
 export default Buttons;

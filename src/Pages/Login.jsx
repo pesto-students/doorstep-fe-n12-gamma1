@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <Content className="MainContainer">
       <Content className="LogoContainer">
-        <Logo width={243} height={50} />
+        <Logo className="responsiveImg" width={243} />
         <CLabel>
           <h6 className="ItalicFont">
             <em>We are at your service</em>
@@ -22,9 +22,9 @@ const Login = () => {
         <CLabel>
           <h6>Welcome @DoorStep!</h6>
         </CLabel>
-        <GoogleLogin>Login For Admin</GoogleLogin>
-        <GoogleLogin>Login For Guest</GoogleLogin>
-        <GoogleLogin>Login For User</GoogleLogin>
+        <GoogleLogin>Admin</GoogleLogin>
+        <GoogleLogin>Guest</GoogleLogin>
+        <GoogleLogin>User</GoogleLogin>
       </Content>
     </Content>
   );

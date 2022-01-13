@@ -1,9 +1,10 @@
 import { styled } from "@mui/material";
 import React from "react";
-// , { useState }
 import { GoogleLogin } from "react-google-login";
 import Theme from "../styleHelpers/customTheme";
-
+import ApiInfo from "../../services/ApiInfoService";
+import { postApi } from "../../services/ApiService";
+import { useNavigate } from "react-router-dom";
 
 const CustomGoogleLogin = styled(GoogleLogin)`
   width: 25vw;
@@ -17,28 +18,28 @@ const CustomGoogleLogin = styled(GoogleLogin)`
 `;
 
 const GLogin = ({ children }) => {
-  const clientId =process.env.REACT_APP_CLIENT_ID;
-  //   const [showLoginButton, setShowLoginButton] = useState(true);
-  //   const [showLogoutButton, setShowLogoutButton] = useState(false);
-  const onLoginSuccess = (res) => {
-    console.log("Login Success", res.profileObj);
-    // setShowLoginButton(false);
-    // setShowLogoutButton(true);
+  const clientId = process.env.REACT_APP_CLIENT_ID;
+  let navigate = useNavigate();
+  const onLoginSuccess = async (res) => {
+    try {
+      const result = await postApi(ApiInfo.login, {
+        tokenId: res.tokenId,
+        role: children,
+      });
+      children==='Admin' && navigate("/configuration");
+      navigate("/error")
+    } catch (error) {
+      console.log("Error", error);
+    }
   };
 
   const onLoginFailure = (res) => {
     console.log("Login Failure", res);
   };
-
-  //   const onLogout = () => {
-  //     alert("You have been signed out successfully");
-  //     // setShowLoginButton(true);
-  //     // setShowLogoutButton(false);
-  //   };
   return (
     <CustomGoogleLogin
       clientId={clientId}
-      buttonText={children}
+      buttonText={`Login For ${children}`}
       onSuccess={onLoginSuccess}
       onFailure={onLoginFailure}
       cookiePolicy={"single_host_origin"}
