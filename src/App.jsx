@@ -1,8 +1,8 @@
 import "./App.css";
-import Login from "./Pages/Login";
+import RoutingService from "./services/RoutingService";
 
 function App() {
-  return <Login />;
+  return <RoutingService />;
 }
 
 export default App;
