@@ -5,52 +5,57 @@ import styled from 'styled-components';
 import '../../App.css'
 
 function IncDec(props){
-    let [value,setValue] = React.useState(0);
+  let [value,setValue] = React.useState(0);
 
-    let value1=9;
-    function onIncrement() {
-        setValue((value)=>{
-            value += 1;
-            return value;
+  let value1=9;
+  function onIncrement() {
+    setValue((value)=>{
+      value += 1;
+      return value;
+    });
+    props.updateValue();
+  }
+
+  function onDecrement() {
+    setValue((value)=>{
+      if(value<=0)
+        return 0;
+      value -= 1;
+      return value;
+    });
+    props.updateValue();
+  }
+
+  const buttonStyle = {
+    minWidth: '1px',
+    width: '16.24px',
+    backgroundColor: '#2592AA',
+    height: '22.5px',
+    padding: '0 0 0 0'
+  };
+
+  const valueStyle={
+    'textAlign': 'center',
+    'width': '36.53px',
+    'border': '0px',
+  }
+  return (
+      
+    <ButtonGroup  aria-label="outlined primary button group">
+      <Button style={buttonStyle} variant="contained" onClick={onIncrement}>+</Button>
+      <input style={valueStyle} type='number' value={value} onChange={(event) => {
+        setValue(()=>{
+          if(isNaN(event.target.value) || event.target.value < 0){
+            event.target.value = 0
+          }
+          console.log(event.target.value);
+          return event.target.value;
         });
-    }
-
-    function onDecrement() {
-        setValue((value)=>{
-            if(value<=0)
-                return 0;
-            value -= 1;
-            return value;
-        });
-    }
-
-    const buttonStyle = {
-        minWidth: '1px',
-        width: '16.24px',
-        backgroundColor: '#2592AA',
-        height: '22.5px',
-        padding: '0 0 0 0'
-    };
-
-    const valueStyle={
-       'textAlign': 'center',
-        'width': '36.53px',
-        'border': '0px',
-    }
-    return (
-        
-        <ButtonGroup  aria-label="outlined primary button group">
-            <Button style={buttonStyle} variant="contained" onClick={onIncrement}>+</Button>
-            <input style={valueStyle} type='number' value={value} onChange={(event) => setValue(()=>{
-                    if(isNaN(event.target.value) || event.target.value < 0){
-                        event.target.value = 0
-                        }
-                        console.log(event.target.value);
-                        return event.target.value
-                        })}></input>
-            <Button style={buttonStyle} variant="contained" onClick={onDecrement}>-</Button>
-        </ButtonGroup>
-    )
+        props.updateValue();
+      }}></input>
+      <Button style={buttonStyle} variant="contained" onClick={onDecrement}>-</Button>
+    </ButtonGroup>
+  )
 }
 
-export default MainIncDec;
+export default IncDec;

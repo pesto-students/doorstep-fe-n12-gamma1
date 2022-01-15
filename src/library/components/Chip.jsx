@@ -1,9 +1,9 @@
 import Chip from '@mui/material/Chip';
-// import '../App.css';
+import Theme from "../styleHelpers/customTheme";
 
 function Ds_Chip(props) {
     return (
-      <Chip label={props.label||"-76%"} size="small" style={{backgroundColor:'#ECF6F6',color: '#2592AA'}}/>
+      <Chip label={props.label||"-76%"} size="small" style={{backgroundColor:Theme.Colors.chipBackground,color: Theme.Colors.primary}}/>
     ) 
 }
 
