@@ -11,6 +11,13 @@ const CLabel = styled((props) => <CustomLabel {...props} />)`
   & h6 {
     margin:0;
   }
+  &&.CardMainLabel{ 
+    margin: 0;
+    text-align: left;
+    line-height: 23px; 
+    font-size: 15px;
+    color: Theme.Colors.cardTitle;
+  }
   &&.ItalicFont{
     font-style: italic;
   }
