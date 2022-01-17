@@ -6,7 +6,7 @@ const Main = styled.div`
   contain: content;
 `;
 
-const MainContent = styled((props) =><Main {...props} />)`
+const MainContent = styled((props) => <Main {...props} />)`
   & {
     height: ${(props) => props.style?.height};
     width: ${(props) => props.style?.width};
@@ -20,21 +20,19 @@ const MainContent = styled((props) =><Main {...props} />)`
     padding: 10px;
   }
 
-  &&.LoginContent{
+  &&.LoginContent {
     width: 50vw;
     margin: 0;
     text-align: center;
-    
   }
 
-  &&.ConfigurationContent{
+  &&.ConfigurationContent {
     width: 50vw;
     margin: 10px;
     text-align: center;
-    
   }
 
-  &&.HeaderContent{
+  &&.HeaderContent {
     box-sizing: border-box;
     width: 100%;
     display: flex;
@@ -46,13 +44,60 @@ const MainContent = styled((props) =><Main {...props} />)`
     color: #fff;
   }
 
-  &&.HeaderLogoContainer{
-   margin:0;
+  &&.HeaderNav {
+    width: 10%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: baseline;
   }
 
+  &&.SearchBar {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &&.SearchInput {
+    padding: 30px;
+    font-size: 40px;
+  }
+  &&.SearchOptions {
+    width: 30%;
+  }
 
-  &&.LogoContainer{
-    margin: 3rem 0 2rem 0; 
+  &&.HeaderLogoContainer {
+    margin: 0;
+  }
+
+  &&.flex {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 10px;
+  }
+
+  &&.flexbrands {
+    width: 20%;
+    display: flex;
+  }
+
+  &&.Header {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 1em;
+    margin-bottom: 2em;
+    color: ${Theme.Colors.primary};
+  }
+
+  &&.LogoContainer {
+    margin: 3rem 0 2rem 0;
     text-align: center;
   }
 
@@ -62,7 +107,7 @@ const MainContent = styled((props) =><Main {...props} />)`
     flex-direction: column;
     vertical-align: middle;
   }
-  &&.FileUploadContainer{
+  &&.FileUploadContainer {
     display: flex;
     justify-content: center;
     align-items: center;
