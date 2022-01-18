@@ -6,7 +6,7 @@ import LandingPage from "../Pages/LandingPage";
 
 // import Test from "../library/components/DropDown";
 // import Test from "../library/components/Brands";
-import Test from "../library/components/Category";
+import Test from "../library/components/Grid";
 
 const Routes = [
   {

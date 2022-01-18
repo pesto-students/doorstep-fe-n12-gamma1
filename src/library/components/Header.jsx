@@ -16,8 +16,12 @@ const Header = () => {
       </Content>
 
       <Content className="SearchBar">
-        <DropDown values={categories} variant="filled" />
-        <SearchField />
+        <Content className="dropdown">
+          <DropDown values={categories} variant="outlined" />
+        </Content>
+        <Content className="searchfield">
+          <SearchField />
+        </Content>
       </Content>
 
       <Content className="HeaderNav">

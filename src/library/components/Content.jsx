@@ -58,6 +58,11 @@ const MainContent = styled((props) => <Main {...props} />)`
     flex-direction: row;
     align-items: center;
   }
+
+  &&.DropDown .MuiFilledInput-input {
+    background: red;
+    padding-top: 0;
+  }
   &&.SearchInput {
     padding: 30px;
     font-size: 40px;
@@ -65,13 +70,19 @@ const MainContent = styled((props) => <Main {...props} />)`
   &&.SearchOptions {
     width: 30%;
   }
-
+  &&.searchfield {
+    display: flex;
+    flex: 2;
+  }
+  &&.dropdown {
+    display: flex;
+    flex: 1;
+  }
   &&.HeaderLogoContainer {
     margin: 0;
   }
 
   &&.flex {
-    width: 20%;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -80,7 +91,6 @@ const MainContent = styled((props) => <Main {...props} />)`
   }
 
   &&.flexbrands {
-    width: 20%;
     display: flex;
   }
 
@@ -113,6 +123,17 @@ const MainContent = styled((props) => <Main {...props} />)`
     align-items: center;
     flex-direction: row;
     margin: 30px;
+  }
+
+  &&.main_content {
+    width: 100%;
+    display: flex;
+  }
+  &&.page_left {
+    flex: 1;
+  }
+  &&.page_right {
+    flex: 3;
   }
 `;
 export default MainContent;
