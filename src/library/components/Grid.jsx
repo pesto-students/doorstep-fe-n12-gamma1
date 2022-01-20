@@ -9,10 +9,10 @@ import Grid from "@mui/material/Grid";
 // import Paper from "@mui/material/Paper";
 
 //
-import values from "../../services/products";
+// import values from "../../services/products";
 import Card from "./Card";
 
-export default function SpacingGrid() {
+export default function SpacingGrid({ values }) {
   const [spacing, setSpacing] = React.useState(2);
 
   const handleChange = (event) => {

@@ -88,6 +88,7 @@ const MainContent = styled((props) => <Main {...props} />)`
     flex-direction: row;
     align-items: baseline;
     padding: 10px;
+    width: 30%;
   }
 
   &&.flexbrands {
@@ -134,6 +135,34 @@ const MainContent = styled((props) => <Main {...props} />)`
   }
   &&.page_right {
     flex: 3;
+  }
+  &&.main_cart {
+    display: flex;
+  }
+  &&.cart_left {
+    flex: 3;
+    display: flex;
+    // background-color: powderblue;
+  }
+  &&.cart_right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  &&.carts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // color: blue;
+  }
+  &&.cartRow {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
   }
 `;
 export default MainContent;
