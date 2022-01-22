@@ -4,6 +4,9 @@ let Theme= {
     Colors:{
       primary:'#2592AA',
       white:"#ffffff",
+      cardTitle: "151515",
+      cardDescription: "#A9A9A9",
+      chipBackground: "#ECF6F6",
     tabIconDefault: '#959292',
     tabBar: '#fefefe',
     errorBackground: 'red',
