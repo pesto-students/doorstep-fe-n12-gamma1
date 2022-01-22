@@ -3,8 +3,13 @@ import GoogleLogin from "../library/components/GoogleLogin";
 import Logo from "../library/components/Logo";
 import CLabel from "../library/components/Label";
 import Content from "../library/components/Content";
+import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "../app/reducers/authReducer";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  dispatch(authActions.fetchAuth())
+  useSelector(state => console.log(state))
   return (
     <Content className="MainContainer">
       <Content className="LogoContainer">
