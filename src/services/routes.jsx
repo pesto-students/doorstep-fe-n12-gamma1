@@ -7,6 +7,8 @@ import Payment from "../library/components/Payment";
 import LandingPage from "../Pages/LandingPage";
 import ViewProduct from "../Pages/ViewProduct";
 import Cart from "../Pages/Cart";
+import CheckoutPage from "../Pages/Checkout";
+import ProductDetailsPage from "../Pages/ProductDetailsPage";
 
 // import Test from "../library/components/DropDown";
 // import Test from "../library/components/Brands";
@@ -65,11 +67,24 @@ const Routes= [
     component: Cart,
     pageTitle: "Cart",
   },
-    {
-        path:'*',
-        exact:true,
-        component:PageNotFound,
-        pageTitle:'Page Not Found'
-    }
+  {
+    path: "/checkout",
+    exact: true,
+    component: CheckoutPage,
+    pageTitle: "Cart",
+  },
+  {
+    path: "/pd",
+    exact: true,
+    component: ProductDetailsPage,
+    pageTitle: "Cart",
+  },
+  {
+    path: "*",
+    exact: true,
+    component: PageNotFound,
+    pageTitle: "Page Not Found",
+  }
+
 ];
 export default Routes;
