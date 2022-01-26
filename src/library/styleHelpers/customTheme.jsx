@@ -2,7 +2,7 @@ import React from 'react'
 
 let Theme= {
     Colors:{
-      primary:'#2592AA',
+      primary:process.env.REACT_APP_PRIMARY_COLOR,
       white:"#ffffff",
       cardTitle: "151515",
       cardDescription: "#A9A9A9",

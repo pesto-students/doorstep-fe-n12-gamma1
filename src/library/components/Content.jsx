@@ -41,9 +41,22 @@ const MainContent = styled((props) => <Main {...props} />)`
     align-items: baseline;
     padding: 1em;
     margin-bottom: 2em;
-    color: #fff;
   }
 
+  &&.HeaderLogoContainer{
+   margin:0;
+   color: ${Theme.Colors.primary};
+  }
+
+  &&.HeaderMiddleContainer{
+    margin:0;
+    color: ${Theme.Colors.primary};
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+   }
+
+=======
   &&.HeaderNav {
     width: 10%;
     display: flex;

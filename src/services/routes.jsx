@@ -1,7 +1,9 @@
 import React from "react";
 import LoginPage from "./../Pages/Login";
 import ConfigurationPage from "./../Pages/Configuration";
-import PageNotFound from "../Pages/PageNotFound";
+import PageNotFound from '../Pages/PageNotFound';
+import Header from "../library/components/Header";
+import Payment from "../library/components/Payment";
 import LandingPage from "../Pages/LandingPage";
 import ViewProduct from "../Pages/ViewProduct";
 import Cart from "../Pages/Cart";
@@ -16,20 +18,32 @@ import ProductDetailsPage from "../Pages/ProductDetailsPage";
 // import Test from "../library/components/IncDec";
 import Test from "../library/components/CartItem";
 
-const Routes = [
-  {
-    path: "/",
-    exact: true,
-    component: LoginPage,
-    pageTitle: "Admin SignIn",
-  },
-  {
-    path: "/configuration",
-    exact: true,
-    component: ConfigurationPage,
-    pageTitle: "Upload Configuration excel File",
-  },
-  {
+const Routes= [
+    {
+        path:'/',
+        exact:true,
+        component:LoginPage,
+        pageTitle:'Admin SignIn'
+    },
+    {
+        path:'/configuration',
+        exact:true,
+        component:ConfigurationPage,
+        pageTitle:'Upload Configuration excel File'
+    },
+    {
+        path:'/Header',
+        exact:true,
+        component:Header,
+        pageTitle:'Admin SignIn'
+    },
+    {
+        path:'/Payment',
+        exact:true,
+        component:Payment,
+        pageTitle:'Admin SignIn'
+    },
+    {
     path: "/test",
     exact: true,
     component: Test,
@@ -70,6 +84,7 @@ const Routes = [
     exact: true,
     component: PageNotFound,
     pageTitle: "Page Not Found",
-  },
+  }
+
 ];
 export default Routes;
