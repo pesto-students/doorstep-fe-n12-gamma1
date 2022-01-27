@@ -8,23 +8,47 @@ import Header from "./../library/components/Header";
 export default function PD(){
 
     return (
-        <>
-        <Box sx={{ display: 'grid'}}>
-        <Header/>
-        <Box sx={{ display: 'grid' ,gridTemplateColumns: "1fr 1fr", gridGap:"10px",justifyItems:'stretch', padding:'16px'  }}>
-            <Box sx={{display: 'grid', justifyItems:'stretch'}}>
-                <Box>
-                    <Content/>
-                </Box>
-                <Box sx={{}}>
-                    <h1> <Tabs/></h1>
-                </Box>
-            </Box>
-            <Box sx={{display: 'grid', justifyItems:'end', paddingRight:'10%' }}>
-                <Images/>
-            </Box>
-        </Box>
-        </Box>
-        </>
+        // <>
+        // <Box sx={{ display: 'grid'}}>
+        // <Header/>
+        // <Box sx={{ display: 'grid' ,gridTemplateColumns: "1fr 1fr", gridGap:"10px",justifyItems:'stretch', padding:'16px'  }}>
+        //     <Box sx={{display: 'grid', justifyItems:'stretch'}}>
+        //         <Box>
+        //             <Content/>
+        //         </Box>
+        //         <Box sx={{}}>
+        //             <h1> <Tabs/></h1>
+        //         </Box>
+        //     </Box>
+        //     <Box sx={{display: 'grid', justifyItems:'end', paddingRight:'10%' }}>
+        //         <Images/>
+        //     </Box>
+        // </Box>
+        // </Box>
+        // </>
+
+        <Grid container>
+            <Grid item xs={12}>
+                <Header/>
+            </Grid>
+            <Grid item>
+                <Grid container columnSpacing={8} zeroMinWidth>
+                    <Grid item xs={12} sm={6}>
+                        <Grid container rowSpacing={8}>
+                            <Grid item>
+                                <Content/>
+                            </Grid>
+                            <Grid item>
+                                <Tabs/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={12} sm={6}  style={{display:'flex', alignItems:'center', flexDirection: 'column'}}>
+                        <Images zeroMinWidth fullWidth/>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Grid>
     )
 } 

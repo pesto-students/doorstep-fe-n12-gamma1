@@ -24,11 +24,11 @@ export default function SpacingGrid({ values }) {
 `;
 
   return (
-    <Grid sx={{ flexGrow: 1 }} container spacing={4}>
+    <Grid sx={{ flexGrow: 1 }} container spacing={4} >
       <Grid item xs={12}>
-        <Grid container justifyContent="center" spacing={spacing}>
+        <Grid container justifyContent="center" rowSpacing={6} columns={12}>
           {values.map((product) => (
-            <Grid key={product.id} item>
+            <Grid key={product.id} item sm={12} md={6} lg={4} xl={3}>
               <Card
                 key={product.id}
                 imgUrl={product.imgUrl}

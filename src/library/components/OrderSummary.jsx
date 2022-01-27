@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 
 export default function OrderSummary(){
     return (
-        <Grid container zeroMinWidth fullWidth rowSpacing={5} wrap sx={{border:"1px solid #C1C1C1", borderRadius:"12px", maxWidth:'500px', display:'flex', alignItems:'center',padding:'16px'}}>
+        <Grid container rowSpacing={5} sx={{border:"1px solid #C1C1C1", borderRadius:"12px", maxWidth:'500px', display:'flex', alignItems:'center'}}>
             <Grid item>
             <Grid container spacing={1}>
                 <Grid item xs={12}>
