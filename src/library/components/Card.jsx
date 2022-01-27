@@ -14,6 +14,7 @@ export default function MediaCard(props) {
         width: "269px",
         height: "332px",
         borderRadius: "12px",
+        border: "3px solid #EBEBEB"
       }}
     >
       <CardMedia
@@ -84,11 +85,12 @@ export default function MediaCard(props) {
             <h6
               style={{
                 display: "inline",
-                color: Theme.Colors.CardDescription,
+                color: Theme.Colors.cardDescription,
                 fontSize: "12px",
+                textDecoration: "line-through",
               }}
             >
-              {props.mrp || 48.86}
+              {(props.mrp || 48.86)  + " INR"}
             </h6>
           </div>
         </div>

@@ -15,7 +15,9 @@ export default function DropDown({ values, variant }) {
   return (
     <Content className="DropDown">
       <FormControl variant={variant} fullWidth>
+      <InputLabel id="demo-simple-select-label">Age</InputLabel>
         <Select
+          sx={{borderRadius:"20px 0px 0px 20px"}}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={value}
