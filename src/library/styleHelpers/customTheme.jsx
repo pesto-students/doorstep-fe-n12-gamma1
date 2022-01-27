@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import config from "../../config.json";
 
 let Theme= {
     Colors:{
-      primary:process.env.REACT_APP_PRIMARY_COLOR,
+      primary:config.result.template_Details.primaryColor,
+      adminPrimary:"#2592AA",
       white:"#ffffff",
       cardTitle: "151515",
       cardDescription: "#A9A9A9",

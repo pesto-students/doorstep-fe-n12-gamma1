@@ -4,9 +4,10 @@ import Content from "./Content";
 import Icon from "./Icon";
 import Theme from "../styleHelpers/customTheme";
 import { useNavigate } from "react-router-dom";
-import DropDown from "./DropDown";
+import DropDown from "./Dropdown";
 import SearchBox from "./SearchBox"
 import categories from "../../services/categories";
+import logoImage from "../images/logo.png";
 
 
 import SearchField from "./SearchField";
@@ -15,7 +16,7 @@ const Header = () => {
   return (
     <Content className="Header">
       <Content className="HeaderLogoContainer">
-        <Logo className="responsiveImg" width={120} />
+        <Logo className="responsiveImg" src={logoImage} width={120} />
       </Content>
 
       <Content className="SearchBar">

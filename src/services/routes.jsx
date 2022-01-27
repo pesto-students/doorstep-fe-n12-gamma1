@@ -21,7 +21,7 @@ import Test from "../Pages/OrderHistory";
 
 const Routes= [
     {
-        path:'/',
+        path:'/admin',
         exact:true,
         component:LoginPage,
         pageTitle:'Admin SignIn'
@@ -51,7 +51,7 @@ const Routes= [
     pageTitle: "Upload Configuration excel File",
   },
   {
-    path: "/home",
+    path: "/",
     exact: true,
     component: LandingPage,
     pageTitle: "Home",

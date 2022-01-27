@@ -5,20 +5,30 @@ import Theme from "../styleHelpers/customTheme";
 import ApiInfo from "../../services/ApiInfoService";
 import { postApi } from "../../services/ApiService";
 import { useNavigate } from "react-router-dom";
+import config from "../../config.json"
 
 const CustomGoogleLogin = styled(GoogleLogin)`
+  &{
   width: 25vw;
   height: auto;
   margin: 10px;
   box-shadow: none !important;
-  border: 1px solid ${Theme.Colors.primary}!important;
-  color: ${Theme.Colors.primary}!important;
   border-radius: ${Theme.CommonTheme.borderRadius}!important;
-  justify-content: center; ;
+  justify-content: center;
+  }
+  &&.adminTheme{
+    border: 1px solid ${Theme.Colors.primary}!important;
+    color:${Theme.Colors.adminPrimary}!important;
+  }
+  &&.userTheme{
+    border: 1px solid ${Theme.Colors.primary};
+    color: ${Theme.Colors.primary};
+  }
 `;
 
 const GLogin = ({ children }) => {
-  const clientId = process.env.REACT_APP_CLIENT_ID;
+  // const clientId = process.env.REACT_APP_CLIENT_ID;
+  const clientId=config.result.envDetails.REACT_APP_CLIENT_ID
   let navigate = useNavigate();
   const onLoginSuccess = async (res) => {
     try {

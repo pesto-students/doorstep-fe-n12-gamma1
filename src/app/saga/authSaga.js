@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { authActions} from "../reducers/authReducer";
-import auth from "../services/authService";
+import {auth} from "../services/apiService";
 
 export default function* authSaga() {
     try {

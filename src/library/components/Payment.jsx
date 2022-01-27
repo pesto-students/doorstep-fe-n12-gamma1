@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import Button from "./Buttons";
-import logo from "../images/logo.png";
+// import logo from "../images/logo.png";
 import ApiInfo from "../../services/ApiInfoService";
 import { postApi } from "../../services/ApiService";
+import config from "../../config.json";
 
 export default function Payment() {
   const [stripeToken, setStripeToken] = useState(null);
@@ -27,12 +28,14 @@ export default function Payment() {
     console.log("token", token);
     setStripeToken(token);
   };
+  // stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
+  // name={process.env.REACT_APP_CLIENT_NAME}
   return (
     <StripeCheckout
       token={onToken}
-      stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
-      name={process.env.REACT_APP_CLIENT_NAME}
-      image={logo}
+      stripeKey={config.result.envDetails.REACT_APP_STRIPE_PUBLIC_KEY}
+      name={config.result.vendorName}
+      image={config.result.template_Details.logoUrl}
       amount={3000}
       currency="USD"
       email="sunitagamne16@gmail.com"

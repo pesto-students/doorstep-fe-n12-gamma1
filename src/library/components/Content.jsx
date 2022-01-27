@@ -20,6 +20,10 @@ const MainContent = styled((props) => <Main {...props} />)`
     padding: 10px;
   }
 
+  &&.adminTheme{
+    border-color:${Theme.Colors.adminPrimary}
+  }
+
   &&.LoginContent {
     width: 50vw;
     margin: 0;
@@ -56,7 +60,6 @@ const MainContent = styled((props) => <Main {...props} />)`
     flex-direction: row;
    }
 
-=======
   &&.HeaderNav {
     width: 10%;
     display: flex;

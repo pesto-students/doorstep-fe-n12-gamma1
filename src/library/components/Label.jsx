@@ -24,6 +24,9 @@ const CLabel = styled((props) => <CustomLabel {...props} />)`
   &&.whiteLabel{
     color: ${Theme.Colors.white};
   }
+  &&.adminLabel{
+    color:${Theme.Colors.adminPrimary}
+  }
 `;
 
 // & {

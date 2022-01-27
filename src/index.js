@@ -5,7 +5,7 @@ import App from './App.jsx';
 import reportWebVitals from './reportWebVitals';
 import configureAxios from "../src/app/api/configureAxios";
 
-// configureAxios();
+configureAxios();
 
 ReactDOM.render(
   <React.StrictMode>
