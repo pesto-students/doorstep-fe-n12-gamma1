@@ -4,6 +4,7 @@ import Theme from "../styleHelpers/customTheme";
 
 const Main = styled.div`
   contain: content;
+  color: ${Theme.Colors.primary};
 `;
 
 const MainContent = styled((props) => <Main {...props} />)`
@@ -163,6 +164,13 @@ const MainContent = styled((props) => <Main {...props} />)`
     width: 100%;
     justify-content: space-around;
     align-items: center;
+  }
+
+  &&.profile {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
   }
 `;
 export default MainContent;

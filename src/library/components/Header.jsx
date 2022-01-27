@@ -4,7 +4,7 @@ import Content from "./Content";
 import Icon from "./Icon";
 import Theme from "../styleHelpers/customTheme";
 import categories from "../../services/categories";
-import DropDown from "./DropDown";
+// import DropDown from "./DropDown";
 
 import SearchField from "./SearchField";
 
@@ -17,7 +17,7 @@ const Header = () => {
 
       <Content className="SearchBar">
         <Content className="dropdown">
-          <DropDown values={categories} variant="outlined" />
+          {/* <DropDown values={categories} variant="outlined" /> */}
         </Content>
         <Content className="searchfield">
           <SearchField />

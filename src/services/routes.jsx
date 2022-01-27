@@ -5,6 +5,7 @@ import PageNotFound from "../Pages/PageNotFound";
 import LandingPage from "../Pages/LandingPage";
 import ViewProduct from "../Pages/ViewProduct";
 import Cart from "../Pages/Cart";
+import OrderHistory from "../Pages/OrderHistory";
 
 // import Test from "../library/components/DropDown";
 // import Test from "../library/components/Brands";
@@ -13,7 +14,8 @@ import Cart from "../Pages/Cart";
 // import Test from "../library/components/Buttons";
 // import Test from "../library/components/IncDec";
 // import Test from "../library/components/CartItem";
-import Test from "../Pages/OrderHistory";
+// import Test from "../Pages/OrderHistory";
+import Test from "../Pages/Profile.jsx";
 
 const Routes = [
   {
@@ -51,6 +53,18 @@ const Routes = [
     exact: true,
     component: Cart,
     pageTitle: "Cart",
+  },
+  {
+    path: "/orders",
+    exact: true,
+    component: OrderHistory,
+    pageTitle: "Order History",
+  },
+  {
+    path: "/test",
+    exact: true,
+    component: Test,
+    pageTitle: "Test Page",
   },
   {
     path: "*",
