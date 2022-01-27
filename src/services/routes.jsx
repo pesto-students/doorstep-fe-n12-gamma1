@@ -16,7 +16,8 @@ import ProductDetailsPage from "../Pages/ProductDetailsPage";
 // import Test from "../library/components/Slider";
 // import Test from "../library/components/Buttons";
 // import Test from "../library/components/IncDec";
-import Test from "../library/components/CartItem";
+// import Test from "../library/components/CartItem";
+import Test from "../Pages/OrderHistory";
 
 const Routes= [
     {
