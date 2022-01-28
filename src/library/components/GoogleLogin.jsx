@@ -26,12 +26,19 @@ const GLogin = ({ children }) => {
         tokenId: res.tokenId,
         role: children,
       });
-      children==='Admin' && navigate("/configuration");
-      navigate("/error")
+      setDetailsInLocalStorage(result.data.result)
+      children==='Admin' && navigate('/configuration');
+      children!=='Admin' && navigate('/error')
     } catch (error) {
       console.log("Error", error);
     }
   };
+
+  const setDetailsInLocalStorage=(result)=>{
+    console.log("result",result)
+    window.localStorage.setItem("user", JSON.stringify(result));
+    window.localStorage.setItem("token", JSON.stringify(result.token));
+  }
 
   const onLoginFailure = (res) => {
     console.log("Login Failure", res);

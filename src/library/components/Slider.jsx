@@ -2,6 +2,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Theme from '../styleHelpers/customTheme';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from "@mui/material/InputLabel";
 
 function valuetext(value) {
   return `${value} INR`;
@@ -67,32 +71,69 @@ export default function MinimumDistanceSlider() {
   }
 
   return (
-    <Box sx={{ width: 251 }}>
-      <Slider
-        getAriaLabel={() => 'Minimum distance'}
-        value={value}
-        onChange={handleChange1}
-        valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
-        disableSwap
-        sx={{
-          color: Theme.Colors.primary
-        }}
-      />
-      <div style={{marginTop:"16px"}}>
-        <div style={{height:"30px"}}>
-        <label style={{float:"laft", fontWeight: 'bold'}}>Min</label>
-        <label style={{marginLeft: "65px", fontWeight: 'bold'}}>Max</label>
-        {/* <input type="number" placeholder="Min" style={minInputStyle} value={value[0]} onChange={onMinChange}/> */}
-        </div>
-      <div>
-      <input type="number" placeholder="Min" style={minInputStyle} value={value[0]} onChange={onMinChange}/>
-      <div style={{display: "inline", height: "42px"}}>
-        <p style={{    textAlign: "center", display: "inline",lineHeight: "42px", width: "2px"}}>-</p>
-        </div>
-      <input type="number" placeholder="Max" style={maxInputStyle} value={value[1]} onChange={onMaxChange}/>
-      </div>
-      </div>
-    </Box>
+    // <Box sx={{ width: 251 }}>
+    //   <Slider
+    //     getAriaLabel={() => 'Minimum distance'}
+    //     value={value}
+    //     onChange={handleChange1}
+    //     valueLabelDisplay="auto"
+    //     getAriaValueText={valuetext}
+    //     disableSwap
+    //     sx={{
+    //       color: Theme.Colors.primary
+    //     }}
+    //   />
+    //   <div style={{marginTop:"16px"}}>
+    //     <div style={{height:"30px"}}>
+    //     <label style={{float:"left", fontWeight: 'bold'}}>Min</label>
+    //     <label style={{marginLeft: "65px", fontWeight: 'bold'}}>Max</label>
+    //     {/* <input type="number" placeholder="Min" style={minInputStyle} value={value[0]} onChange={onMinChange}/> */}
+    //     </div>
+    //   <div>
+    //   <input type="number" placeholder="Min" style={minInputStyle} value={value[0]} onChange={onMinChange}/>
+    //   <div style={{display: "inline", height: "42px"}}>
+    //     <p style={{    textAlign: "center", display: "inline",lineHeight: "42px", width: "2px"}}>-</p>
+    //     </div>
+    //   <input type="number" placeholder="Max" style={maxInputStyle} value={value[1]} onChange={onMaxChange}/>
+    //   </div>
+    //   </div>
+    // </Box>
+    <Grid container rowSpacing={1}>
+      <Grid item xs={12}>
+        <Typography variant="h6" sx={{fontWeight:'bold'}}>Price</Typography>
+      </Grid>
+
+      <Grid item xs={9}>
+        <Slider
+          getAriaLabel={() => 'Minimum distance'}
+          value={value}
+          onChange={handleChange1}
+          valueLabelDisplay="auto"
+          getAriaValueText={valuetext}
+          disableSwap
+          sx={{
+            color: Theme.Colors.primary
+          }}
+        />
+      </Grid>
+      <Grid item xs={9}>
+          <Grid container>
+            <Grid item xs={5}>
+              <InputLabel><Typography variant="p" sx={{fontWeight:'bold', color:'black'}}>Min</Typography></InputLabel>
+              <OutlinedInput type="number"  value={value[0]} onChange={onMinChange} sx={{borderRadius:'14px', textAlign:'center', background: "#F9F9F9" }}/>
+            </Grid>
+            <Grid item xs={2} sx={{display:'flex', flexDirection: 'column', justifyContent: 'center'}} fullWidth>
+              <Typography variant="p" sx={{fontWeight:'bold', textAlign:'center'}} fullWidth>-</Typography>
+            </Grid>
+            <Grid item xs={5}>
+            <InputLabel><Typography variant="p" sx={{fontWeight:'bold', color:'black'}}>Max</Typography></InputLabel>
+              <OutlinedInput type="number" value={value[1]} onChange={onMaxChange} sx={{borderRadius:'14px', textAlign:'center', background: "#F9F9F9"}}/>
+            </Grid>
+          </Grid>
+      </Grid>
+
+
+
+    </Grid>
   );
 }

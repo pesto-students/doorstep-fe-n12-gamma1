@@ -3,8 +3,10 @@ import Logo from "./Logo";
 import Content from "./Content";
 import Icon from "./Icon";
 import Theme from "../styleHelpers/customTheme";
+import { useNavigate } from "react-router-dom";
+import DropDown from "./DropDown";
+import SearchBox from "./SearchBox"
 import categories from "../../services/categories";
-// import DropDown from "./DropDown";
 
 import SearchField from "./SearchField";
 
