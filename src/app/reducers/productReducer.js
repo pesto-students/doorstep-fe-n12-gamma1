@@ -4,7 +4,7 @@ const productSlice = createSlice({
   name: "productReducer",
   initialState: {
     isFetching: false,
-    userInfo: {},
+    productInfo: {},
   },
   reducers: {
     fetchProduct: (state) => {

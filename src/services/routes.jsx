@@ -9,6 +9,8 @@ import ViewProduct from "../Pages/ViewProduct";
 import Cart from "../Pages/Cart";
 import CheckoutPage from "../Pages/Checkout";
 import ProductDetailsPage from "../Pages/ProductDetailsPage";
+import UserHeader from "../library/components/UserHeader";
+import SearchBar from "../library/components/SearchBar"
 
 // import Test from "../library/components/DropDown";
 // import Test from "../library/components/Brands";
@@ -35,7 +37,7 @@ const Routes= [
     {
         path:'/Header',
         exact:true,
-        component:Header,
+        component:SearchBar,
         pageTitle:'Admin SignIn'
     },
     {

@@ -10,9 +10,9 @@ import logoImage from "../library/images/logo.png";
 
 
 const Login = () => {
-  const dispatch = useDispatch();
-  dispatch(authActions.fetchAuth())
-  useSelector(state => console.log(state))
+  // const dispatch = useDispatch();
+  // dispatch(authActions.fetchAuth())
+  // useSelector(state => console.log(state))
   return (
     <Content className="MainContainer">
       <Content className="LogoContainer">
@@ -32,7 +32,7 @@ const Login = () => {
         </CLabel>
         <GoogleLogin className="adminTheme">Admin</GoogleLogin>
         <GoogleLogin className="adminTheme">Guest</GoogleLogin>
-        <GoogleLogin className="adminTheme">User</GoogleLogin>
+        {/* <GoogleLogin className="adminTheme">User</GoogleLogin> */}
       </Content>
     </Content>
   );

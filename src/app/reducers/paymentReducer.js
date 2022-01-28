@@ -4,7 +4,7 @@ const paymentSlice = createSlice({
   name: "paymentReducer",
   initialState: {
     isFetching: false,
-    userInfo: {},
+    paymentInfo: {},
   },
   reducers: {
     fetchPayment: (state) => {

@@ -8,7 +8,7 @@ const configureAxios = () => {
   Axios.defaults.headers.put["Accept"] = "application/json";
   Axios.interceptors.request.use(function (config) {
     const token = localStorage.getItem("token");
-    config.headers.Authorization = token ? `Bearer ${token}` : "";
+    config.headers.auth = token ? `${token}` : "";
     return config;
   });
 };

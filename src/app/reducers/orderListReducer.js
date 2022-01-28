@@ -4,7 +4,7 @@ const orderListSlice = createSlice({
   name: "orderListReducer",
   initialState: {
     isFetching: false,
-    userInfo: {},
+    orderList: {},
   },
   reducers: {
     fetchOrderList: (state) => {

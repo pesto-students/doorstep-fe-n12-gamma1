@@ -1,0 +1,20 @@
+#search_bar {
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+}
+
+#search {
+    display: block;
+    border: 1px solid #aaa;
+    font-size: 16px;
+    padding: 10px 10px;
+    width: 100%;
+    background: #fff;
+    padding-left: 40px;
+    border-radius: 20px;
+    outline: none !important;
+    box-sizing: border-box;
+}

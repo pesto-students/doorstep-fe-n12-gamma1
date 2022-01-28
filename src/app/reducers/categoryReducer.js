@@ -4,7 +4,7 @@ const categorySlice = createSlice({
   name: "categoryReducer",
   initialState: {
     isFetching: false,
-    userInfo: {},
+    categoryInfo: {},
   },
   reducers: {
     fetchCategory: (state) => {
