@@ -5,7 +5,7 @@ import Icon from "./Icon";
 import Theme from "../styleHelpers/customTheme";
 import { useNavigate } from "react-router-dom";
 import DropDown from "./DropDown";
-import SearchBox from "./SearchBox"
+import SearchBox from "./SearchBox";
 import categories from "../../services/categories";
 
 import SearchField from "./SearchField";
@@ -19,7 +19,7 @@ const Header = () => {
 
       <Content className="SearchBar">
         <Content className="dropdown">
-          {/* <DropDown values={categories} variant="outlined" /> */}
+          <DropDown values={categories} variant="outlined" />
         </Content>
         <Content className="searchfield">
           <SearchField />
