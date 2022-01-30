@@ -122,8 +122,8 @@ export default function MinimumDistanceSlider() {
               <InputLabel><Typography variant="p" sx={{fontWeight:'bold', color:'black'}}>Min</Typography></InputLabel>
               <OutlinedInput type="number"  value={value[0]} onChange={onMinChange} sx={{borderRadius:'14px', textAlign:'center', background: "#F9F9F9" }}/>
             </Grid>
-            <Grid item xs={2} sx={{display:'flex', flexDirection: 'column', justifyContent: 'center'}} fullWidth>
-              <Typography variant="p" sx={{fontWeight:'bold', textAlign:'center'}} fullWidth>-</Typography>
+            <Grid item xs={2} sx={{display:'flex', flexDirection: 'column', justifyContent: 'center'}} fullwidth={1}>
+              <Typography variant="p" sx={{fontWeight:'bold', textAlign:'center'}} fullwidth={1}>-</Typography>
             </Grid>
             <Grid item xs={5}>
             <InputLabel><Typography variant="p" sx={{fontWeight:'bold', color:'black'}}>Max</Typography></InputLabel>

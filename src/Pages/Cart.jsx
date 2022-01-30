@@ -7,11 +7,15 @@ import Paper from "@mui/material/Paper";
 import products from "../services/products";
 import CartItem from "../library/components/CartItem";
 import Buttons from "../library/components/Buttons";
+import { useSelector } from "react-redux";
 const Item = styled(Paper)(({ theme }) => ({
   color: "#ffddff",
 }));
 
 const Cart = () => {
+  const data=useSelector(state => state);
+  const products=data.cartReducer.products;
+  console.log("products",products)
   return (
     <>
       <Header />

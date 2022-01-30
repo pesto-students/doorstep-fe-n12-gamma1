@@ -8,18 +8,7 @@ import Typography from '@mui/material/Typography';
 
 const Brands = ({ values }) => {
   return (
-    // <Content>
-    //   <Content>
-    //     <p>Brands</p>
-    //   </Content>
-    //   {brands.map((brand, index) => {
-    //     return (
-    //       <Brand key={brand.id}>
-    //         <p>{brand.name}</p>
-    //       </Brand>
-    //     );
-    //   })}
-    // </Content>
+   
     <Grid container>
       <Grid item xs={12}>
         <Typography variant="h6" sx={{fontWeight:'bold'}}>Brands</Typography>
@@ -28,7 +17,7 @@ const Brands = ({ values }) => {
         <Grid container rowSpacing={1}>
           {brands.map((brand, index) => {
             return (
-              <Grid item xs={12}>
+              <Grid key={brand.id} item xs={12}>
                 <Brand key={brand.id}>
                   <Typography variant="p">{brand.name}</Typography>
                 </Brand>

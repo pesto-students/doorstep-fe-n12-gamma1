@@ -44,37 +44,37 @@ export default function AddressForm(){
             </Grid>
             <Grid item>
             <Grid container spacing={5}>
-            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullWidth>
+            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullwidth={1}>
                     {/* <InputLabel sx={{fontWeight: 'bold'}}>First name</InputLabel> */}
-                    <TextField id="outlined-basic" label="First name" variant="outlined" fullWidth/>
+                    <TextField id="outlined-basic" label="First name" variant="outlined" fullwidth={1}/>
             </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullWidth>
+            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullwidth={1}>
                     {/* <InputLabel sx={{fontWeight: 'bold'}}>First name</InputLabel> */}
-                    <TextField id="outlined-basic" label="Last name" variant="outlined" fullWidth/>
+                    <TextField id="outlined-basic" label="Last name" variant="outlined" fullwidth={1}/>
             </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullWidth>
+            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullwidth={1}>
                     {/* <InputLabel sx={{fontWeight: 'bold'}}>First name</InputLabel> */}
-                    <TextField id="outlined-basic" label="Email address" variant="outlined" fullWidth/>
+                    <TextField id="outlined-basic" label="Email address" variant="outlined" fullwidth={1}/>
             </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullWidth>
+            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullwidth={1}>
                     {/* <InputLabel sx={{fontWeight: 'bold'}}>First name</InputLabel> */}
-                    <TextField id="outlined-basic" label="Phone number" variant="outlined" fullWidth/>
+                    <TextField id="outlined-basic" label="Phone number" variant="outlined" fullwidth={1}/>
             </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullWidth>
+            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullwidth={1}>
                     {/* <InputLabel sx={{fontWeight: 'bold'}}>First name</InputLabel> */}
-                    <TextField id="outlined-basic" label="Address" variant="outlined" fullWidth/>
+                    <TextField id="outlined-basic" label="Address" variant="outlined" fullwidth={1}/>
             </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullWidth>
+            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullwidth={1}>
                     {/* <InputLabel sx={{fontWeight: 'bold'}}>First name</InputLabel> */}
-                    <TextField id="outlined-basic" label="Town/City" variant="outlined" fullWidth/>
+                    <TextField id="outlined-basic" label="Town/City" variant="outlined" fullwidth={1}/>
             </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullWidth>
+            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullwidth={1}>
                     {/* <InputLabel sx={{fontWeight: 'bold'}}>First name</InputLabel> */}
-                    <TextField id="outlined-basic" label="State/Country" variant="outlined" fullWidth/>
+                    <TextField id="outlined-basic" label="State/Country" variant="outlined" fullwidth={1}/>
             </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullWidth>
+            <Grid item xs={12} sm={6} md={6} lg={6} sm="" zeroMinWidth fullwidth={1}>
                     {/* <InputLabel sx={{fontWeight: 'bold'}}>First name</InputLabel> */}
-                    <TextField id="outlined-basic" label="Zip/Postal code" variant="outlined" fullWidth/>
+                    <TextField id="outlined-basic" label="Zip/Postal code" variant="outlined" fullwidth={1}/>
             </Grid>
 
         </Grid>

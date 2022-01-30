@@ -16,15 +16,15 @@ export default function SummaryCard(){
         <Card sx={{padding:'5px', borderBottom:'1px solid #C1C1C1'}}>
             <Grid container spacing={2}>
                 <Grid item xs={4}>
-                    <Grid container spacing={2} fullWidth>
-                        <Grid item fullWidth>
+                    <Grid container spacing={2} fullwidth={1}>
+                        <Grid item fullwidth={1}>
                             <CardMedia
                                 component="img"
                                 height="104"
                                 image='https://images.unsplash.com/photo-1551963831-b3b1ca40c98e'
                                 sx={{borderRadius:"12px"}}
                                 alt="Paella dish"
-                                fullWidth
+                                fullwidth={1}
                             />
                         </Grid>
                         <Grid item>

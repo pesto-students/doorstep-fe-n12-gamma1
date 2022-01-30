@@ -1,25 +1,24 @@
 import { call, put } from "redux-saga/effects";
-import { authActions} from "../reducers/authReducer";
+import { productActions} from "../reducers/productReducer";
 import * as service from "../services/authService";
 
 
-export default function* authSaga(data) {
+export default function* productSaga(data) {
     try {
-      debugger;
       const response = yield call(
-        service.auth,data.payload
+        service.product,data.payload
       );
       debugger;
       if (response.status === 200) {
         if (response.data) {
-          yield put(authActions.fetchAuthSuccess(response.data));
+          yield put(productActions.fetchProductSuccess(response.data));
         } else {
-          yield put(authActions.fetchAuthFailure(response.data));
+          yield put(productActions.fetchProductFailure(response.data));
         }
       }
     } catch (e) {
       debugger;
       console.log("error",e)
-      yield put(authActions.fetchAuthFailure(e));
+      yield put(productActions.fetchProductFailure(e));
     }
   }

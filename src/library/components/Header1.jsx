@@ -9,8 +9,13 @@ import OutlinedInput from '@mui/material/InputBase';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button'
 import SearchField from "./SearchField";
+import { useSelector, useDispatch } from "react-redux";
+import {categoryActions} from "../../app/reducers/categoryReducer";
 
 const Header = () => {
+    const dispatch = useDispatch();
+  dispatch(categoryActions.fetchCategory())
+  useSelector(state => console.log("Category",state))
   return (
     // <Content className="Header">
     //   <Content className="HeaderLogoContainer">
@@ -49,11 +54,11 @@ const Header = () => {
                 <Grid item xs={9}>
                     <Grid container>
                         <Grid item>
-                            <OutlinedInput fullWidth sx={{ ml: 1, flex: 1, height:"100%" }} />
-                            {/* <input fullWidth sx={{width:'100%', height:"100%"}}></input> */}
+                            <OutlinedInput fullwidth={1} sx={{ ml: 1, flex: 1, height:"100%" }} />
+                            {/* <input fullwidth={1} sx={{width:'100%', height:"100%"}}></input> */}
                         </Grid>
                         <Grid item>
-                            <Button fullWidth sx={{height:'100%'}}>
+                            <Button fullwidth={1} sx={{height:'100%'}}>
                                 <Icon sx={{ color: `${Theme.Colors.warningBackground}`, fontSize: 80 }}>
                                     search
                                 </Icon>

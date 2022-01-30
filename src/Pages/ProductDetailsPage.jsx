@@ -44,7 +44,7 @@ export default function PD(){
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={6}  style={{display:'flex', alignItems:'center', flexDirection: 'column'}}>
-                        <Images zeroMinWidth fullWidth/>
+                        <Images zeroMinWidth fullwidth={1}/>
                     </Grid>
 
                 </Grid>

@@ -1,14 +1,12 @@
 import { call, put } from "redux-saga/effects";
 import { authActions} from "../reducers/authReducer";
-import * as service from "../services/authService";
+import * as service from "../services/userService";
 
-
-export default function* authSaga(data) {
+export default function* userSaga({creds}) {
     try {
       debugger;
-      const response = yield call(
-        service.auth,data.payload
-      );
+      const response = yield call(service.login,creds);
+      console.log("response",response)
       debugger;
       if (response.status === 200) {
         if (response.data) {

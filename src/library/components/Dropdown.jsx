@@ -14,7 +14,7 @@ export default function DropDown({ values, variant }) {
 
   return (
     <Content className="DropDown">
-      <FormControl variant={variant} fullWidth>
+      <FormControl variant={variant} fullwidth={1}>
       <InputLabel id="demo-simple-select-label">Age</InputLabel>
         <Select
           sx={{borderRadius:"20px 0px 0px 20px"}}
@@ -24,9 +24,9 @@ export default function DropDown({ values, variant }) {
           label="Age"
           onChange={handleChange}
         >
-          {values.map((category, index) => {
-            return <MenuItem value={category.id}>{category.name}</MenuItem>;
-          })}
+          {values && values.length!=0?values.map((category, index) => {
+            return <MenuItem key={category._id} value={category._id}>{category.categoryName}</MenuItem>;
+          }):''}
         </Select>
       </FormControl>
     </Content>

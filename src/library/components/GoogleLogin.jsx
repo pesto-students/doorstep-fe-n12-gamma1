@@ -1,10 +1,13 @@
 import { styled } from "@mui/material";
-import React from "react";
+import React,{useEffect} from "react";
 import { GoogleLogin } from "react-google-login";
 import Theme from "../styleHelpers/customTheme";
 import ApiInfo from "../../services/ApiInfoService";
 import { postApi } from "../../services/ApiService";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "../../app/reducers/authReducer";
+import config from "../../config.json";
 
 const CustomGoogleLogin = styled(GoogleLogin)`
   width: 25vw;
@@ -17,22 +20,41 @@ const CustomGoogleLogin = styled(GoogleLogin)`
   justify-content: center; ;
 `;
 
+
+// function getData(){
+//   return useSelector(state => console.log(state))
+// }
+
 const GLogin = ({ children }) => {
-  const clientId = process.env.REACT_APP_CLIENT_ID;
+  const dispatch = useDispatch();
+  const LoggedInUser=useSelector(state => state);
+  console.log("LoggedInUser",LoggedInUser)
+  const userInfo=LoggedInUser.authReducer.userInfo
+  const clientId = config.result.envDetails.REACT_APP_CLIENT_ID;
   let navigate = useNavigate();
-  const onLoginSuccess = async (res) => {
-    try {
-      const result = await postApi(ApiInfo.login, {
-        tokenId: res.tokenId,
-        role: children,
-      });
-      setDetailsInLocalStorage(result.data.result)
-      children==='Admin' && navigate('/configuration');
-      children!=='Admin' && navigate('/error')
-    } catch (error) {
-      console.log("Error", error);
+  useEffect(() => {
+    debugger;
+    if (userInfo?.statusCode==200) {
+       setDetailsInLocalStorage(userInfo.result)
+       userInfo.result.role==='Admin' && navigate('/configuration');
+       userInfo.result.role!=='Admin' && navigate('/error')
     }
-  };
+    console.log("userInfo",userInfo)
+  }, [navigate, userInfo]);
+  
+const onLoginSuccess=(res)=>{
+  try {
+    debugger;
+  dispatch(authActions.fetchAuth({
+    tokenId: res.tokenId,
+    role: children,
+  }))
+  debugger;
+}catch(error){
+  alert(error)
+}
+}
+  
 
   const setDetailsInLocalStorage=(result)=>{
     console.log("result",result)

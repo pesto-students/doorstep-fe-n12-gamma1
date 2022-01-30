@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const authSlice = createSlice({
-  name: "authReducer",
+const userSlice = createSlice({
+  name: "userReducer",
   initialState: {
     isFetching: false,
     userInfo: {},
@@ -23,4 +23,4 @@ const authSlice = createSlice({
   },
 });
 
-export const { actions: authActions, reducer: authReducer } = authSlice;
+export const { actions: userActions, reducer: userReducer } = userSlice;

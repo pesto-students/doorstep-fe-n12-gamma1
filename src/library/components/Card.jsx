@@ -5,8 +5,16 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Theme from "../styleHelpers/customTheme";
+import placeHolder from "../images/placeholder.jpg";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../app/reducers/cartReducer";
 
 export default function MediaCard(props) {
+  const dispatch = useDispatch();
+
+  const onAddProductToCart = () => {
+    dispatch(cartActions.addProductToCart(props));
+  };
   return (
     <Card
       sx={{
@@ -23,10 +31,7 @@ export default function MediaCard(props) {
         height="180"
         width="536"
         borderradius="12"
-        image={
-          props.imgUrl ||
-          "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
-        }
+        image={props.img || placeHolder}
         alt="Image Not Available"
       />
       <CardContent style={{ padding: "7px" }}>
@@ -67,6 +72,7 @@ export default function MediaCard(props) {
               width: "112px",
               borderRadius: "12px",
             }}
+            onClick={onAddProductToCart}
           >
             Add to cart
           </Button>
@@ -79,7 +85,7 @@ export default function MediaCard(props) {
                 color: Theme.Colors.cardTitle,
               }}
             >
-              {(props.sellingPrice || 36.84) + " INR"}
+              {(props.discounted_price ) + " INR"}
             </h3>
             <br></br>
             <h6
@@ -90,7 +96,7 @@ export default function MediaCard(props) {
                 textDecoration: "line-through",
               }}
             >
-              {(props.mrp || 48.86)  + " INR"}
+              {(props.price )  + " INR"}
             </h6>
           </div>
         </div>
