@@ -2,10 +2,9 @@ import React from "react";
 import LoginPage from "./../Pages/Login";
 import ConfigurationPage from "./../Pages/Configuration";
 import PageNotFound from '../Pages/PageNotFound';
-import Header from "../library/components/Header";
+import Header1 from "../library/components/Header1";
 import Payment from "../library/components/Payment";
 import LandingPage from "../Pages/LandingPage";
-import ViewProduct from "../Pages/ViewProduct";
 import Cart from "../Pages/Cart";
 import CheckoutPage from "../Pages/Checkout";
 import ProductDetailsPage from "../Pages/ProductDetailsPage";
@@ -33,12 +32,6 @@ const Routes= [
         pageTitle:'Upload Configuration excel File'
     },
     {
-        path:'/Header',
-        exact:true,
-        component:Header,
-        pageTitle:'Admin SignIn'
-    },
-    {
         path:'/Payment',
         exact:true,
         component:Payment,
@@ -59,7 +52,7 @@ const Routes= [
   {
     path: "/product",
     exact: true,
-    component: ViewProduct,
+    component: ProductDetailsPage,
     pageTitle: "Product",
   },
   {
@@ -74,12 +67,7 @@ const Routes= [
     component: CheckoutPage,
     pageTitle: "Cart",
   },
-  {
-    path: "/pd",
-    exact: true,
-    component: ProductDetailsPage,
-    pageTitle: "Cart",
-  },
+  
   {
     path: "*",
     exact: true,

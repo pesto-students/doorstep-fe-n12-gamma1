@@ -4,7 +4,7 @@ import Content from "./Content";
 import Icon from "./Icon";
 import Theme from "../styleHelpers/customTheme";
 import categories from "../../services/categories";
-import DropDown from "./DropDown";
+import DropDown from "./Dropdown";
 import OutlinedInput from '@mui/material/InputBase';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button'
