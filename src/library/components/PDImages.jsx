@@ -1,20 +1,3 @@
-import Box from '@mui/material/Box';
-
-// export default function Images(){
-
-//     return (
-//         <Box sx={{display:'grid', height:"70vh",gridTemplateColumns:"1fr 1fr"}}>
-//             <Box>
-//                 <img style={{objectFit: "cover"}} src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"></img>
-//             </Box>
-//             <Box>
-//                 <img src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"></img>
-//             </Box>
-
-//         </Box>
-//     )
-// }
-
 import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';

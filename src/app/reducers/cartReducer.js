@@ -5,7 +5,8 @@ const cartSlice = createSlice({
   initialState: {
     isFetching: false,
     products: [],
-    show_products:false
+    show_products:false,
+    viewProduct:{}
   },
   reducers: {
     addProductToCart: (state,action) => {
@@ -41,6 +42,11 @@ const cartSlice = createSlice({
         console.log("products",...products)
         state.products=[];
         state.products=[...state.products,...products]
+      },
+      viewProductDetails:(state, action) => {
+        const { payload } = action;
+        state.isFetching = false;
+        state.viewProduct=payload;
       },
       showCartProducts: (state, action) => {
       state.isFetching = false;

@@ -1,10 +1,6 @@
 import * as React from "react";
-import Grid from "@mui/material/Grid";
 import CartItem from "./CartItem";
-import Card from "./Card";
 import Content from "./Content";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 export default function SpacingGrid({ values, imgUrl }) {
   const [spacing, setSpacing] = React.useState(2);
 

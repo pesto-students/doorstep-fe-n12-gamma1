@@ -13,6 +13,16 @@ const MainContent = styled((props) => <Main {...props} />)`
     margin: ${(props) => props.style?.margin};
     text-align: ${(props) => props.style?.textAlign};
   }
+  &&.cardActions {
+    padding: 5px; 
+    width: 100%; 
+    text-align: left;
+  }
+  &&.costContent{
+    display: inline; 
+    width: 50%;
+    text-align: left;
+  }
   &&.Container {
     border: 1px solid ${Theme.Colors.primary};
     box-sizing: border-box;
@@ -55,8 +65,6 @@ const MainContent = styled((props) => <Main {...props} />)`
     align-items: center;
     flex-direction: row;
    }
-
-=======
   &&.HeaderNav {
     width: 10%;
     display: flex;

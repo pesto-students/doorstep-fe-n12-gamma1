@@ -36,5 +36,11 @@ const Buttons = styled((props) => {
     height: auto;
     margin:10px;
   }
+ &&.cardBtn{
+  float: right;
+  height: 36px;
+  width: 112px;
+ }
+
 `;
 export default Buttons;

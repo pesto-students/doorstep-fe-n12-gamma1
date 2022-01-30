@@ -21,7 +21,7 @@ export default function OrderSummary(){
             </Grid>
         </Grid>
             <Grid item fullwidth={1}>
-                <Grid container zeroMinWidth className='example' sx={{maxHeight:'868px', overflow:'scroll'}}>
+                <Grid container item xs zeroMinWidth className='example' sx={{maxHeight:'85vh', overflow:'scroll'}}>
                     <Grid item>
                         <SummaryCard></SummaryCard>
                     </Grid>
@@ -40,7 +40,7 @@ export default function OrderSummary(){
                 </Grid>
             </Grid>
             <Grid item xs={12}>
-                <Table zeroMinWidth fullwidth={1} sx={{fontWeight:'bold'}}>
+                <Table item xs zeroMinWidth fullwidth={1} sx={{fontWeight:'bold'}}>
                     <TableRow>
                         <TableCell  sx={{fontWeight:'bold'}}>Subtotal</TableCell>
                         <TableCell  sx={{fontWeight:'bold'}}  align="right">73.98 INR</TableCell>
@@ -56,7 +56,7 @@ export default function OrderSummary(){
                 </Table>
             </Grid>
             <Grid item xs={12}>
-                <Table zeroMinWidth fullwidth={1} sx={{fontWeight:'bold'}}>
+                <Table item xs zeroMinWidth fullwidth={1} sx={{fontWeight:'bold'}}>
                     <TableRow>
                         <TableCell>
                             <Typography   sx={{fontWeight:'bold'}}>Total</Typography>

@@ -36,7 +36,6 @@ const Cart = () => {
   const products=data.cartReducer.products;
   // const onOpenCart= () => dispatch(cartActions.showCartProducts());
   const onOpenCart= () => navigate('/cart');
-  const onCloseCart= () => dispatch(cartActions.hideCartProducts());
   const onRemoveProductFromCart= (product) =>
     dispatch(cartActions.removeProductFromCart(product));
 

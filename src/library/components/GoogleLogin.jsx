@@ -27,11 +27,12 @@ const CustomGoogleLogin = styled(GoogleLogin)`
 
 const GLogin = ({ children }) => {
   const dispatch = useDispatch();
+  let navigate = useNavigate();
   const LoggedInUser=useSelector(state => state);
   console.log("LoggedInUser",LoggedInUser)
   const userInfo=LoggedInUser.authReducer.userInfo
   const clientId = config.result.envDetails.REACT_APP_CLIENT_ID;
-  let navigate = useNavigate();
+  
   useEffect(() => {
     debugger;
     if (userInfo?.statusCode==200) {

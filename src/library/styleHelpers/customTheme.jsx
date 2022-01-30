@@ -5,7 +5,7 @@ let Theme= {
     Colors:{
       primary:config.result.template_Details.primaryColor,
       white:"#ffffff",
-      cardTitle: "151515",
+      cardTitle: "#151515",
       cardDescription: "#A9A9A9",
       chipBackground: "#ECF6F6",
     tabIconDefault: '#959292',

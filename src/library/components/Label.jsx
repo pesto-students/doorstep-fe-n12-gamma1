@@ -7,28 +7,44 @@ const CustomLabel = styled.label`
 `;
 
 const CLabel = styled((props) => <CustomLabel {...props} />)`
-
   & h6 {
-    margin:0;
+    margin: 0;
   }
-  &&.CardMainLabel{ 
+  && .CardMainLabel {
     margin: 0;
     text-align: left;
-    line-height: 23px; 
+    line-height: 23px;
     font-size: 15px;
-    color: Theme.Colors.cardTitle;
+    color: ${Theme.Colors.cardTitle};
   }
-  &&.ItalicFont{
+  && .CardDescription {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    line-height: 16px;
+    font-size: 12px;
+    color: ${Theme.Colors.cardDescription};
+  }
+  && .costLabel{
+    display: inline;
+    text-align: left;
+    font-size: 18px;
+    color: ${Theme.Colors.cardTitle};
+  }
+ 
+  && .strikedLabel{
+    display: inline;
+    color: ${Theme.Colors.cardDescription};
+    font-size: 12px;
+    text-decoration: line-through;          
+  }
+
+  &&.ItalicFont {
     font-style: italic;
   }
-  &&.whiteLabel{
+  &&.whiteLabel {
     color: ${Theme.Colors.white};
   }
 `;
 
-// & {
-//   text-align: ${(props) => props.style?.textAlign};
-//   margin: ${(props) => props.children.props.style?.margin};
-//   font-style: ${(props) => props.children.props.style?.fontStyle};
-// }
 export default CLabel;

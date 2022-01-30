@@ -2,17 +2,11 @@ import React,{useState,useEffect} from "react";
 import Header from "./../library/components/Header";
 import brands from "../services/brands";
 import Brands from "../library/components/Brands";
-import categories from "../services/categories";
 import Categories from "../library/components/Categories";
-import Content from "../library/components/Content";
-import Card from "../library/components/Card";
 import ImagesGrid from "../library/components/Grid";
 import Slider from "../library/components/Slider";
-import Buttons from "../library/components/Buttons";
-import products from "../services/products";
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import { useSelector, useDispatch } from "react-redux";
 import { productActions } from "../app/reducers/productReducer";
 
@@ -31,14 +25,14 @@ const LandingPage = () => {
   }, []);
   return (
    
-    <Container maxWidth="false">
+    <Container maxWidth="false" justifyContent="center">
       
       <Grid container>
         <Grid item xs={12}>
           <Header />
         </Grid>
         <Grid item xs={12}>
-          <Grid container columnSpacing={20}>
+          <Grid container columnSpacing={8}>
             <Grid item xs={3}>
               <Grid container rowSpacing={8}>
                 <Grid item xs={12} fullwidth={1}>
