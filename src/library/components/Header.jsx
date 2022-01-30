@@ -4,7 +4,7 @@ import Content from "./Content";
 import Icon from "./Icon";
 import Theme from "../styleHelpers/customTheme";
 import { useNavigate } from "react-router-dom";
-import DropDown from "./DropDown";
+import DropDown from "./Dropdown";
 import SearchBox from "./SearchBox"
 import categories from "../../services/categories";
 
