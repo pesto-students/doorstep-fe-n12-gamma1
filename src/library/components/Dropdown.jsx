@@ -5,7 +5,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Content from "./Content";
-export default function DropDown({ values, variant }) {
+
+const DropDown = ({ values, variant }) => {
   const [value, setValue] = React.useState("");
 
   const handleChange = (event) => {
@@ -15,13 +16,12 @@ export default function DropDown({ values, variant }) {
   return (
     <Content className="DropDown">
       <FormControl variant={variant} fullWidth>
-      <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        {/* <InputLabel id="demo-simple-select-label">Age</InputLabel> */}
         <Select
-          sx={{borderRadius:"20px 0px 0px 20px"}}
+          sx={{ borderRadius: "20px 0px 0px 20px" }}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={value}
-          label="Age"
           onChange={handleChange}
         >
           {values.map((category, index) => {
@@ -31,4 +31,6 @@ export default function DropDown({ values, variant }) {
       </FormControl>
     </Content>
   );
-}
+};
+
+export default DropDown;

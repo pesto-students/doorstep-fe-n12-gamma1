@@ -7,6 +7,8 @@ import Payment from "../library/components/Payment";
 import LandingPage from "../Pages/LandingPage";
 import ViewProduct from "../Pages/ViewProduct";
 import Cart from "../Pages/Cart";
+
+import OrderHistory from "../Pages/OrderHistory";
 import CheckoutPage from "../Pages/Checkout";
 import ProductDetailsPage from "../Pages/ProductDetailsPage";
 
@@ -17,7 +19,8 @@ import ProductDetailsPage from "../Pages/ProductDetailsPage";
 // import Test from "../library/components/Buttons";
 // import Test from "../library/components/IncDec";
 // import Test from "../library/components/CartItem";
-import Test from "../Pages/OrderHistory";
+// import Test from "../Pages/OrderHistory";
+import Test from "../Pages/Profile.jsx";
 
 const Routes= [
     {
@@ -67,6 +70,19 @@ const Routes= [
     exact: true,
     component: Cart,
     pageTitle: "Cart",
+  },
+  {
+
+    path: "/orders",
+    exact: true,
+    component: OrderHistory,
+    pageTitle: "Order History",
+  },
+  {
+    path: "/test",
+    exact: true,
+    component: Test,
+    pageTitle: "Test Page",
   },
   {
     path: "/checkout",

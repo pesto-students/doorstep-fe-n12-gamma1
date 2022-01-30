@@ -4,6 +4,7 @@ import Theme from "../styleHelpers/customTheme";
 
 const Main = styled.div`
   contain: content;
+  color: ${Theme.Colors.primary};
 `;
 
 const MainContent = styled((props) => <Main {...props} />)`
@@ -43,22 +44,21 @@ const MainContent = styled((props) => <Main {...props} />)`
     margin-bottom: 2em;
   }
 
-  &&.HeaderLogoContainer{
-   margin:0;
-   color: ${Theme.Colors.primary};
+  &&.HeaderLogoContainer {
+    margin: 0;
+    color: ${Theme.Colors.primary};
   }
 
-  &&.HeaderMiddleContainer{
-    margin:0;
+  &&.HeaderMiddleContainer {
+    margin: 0;
     color: ${Theme.Colors.primary};
     display: flex;
     align-items: center;
     flex-direction: row;
-   }
+  }
 
-=======
   &&.HeaderNav {
-    width: 10%;
+    width: 15%;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -66,14 +66,26 @@ const MainContent = styled((props) => <Main {...props} />)`
   }
 
   &&.SearchBar {
-    width: 50%;
+    width: 65%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 25px;
   }
 
+  .searchIcon {
+    display: inline-block;
+    border-radius: 0px 14px 14px 0px;
+    border: 0px 1px 1px 1px solid ${Theme.Colors.primary};
+  }
+  &&.DropDown {
+    width: 100%;
+  }
+  &&.DropDown .css-uczyrr-MuiInputBase-root-MuiOutlinedInput-root {
+    height: 25px;
+  }
   &&.DropDown .MuiFilledInput-input {
-    background: red;
+    // background: red;
     padding-top: 0;
   }
   &&.SearchInput {
@@ -86,6 +98,7 @@ const MainContent = styled((props) => <Main {...props} />)`
   &&.searchfield {
     display: flex;
     flex: 2;
+    width: 100%;
   }
   &&.dropdown {
     display: flex;
@@ -112,12 +125,21 @@ const MainContent = styled((props) => <Main {...props} />)`
     box-sizing: border-box;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
     padding: 1em;
     margin-bottom: 2em;
     color: ${Theme.Colors.primary};
+    margin-bottom: 30px;
+    background: white;
+    // border: 1px solid ${Theme.Colors.primary};
+    border-radius: 10px solid grey;
+    margin: auto;
+    position: fixed;
+    top: 0px;
+    z-index: 99;
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%);
   }
 
   &&.LogoContainer {
@@ -176,6 +198,13 @@ const MainContent = styled((props) => <Main {...props} />)`
     width: 100%;
     justify-content: space-around;
     align-items: center;
+  }
+
+  &&.profile {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
   }
 `;
 export default MainContent;
