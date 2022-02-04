@@ -9,6 +9,7 @@ import CheckoutPage from "../Pages/Checkout";
 import ProductDetailsPage from "../Pages/ProductDetailsPage";
 import OrderHistory from "../Pages/OrderHistory";
 import OrderDetails from "../Pages/OrderDetails";
+import Modal from "../library/components/Modal1";
 
 // import Test from "../library/components/DropDown";
 // import Test from "../library/components/Brands";
@@ -42,6 +43,12 @@ const Routes= [
     path: "/test",
     exact: true,
     component: Test,
+    pageTitle: "Upload Configuration excel File",
+  },
+  {
+    path: "/modal",
+    exact: true,
+    component: Modal,
     pageTitle: "Upload Configuration excel File",
   },
   {

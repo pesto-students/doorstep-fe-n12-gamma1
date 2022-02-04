@@ -73,7 +73,7 @@ const Header = () => {
                 <Grid item xs={10}>
                     <Grid container fullWidth >
                         <Grid item xs={9} fullWidth sx={{maxHeight:'46px',display:'flex', width: 'fit-content', border:'1px solid #EBEBEB',justifyItems:'stretch', borderRadius:'12px',alignItems:'stretch',backgroundColor:'#F9F9F9'}}>
-                            <DropDown style={{borderRadius:'12px', flex:8}} values={categories} variant="outlined" />
+                            <DropDown style={{borderRadius:'12px', flex:8}} values={categoryList} variant="outlined" />
                             <Divider orientation="vertical" variant="middle" sx={{}} flexItem/>
                             <CssTextField sx={{backgroundColor:'#F9F9F9',flex:16}} flexItem/>
                             {/* <Divider orientation="vertical" variant="middle" sx={{color:'#EBEBEB',backgroundColor:'#F9F9F9'}} flexItem/> */}
