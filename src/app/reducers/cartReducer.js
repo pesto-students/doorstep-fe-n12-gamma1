@@ -6,25 +6,34 @@ const cartSlice = createSlice({
     isFetching: false,
     products: [],
     show_products:false,
-    viewProduct:{}
+    viewProduct:{},
+    subTotal:0
   },
   reducers: {
     addProductToCart: (state,action) => {
+      debugger;
       let { payload } = action;
       state.isFetching = true;
       const products = state.products.filter(
         (product) => product._id == payload._id
       );
       let qty=1;
+      let copy;
       if(products.length!=0){
-        let copy={...products[0]};
+        copy={...products[0]};
         copy.qty++;
-        payload=copy
+        // copy.total=copy.qty*copy.discounted_price;
+        // payload=copy
       }else{
         // payload.qty=1;
-        payload={...payload,qty}
-        
+        copy={...payload};
+        copy.qty=1;
+        // copy.total=copy.qty*copy.discounted_price;
+        // // payload={...payload,qty,total}
+        // payload=copy
       }
+      copy.total=copy.qty*copy.discounted_price;
+      payload=copy
       const data = state.products.filter(
         (product) => product._id !== payload._id
       );
@@ -34,12 +43,40 @@ const cartSlice = createSlice({
       
     },
     removeProductFromCart: (state,action) => {
+      debugger;
+        let { payload } = action;
+        state.isFetching = true;
+        // const products = state.products.filter(
+        //   (product) => product._id !== payload._id
+        // );
+        // console.log("products1",products.length)
+        // state.products=[];
+        // console.log("products2",products.length)
+        // state.products=[...state.products,...products]
+        // console.log("products3",products.length)
+        const products = state.products.filter(
+          (product) => product._id == payload._id
+        );
+        
+        if(products.length!=0){
+          let copy={...products[0]};
+          copy.qty--;
+          copy.total=copy.qty*copy.discounted_price;
+          payload=copy
+        }
+        const data = state.products.filter(
+          (product) => product._id !== payload._id
+        );
+        state.products=[];
+          state.products=[...state.products,...data,payload]
+      },
+      deleteProductEntryFromCart:(state,action)=>{
+        debugger;
         const { payload } = action;
         state.isFetching = true;
         const products = state.products.filter(
           (product) => product._id !== payload._id
         );
-        console.log("products",...products)
         state.products=[];
         state.products=[...state.products,...products]
       },
@@ -48,13 +85,10 @@ const cartSlice = createSlice({
         state.isFetching = false;
         state.viewProduct=payload;
       },
-      showCartProducts: (state, action) => {
-      state.isFetching = false;
-      state.show_products = true;
-    },
-    hideCartProducts: (state, action) => {
-        state.isFetching = false;
-        state.show_products = false;
+      addSubTotal: (state, action) => {
+        let { payload } = action;
+        state.isFetching = true;
+      state.subTotal=payload;
     }
   },
 });

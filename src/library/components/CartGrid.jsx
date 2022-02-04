@@ -35,23 +35,4 @@ export default function SpacingGrid({ values, imgUrl }) {
   );
 }
 
-{
-  /* <Grid sx={{ flexGrow: 1 }} container spacing={4}>
-      <Grid item xs={12}>
-        <Grid container justifyContent="center" spacing={spacing}>
-          {values.map((product) => (
-            <Grid key={product.id} item>
-              <CartItem 
-                key={product.id}
-                imgUrl={product.imgUrl}
-                title={product.title}
-                description={product.description}
-                sellingPrice={product.sellingPrice}
-                mrp={product.mrp}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      </Grid>
-    </Grid> */
-}
+

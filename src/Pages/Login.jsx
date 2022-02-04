@@ -3,6 +3,7 @@ import GoogleLogin from "../library/components/GoogleLogin";
 import Logo from "../library/components/Logo";
 import CLabel from "../library/components/Label";
 import Content from "../library/components/Content";
+import logoImg from "../library/images/logo.png";
 // import { useSelector, useDispatch } from "react-redux";
 // import { authActions } from "../app/reducers/authReducer";
 // import Snackbar from "../library/shared/Snackbar"
@@ -16,7 +17,7 @@ const Login = () => {
     <Content className="MainContainer">
       {/* <Snackbar/> */}
       <Content className="LogoContainer">
-        <Logo className="responsiveImg" width={243} />
+        <Logo src={logoImg} className="responsiveImg" width={243} />
         <CLabel>
           <h6 className="ItalicFont">
             <em>We are at your service</em>

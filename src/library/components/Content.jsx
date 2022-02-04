@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Theme from "../styleHelpers/customTheme";
 
 const Main = styled.div`
-  contain: content;
+  // contain: content;
 `;
 
 const MainContent = styled((props) => <Main {...props} />)`
@@ -66,18 +66,31 @@ const MainContent = styled((props) => <Main {...props} />)`
     flex-direction: row;
    }
   &&.HeaderNav {
-    width: 10%;
+    width: 15%;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
+    padding:10px 0;
   }
 
   &&.SearchBar {
-    width: 50%;
+    width: 65%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 25px;
+  }
+  .searchIcon {
+    display: inline-block;
+    border-radius: 0px 14px 14px 0px;
+    border: 0px 1px 1px 1px solid ${Theme.Colors.primary};
+  }
+  &&.DropDown {
+    width: 100%;
+  }
+  &&.DropDown .css-uczyrr-MuiInputBase-root-MuiOutlinedInput-root {
+    height: 25px;
   }
 
   &&.DropDown .MuiFilledInput-input {
@@ -94,6 +107,7 @@ const MainContent = styled((props) => <Main {...props} />)`
   &&.searchfield {
     display: flex;
     flex: 2;
+    width: 100%;
   }
   &&.dropdown {
     display: flex;
@@ -122,10 +136,10 @@ const MainContent = styled((props) => <Main {...props} />)`
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    align-items: baseline;
-    padding: 1em;
-    margin-bottom: 2em;
+    align-items: center;
+    margin: 1em 0 3em 0;;
     color: ${Theme.Colors.primary};
+    position: sticky;
   }
 
   &&.LogoContainer {

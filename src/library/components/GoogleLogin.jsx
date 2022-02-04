@@ -2,8 +2,6 @@ import { styled } from "@mui/material";
 import React,{useEffect} from "react";
 import { GoogleLogin } from "react-google-login";
 import Theme from "../styleHelpers/customTheme";
-import ApiInfo from "../../services/ApiInfoService";
-import { postApi } from "../../services/ApiService";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../../app/reducers/authReducer";
@@ -21,35 +19,37 @@ const CustomGoogleLogin = styled(GoogleLogin)`
 `;
 
 
-// function getData(){
-//   return useSelector(state => console.log(state))
-// }
-
 const GLogin = ({ children }) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const LoggedInUser=useSelector(state => state);
-  console.log("LoggedInUser",LoggedInUser)
   const userInfo=LoggedInUser.authReducer.userInfo
   const clientId = config.result.envDetails.REACT_APP_CLIENT_ID;
   
   useEffect(() => {
     debugger;
-    if (userInfo?.statusCode==200) {
-       setDetailsInLocalStorage(userInfo.result)
-       userInfo.result.role==='Admin' && navigate('/configuration');
-       userInfo.result.role!=='Admin' && navigate('/error')
+    if (userInfo?.statusCode===200 && window.localStorage.getItem("token") === null){
+      window.localStorage.setItem("user", JSON.stringify(userInfo.result));
+    window.localStorage.setItem("token", JSON.stringify(userInfo.result.token));
+    userInfo.result.role==='Admin' && navigate('/configuration');
+    userInfo.result.role==='User' && navigate('/home');
+    if(userInfo.result.role!=='Admin' && userInfo.result.role!=='User')
+        navigate('/error');
     }
-    console.log("userInfo",userInfo)
-  }, [navigate, userInfo]);
+  }, [userInfo,navigate]);
   
 const onLoginSuccess=(res)=>{
-  try {
-    debugger;
-  dispatch(authActions.fetchAuth({
+  let apiDdata={
     tokenId: res.tokenId,
     role: children,
-  }))
+  }
+  try {
+
+    if(children!=='Admin'){
+      apiDdata.prefix=config.result.prefix;
+    }
+ 
+  dispatch(authActions.fetchAuth(apiDdata))
   debugger;
 }catch(error){
   alert(error)
@@ -57,11 +57,6 @@ const onLoginSuccess=(res)=>{
 }
   
 
-  const setDetailsInLocalStorage=(result)=>{
-    console.log("result",result)
-    window.localStorage.setItem("user", JSON.stringify(result));
-    window.localStorage.setItem("token", JSON.stringify(result.token));
-  }
 
   const onLoginFailure = (res) => {
     console.log("Login Failure", res);

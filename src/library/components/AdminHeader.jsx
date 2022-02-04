@@ -4,6 +4,7 @@ import Content from "./Content";
 import Icon from "./Icon";
 import Theme from "../styleHelpers/customTheme";
 import { useNavigate } from "react-router-dom";
+import logoImg from "../images/logo.png";
 
 const AdminHeader = () => {
   const navigate=useNavigate
@@ -14,7 +15,7 @@ const AdminHeader = () => {
   return (
     <Content className="HeaderContent">
       <Content className="HeaderLogoContainer">
-        <Logo className="responsiveImg" width={120} />
+        <Logo src={logoImg} className="responsiveImg" width={120} />
       </Content>
       <Content className="HeaderLogoContainer">
         <Icon onClick={logout} sx={{ color: `${Theme.Colors.primary}` }}>account_circle</Icon>

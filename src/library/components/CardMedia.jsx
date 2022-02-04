@@ -7,14 +7,13 @@ const CustomCardMedia = styled((props) => (
   <CardMedia
     component="img"
     height="180"
-    width="536"
     alt="Image Not Available"
     {...props}
   />
 ))`
   & {
-    width: 90%;
-    padding: 16px 16px 16px 14px;
+    width: 80%;
+    padding: 16px 27px 16px 27px;
     border-radius: ${Theme.CommonTheme.borderRadius};
   }
 `;

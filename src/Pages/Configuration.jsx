@@ -5,8 +5,8 @@ import Header from "../library/components/AdminHeader";
 import FileUpload from "../library/components/FileUpload";
 import Icon from "../library/components/Icon";
 import Button from "../library/components/Buttons";
-import { postApi } from "../services/ApiService";
-import ApiInfo from "../services/ApiInfoService";
+// import { postApi } from "../services/ApiService";
+// import ApiInfo from "../services/ApiInfoService";
 import Theme from "../library/styleHelpers/customTheme";
 import Link from "../library/components/Link"
 import { useNavigate } from "react-router-dom";
@@ -28,7 +28,7 @@ const Configuration = () => {
       : null;
   useEffect(() => {
     if (!user) navigate("/");
-    if(result.statusCode==200){
+    if(result.statusCode===200){
       alert("File Uploaded Successfully");
     }
   }, [navigate, user,result]);

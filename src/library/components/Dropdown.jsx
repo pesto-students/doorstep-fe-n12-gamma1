@@ -25,7 +25,7 @@ const CssTextField = withStyles({
   },
 })(OutlinedInput);
 
-export default function DropDown({ values, variant }) {
+const DropDown = ({ values, variant }) => {
   const [value, setValue] = React.useState("");
 
   const handleChange = (event) => {
@@ -34,7 +34,7 @@ export default function DropDown({ values, variant }) {
 
   return (
     <Content className="DropDown">
-      <FormControl variant={variant} fullWidth>
+      <FormControl variant={variant} fullwidth={1}>
 
         <Select
           sx={{borderRadius:"20px 0px 0px 20px", maxHeight:'50px'}}
@@ -42,13 +42,14 @@ export default function DropDown({ values, variant }) {
           id="demo-simple-select"
           value={value}
           onChange={handleChange}
-          input={<CssTextField sx={{maxHeight:'50px'}}/>}
         >
-          {values.map((category, index) => {
-            return <MenuItem value={category.id}>{category.name}</MenuItem>;
-          })}
+          {values && values.length!=0?values.map((category, index) => {
+            return <MenuItem key={index} value={category.id}>{category.name}</MenuItem>;
+          }):''}
         </Select>
       </FormControl>
     </Content>
   );
 }
+
+export default DropDown;

@@ -4,7 +4,7 @@ import Content from "./Content";
 import Icon from "./Icon";
 import Theme from "../styleHelpers/customTheme";
 import categories from "../../services/categories";
-import DropDown from "./DropDown";
+import DropDown from "./Dropdown";
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button'
@@ -49,7 +49,7 @@ const Header = () => {
         <Logo className="responsiveImg" width={'100%'}/>
         </Grid>
         <Grid item xs={10}>
-            <Grid container fullWidth columnSpacing={5}>
+            <Grid container fullwidth={1} columnSpacing={5}>
                 <Grid item xs={10} sx={{display:'flex', direction:'column', justifyContent:'center'}}>
                 <Grid container sx={{maxHeight:'50px'}}>
                     <Grid item xs={2}>
@@ -59,13 +59,13 @@ const Header = () => {
 
                         <Grid container>
                             <Grid item xs={11}>
-                                <CssTextField sx={{maxHeight:'50px'}} fullWidth/>
+                                <CssTextField sx={{maxHeight:'50px'}} fullwidth={1}/>
                             </Grid>
                             {/* <Grid item>
                             <Divider orientation="vertical" variant="middle"/>
                             </Grid> */}
                             <Grid item xs={1}>
-                                <Button fullWidth sx={{height:'100%', border:'1px solid rgba(0, 0, 0, 0.23)', borderRadius:'0 12px 12px 0'}}>
+                                <Button fullwidth={1} sx={{height:'100%', border:'1px solid rgba(0, 0, 0, 0.23)', borderRadius:'0 12px 12px 0'}}>
                                     <Icon sx={{ color: `${Theme.Colors.warningBackground}`, fontSize: 80 }}>
                                         search
                                     </Icon>

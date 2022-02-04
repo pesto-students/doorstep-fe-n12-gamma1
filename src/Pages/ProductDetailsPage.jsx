@@ -3,19 +3,14 @@ import Tabs from '../library/components/Tabs';
 import Content from "../library/components/PDContent";
 import Images from '../library/components/PDImages';
 import Header from "./../library/components/Header";
-import { useDispatch,useSelector } from "react-redux";
-// import { cartActions } from "../../app/reducers/cartReducer";
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Container from '@mui/material/Container';
 
 export default function ProductDetailsPage(){
-//     const dispatch = useDispatch();
-//   let navigate = useNavigate();
   const data=useSelector(state => state);
-  console.log("data",data)
   const productDetails=data.cartReducer.viewProduct
     return (
-        <Container  justifyContent="center">
+        <Container  justify="center">
         <Grid container >
             <Grid  item xs={12}  >
                 <Header/>
