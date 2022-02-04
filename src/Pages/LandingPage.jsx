@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Header from "./../library/components/Header";
+import Header from "./../library/components/Header1";
 // import brands from "../services/brands";
 // import Brands from "../library/components/Brands";
 import Categories from "../library/components/Categories";
@@ -21,13 +21,13 @@ const LandingPage = () => {
   },[]);
   return (
     <Container maxWidth="false" justify="center">
-      <Grid container>
+      <Grid container rowSpacing={10}>
         <Grid item xs={12}>
           <Header />
         </Grid>
         <Grid item xs={12}>
           <Grid container columnSpacing={8}>
-            <Grid item xs={3}>
+            <Grid item xs={2}>
               <Grid container rowSpacing={8}>
                 <Grid item xs={12} fullwidth={1}>
                   <Categories values={categoryList} />
@@ -54,7 +54,7 @@ const LandingPage = () => {
                 </Grid> */}
               </Grid>
             </Grid>
-            <Grid item xs={9}>
+            <Grid item xs={10}>
               <ImagesGrid values={productList} />
             </Grid>
           </Grid>
