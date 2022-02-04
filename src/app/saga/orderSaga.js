@@ -5,6 +5,7 @@ import * as service from "../services/authService";
 
 export default function* orderSaga(data) {
     try {
+        debugger;
       const response = yield call(
         service.payment,data.payload
       );

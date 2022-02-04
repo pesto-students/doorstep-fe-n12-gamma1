@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import Button from "./Buttons";
 // import logo from "../images/logo.png";
@@ -11,6 +11,7 @@ import TextareaAutosize from "@mui/material/TextareaAutosize"
 // import Payment from "./Payment";
 import { useSelector, useDispatch } from "react-redux";
 import {orderActions} from "../../app/reducers/orderReducer";
+import { useNavigate } from "react-router-dom";
 
 export default function AddressForm() {
         const [stripeToken, setStripeToken] = useState(null);
@@ -25,35 +26,55 @@ export default function AddressForm() {
           zipCode:''
         });
         const logo=config.result.template_Details.logoUrl;
+        let navigate = useNavigate();
         const dispatch = useDispatch();
         const data=(useSelector(state => state));
         const orderList=data.orderReducer.orderList.result;
         console.log("orderList",orderList)
         const productList = data.cartReducer.products;
+        productList.length!==0 && navigate("/orderDetails")
         const paymentInfo = data.cartReducer.paymentInfo;
+        const amt=data.cartReducer.paymentInfo.total*100;
         const userInfo=data.authReducer.userInfo.result
         
         useEffect(() => {
-          debugger;
+         
           const makePayment = async () => {
             try {
-              // const result = await postApi(ApiInfo.payment, {
-              //   token: stripeToken,
-              //   amount: 3000,
-              // });
-              dispatch(orderActions.payForOrder({
+              dispatch(orderActions.fetchOrder({
                   token: stripeToken,
                   deliveryInfo:billingInfo,
                   productList:productList,
                   paymentInfo:paymentInfo
                 }))
+
+
               
             } catch (err) {
               console.log("error", err);
             }
           };
+          // const checkForBillingDetails=(data)=>{
+          //   let keys=Object.keys(data);
+          //   let flag=true;
+          //   for(let i=0;i<keys.length;i++){
+          //     if(data[keys[i]].trim().length==0){
+          //       flag=false
+          //     }
+                 
+          //   }
+          //   if(!flag){
+          //     alert("Fill all details");
+          //     return false;
+          //   }
+          //     return true;
+              
+          // }
+          // if(stripeToken && checkForBillingDetails(billingInfo))
           stripeToken && makePayment();
-        }, [stripeToken,billingInfo]);
+        }, [stripeToken]);
+
+       
       
         const onToken = (token) => {
           console.log("token", token);
@@ -125,15 +146,14 @@ export default function AddressForm() {
             />
           </Grid>
           <Grid item xs={12} sm={6} md={6} lg={6} fullwidth={1}>
-            <TextareaAutosize 
+            <TextField
               id="outlined-basic"
               label="Address"
               variant="outlined"
               name="address"
               fullwidth={1}
               onChange={handleChange}
-              minRows={3}
-              style={{ width: 200 }}
+              
             />
 
           </Grid>
@@ -174,7 +194,7 @@ export default function AddressForm() {
       stripeKey={config.result.envDetails.REACT_APP_STRIPE_PUBLIC_KEY}
       name={config.result.vendorName}
       image={logo}
-      amount={3000}
+      amount={amt}
       currency="INR"
       email="sunitagamne16@gmail.com"
       description="Your total bill is 3000 usd"

@@ -144,8 +144,8 @@ export default function UnstyledTable() {
     const productList = data.cartReducer.products;  
 
   // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - productList.length) : 0;
+  // const emptyRows =
+  //   page > 0 ? Math.max(0, (1 + page) * rowsPerPage - productList.length) : 0;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -242,13 +242,13 @@ export default function UnstyledTable() {
             </tr>
           ))}
 
-          {emptyRows > 0 && (
+          {/* {emptyRows > 0 && (
             <tr style={{ height: 41 * emptyRows }}>
               <td colSpan={7} />
             </tr>
-          )}
+          )} */}
         </tbody>
-        <tfoot>
+        {/* <tfoot>
           <tr>
             <CustomTablePagination
               rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
@@ -269,7 +269,7 @@ export default function UnstyledTable() {
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
           </tr>
-        </tfoot>
+        </tfoot> */}
       </table>
     </Root>
   );

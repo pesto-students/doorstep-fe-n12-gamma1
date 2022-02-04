@@ -18,7 +18,7 @@ const Cart = () => {
   const productList = data.cartReducer.products;
   let subTotal = productList.map(product=>product.total).reduce((prev,next)=>prev+next);
   const tax = (subTotal * 12) / 100;
-  const totalPayment=subTotal+tax;
+  const totalPayment=Math.round(subTotal+tax);
   const navigateToCheckout=()=>{
     dispatch(cartActions.addPaymentInfo({amount:subTotal,tax:tax,total:totalPayment}));
     navigate('/checkout');
@@ -46,7 +46,7 @@ const Cart = () => {
                       <Typography variant="h5">{subTotal} INR</Typography>
                     </Grid>
                   </Grid>
-                  <Divider item xs={12} textAlign="left"/>
+                  {/* <Divider item xs={12} textAlign="left"/> */}
                 </Grid>
                 <Grid >
                   <Typography variant="p">Shipping and taxes will be calculated at the checkout</Typography>

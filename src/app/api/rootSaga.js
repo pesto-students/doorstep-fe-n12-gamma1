@@ -10,8 +10,8 @@ import { categoryActions } from "../reducers/categoryReducer";
 import categorySaga from "../saga/categorySaga";
 import { productActions } from "../reducers/productReducer";
 import productSaga from "../saga/productSaga";
-import orderSaga from "../saga/orderSaga";
 import { orderActions } from "../reducers/orderReducer";
+import orderSaga from "../saga/orderSaga";
 // export default function* rootSaga() {
 //     yield takeLatest(
 //         authActions.fetchAuth.type,

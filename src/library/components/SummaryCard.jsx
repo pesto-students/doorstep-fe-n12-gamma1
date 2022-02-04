@@ -72,12 +72,12 @@ export default function SummaryCard(props){
                     </Grid>
                   </Grid>
                 </Grid>
-                <Grid item style={{ display: "flex", alignItems: "center" }}>
+                {/* <Grid item style={{ display: "flex", alignItems: "center" }}>
                   <IncDec
                     initvalue={props.product.qty}
                     product={props.product}
                   />
-                </Grid>
+                </Grid> */}
               </Grid>
             </Grid>
           </Grid>
