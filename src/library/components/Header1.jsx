@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Logo from "./Logo";
 import Content from "./Content";
 import Icon from "@mui/material/Icon";
@@ -12,6 +12,10 @@ import SearchField from "./SearchField";
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
+import { useSelector, useDispatch } from "react-redux";
+import config from "../../config.json";
+import {categoryActions} from "../../app/reducers/categoryReducer";
+import Cart from "../components/Cart";
 // import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 
 import {
@@ -37,6 +41,14 @@ import {
   })(OutlinedInput);
 
 const Header = () => {
+    const dispatch = useDispatch();
+    const categoryResult=(useSelector(state => state));
+    const categoryList=categoryResult.categoryReducer.categoryList.result;
+    useEffect(() => {
+     dispatch(categoryActions.fetchCategory())
+    },[]);
+  const logo=config.result.template_Details.logoUrl;
+
   return (
 
     <Grid container>
@@ -48,11 +60,13 @@ const Header = () => {
         <Grid item xs={12}>
 
 
-    <Grid container columnSpacing={15}>
-        <Grid xs={12} sm={12} md={3} item >
-            <Logo className="responsiveImg" width={'100%'}/>
+    <Grid container columnSpacing={1}>
+        <Grid xs={12} sm={12} md={2} item sx={{display:'flex',alignItems:'center'}}>
+
+                <Logo src={logo} className="responsiveImg" width={120} fullWidth/>
+
         </Grid>
-        <Grid item xs={9} sx={{display:'flex', alignItems:'center'}}>
+        <Grid item xs={10} sx={{display:'flex', alignItems:'center'}}>
             <Grid container>
 
 
@@ -63,11 +77,11 @@ const Header = () => {
                             <Divider orientation="vertical" variant="middle" sx={{}} flexItem/>
                             <CssTextField sx={{backgroundColor:'#F9F9F9',flex:16}} flexItem/>
                             {/* <Divider orientation="vertical" variant="middle" sx={{color:'#EBEBEB',backgroundColor:'#F9F9F9'}} flexItem/> */}
-                            <Button sx={{ border:'0px solid rgba(0, 0, 0, 0.23)', borderRadius:'0 12px 12px 0', height:'100%',flex:1}}>
+                            <IconButton sx={{backgroundColor:`${Theme.Colors.primary}`, border:'0px solid rgba(0, 0, 0, 0.23)', borderRadius:'0 12px 12px 0', height:'100%',flex:1}}>
                                 <Icon sx={{ color: 'black', fontSize: 25 }}>
                                     search
                                 </Icon>
-                            </Button>
+                            </IconButton>
                         </Grid>
 
 
@@ -89,9 +103,7 @@ const Header = () => {
                                 </Grid>
                                 <Grid item xs={4} sx={{display:'flex', justifyContent:'flex-end'}}>
                                     <IconButton>
-                                        <Icon sx={{ color: `${Theme.Colors.primary || '#2592AA'}`, fontSize: 30 }}  color='blue'>
-                                            shopping_cart_outlined
-                                        </Icon>
+                                        <Cart/>
                                     </IconButton>
                                 </Grid>
 

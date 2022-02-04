@@ -1,4 +1,4 @@
-import Header from "../library/components/Header";
+import Header from "../library/components/Header1";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import CartTable from "../library/components/CartTable";
@@ -26,7 +26,7 @@ const Cart = () => {
   return (
 
     <Container maxWidth="false" justify="center">
-      <Grid container>
+      <Grid container rowSpacing={10}>
         <Grid item xs={12}>
           <Header />
         </Grid>
