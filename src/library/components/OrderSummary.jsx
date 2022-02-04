@@ -10,11 +10,7 @@ import { useSelector } from "react-redux";
 export default function OrderSummary() {
   const data = useSelector((state) => state);
   const productList = data.cartReducer.products;
-  console.log("productList in orderSummary", productList);
-  const subTotal = data.cartReducer.subTotal;
-  console.log("subTotal", subTotal);
-  const tax = (subTotal * 12) / 100;
-  console.log("tax", tax);
+  const paymentInfo = data.cartReducer.paymentInfo;
   const today=new Date();
   const tomorrow=new Date(today.setDate(today.getDate()+1)).toDateString();
 //   console.log("today",today)
@@ -56,13 +52,13 @@ export default function OrderSummary() {
           <TableRow>
             <TableCell sx={{ fontWeight: "bold" }}>SubTotal</TableCell>
             <TableCell sx={{ fontWeight: "bold" }} align="right">
-              {subTotal} INR
+              {paymentInfo.amount} INR
             </TableCell>
           </TableRow>
           <TableRow>
             <TableCell sx={{ fontWeight: "bold" }}>Tax</TableCell>
             <TableCell sx={{ fontWeight: "bold" }} align="right">
-              12% {tax} INR
+              12% {paymentInfo.tax} INR
             </TableCell>
           </TableRow>
           <TableRow>
@@ -84,7 +80,7 @@ export default function OrderSummary() {
             </TableCell>
             <TableCell sx={{ fontWeight: "bold" }} align="right">
               <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                {subTotal + tax} INR
+                {paymentInfo.total} INR
               </Typography>
             </TableCell>
           </TableRow>

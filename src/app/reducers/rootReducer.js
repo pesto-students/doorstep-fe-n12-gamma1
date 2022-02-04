@@ -5,6 +5,7 @@ import { fileUploadReducer } from "./fileUploadReducer";
 import { categoryReducer } from "./categoryReducer";
 import { productReducer } from "./productReducer";
 import { cartReducer } from "./cartReducer";
+import { orderReducer } from "./orderReducer";
 
 export const rootReducer = combineReducers({ 
     authReducer,
@@ -12,5 +13,6 @@ export const rootReducer = combineReducers({
     fileUploadReducer,
     categoryReducer,
     productReducer,
-    cartReducer
+    cartReducer,
+    orderReducer
 })

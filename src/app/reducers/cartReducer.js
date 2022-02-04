@@ -7,7 +7,7 @@ const cartSlice = createSlice({
     products: [],
     show_products:false,
     viewProduct:{},
-    subTotal:0
+    paymentInfo:{}
   },
   reducers: {
     addProductToCart: (state,action) => {
@@ -85,10 +85,10 @@ const cartSlice = createSlice({
         state.isFetching = false;
         state.viewProduct=payload;
       },
-      addSubTotal: (state, action) => {
+      addPaymentInfo: (state, action) => {
         let { payload } = action;
         state.isFetching = true;
-      state.subTotal=payload;
+        state.paymentInfo=payload;
     }
   },
 });

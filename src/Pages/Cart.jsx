@@ -17,8 +17,10 @@ const Cart = () => {
   const dispatch = useDispatch();
   const productList = data.cartReducer.products;
   let subTotal = productList.map(product=>product.total).reduce((prev,next)=>prev+next);
+  const tax = (subTotal * 12) / 100;
+  const totalPayment=subTotal+tax;
   const navigateToCheckout=()=>{
-    dispatch(cartActions.addSubTotal(subTotal));
+    dispatch(cartActions.addPaymentInfo({amount:subTotal,tax:tax,total:totalPayment}));
     navigate('/checkout');
   }
   return (

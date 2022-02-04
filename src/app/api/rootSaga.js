@@ -10,6 +10,8 @@ import { categoryActions } from "../reducers/categoryReducer";
 import categorySaga from "../saga/categorySaga";
 import { productActions } from "../reducers/productReducer";
 import productSaga from "../saga/productSaga";
+import orderSaga from "../saga/orderSaga";
+import { orderActions } from "../reducers/orderReducer";
 // export default function* rootSaga() {
 //     yield takeLatest(
 //         authActions.fetchAuth.type,
@@ -25,6 +27,7 @@ export default function* rootSaga(){
         takeEvery(userActions.fetchAuth.type, userSaga),
         takeEvery(fileUploadActions.fileUpload.type, fileUploadSaga),
         takeEvery(categoryActions.fetchCategory.type, categorySaga),
-        takeEvery(productActions.fetchProduct.type, productSaga)
+        takeEvery(productActions.fetchProduct.type, productSaga),
+        takeEvery(orderActions.fetchOrder.type,orderSaga)
       ]);
 }
