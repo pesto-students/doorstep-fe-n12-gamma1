@@ -5,7 +5,7 @@ import {
 // import ShoppingCart from "@material-ui/icons/ShoppingCart";
 // import DeleteIcon from "@material-ui/icons/Delete";
 // import FolderIcon from "@material-ui/icons/Folder";
-import Icon from "./Icon";
+import Icon from "@mui/material/Icon";
 import Theme from "../styleHelpers/customTheme";
 import { useSelector,useDispatch } from "react-redux";
 import { cartActions } from "../../app/reducers/cartReducer";
@@ -23,7 +23,7 @@ const Cart = () => {
   return (
     <>
         <Badge badgeContent={products.length} color="secondary" onClick={onOpenCart}>
-          <Icon sx={{ color: `${Theme.Colors.primary}` }} >
+          <Icon sx={{ color: `${Theme.Colors.primary}`, fontSize: 30}} >
           shopping_cart_outlined
         </Icon>
         </Badge>

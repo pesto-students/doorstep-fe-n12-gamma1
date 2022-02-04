@@ -9,7 +9,7 @@ const CustomCard = styled((props) => (
       width: "269px",
       height: "332px",
       borderRadius: "12px",
-      border: "3px solid #EBEBEB",
+      border: "0px solid #EBEBEB",
     }}
     {...props}
   />
