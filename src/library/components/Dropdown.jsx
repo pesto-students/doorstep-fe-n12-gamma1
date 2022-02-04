@@ -6,6 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Content from "./Content";
 import OutlinedInput from "@mui/material/OutlinedInput";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 import {
   createStyles,
@@ -14,13 +15,20 @@ import {
   makeStyles,
   createMuiTheme,
 } from '@material-ui/core/styles';
+import { Icon } from "@mui/material";
+
+function DropDownIcon() {
+return <ArrowDropDownIcon sx={{color:'green'}}/>;
+}
 
 const CssTextField = withStyles({
   root: {
 
     '& .MuiOutlinedInput-notchedOutline':{
-      // borderRight: 0,
+      borderRight: 0,
       borderRadius: '12px 0 0 12px',
+      border: '0px',
+      
     },
   },
 })(OutlinedInput);
@@ -35,19 +43,24 @@ const DropDown = ({ values, variant }) => {
   return (
     <Content className="DropDown">
       <FormControl variant={variant} fullwidth={1}>
+    
+      
 
         <Select
-          sx={{borderRadius:"20px 0px 0px 20px", maxHeight:'50px'}}
+          sx={{borderRadius:"12px 0px 0px 12px",backgroundColor:'#F9F9F9',fontWeight:'bold'}}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={value}
           onChange={handleChange}
+          input={<CssTextField sx={{backgroundColor:'#F9F9F9'}}/>}
+          // IconComponent = {DropDownIcon}
+          IconComponent = {ArrowDropDownIcon}
         >
           {values && values.length!=0?values.map((category, index) => {
             return <MenuItem key={index} value={category.id}>{category.name}</MenuItem>;
           }):''}
         </Select>
-      </FormControl>
+     </FormControl>
     </Content>
   );
 }
