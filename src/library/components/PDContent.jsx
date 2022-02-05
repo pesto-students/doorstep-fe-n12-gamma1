@@ -51,15 +51,15 @@ export default function Content(props) {
                 </tr> */}
                 <tr>
                   <td style={{color:'#C1C1C1'}}>Category:</td>
-                  <td>{props.product.category}</td>
+                  <td>{props.product.categories[0]}</td>
                   <td style={{color:'#C1C1C1'}}>Buy By:</td>
                   <td>{props.product.unit}</td>
                 </tr>
                 <tr>
                   <td style={{color:'#C1C1C1'}}>Stock:</td>
-                  <td>{props.product.inStock}</td>
+                  <td>{props.product.inStock?'In Stock':'NA'}</td>
                   <td style={{color:'#C1C1C1'}}>Delivery:</td>
-                  <td>'in 2days'</td>
+                  <td>In 2days</td>
                 </tr>
                 {/* <tr>
                   <td style={{color:'#C1C1C1'}}>Farm:</td>
@@ -74,11 +74,11 @@ export default function Content(props) {
             <Box sx={{display:"grid", gridTemplateColumns: '2fr 1fr', marginTop:"2em", padding:'1em', alignItems:'center', border:"2px solid #F5F5F5", borderRadius:"12px"}}>
                 <Box>
                     <h2  style={{margin:0, padding:'2px'}}>{props.product.discounted_price} INR</h2>
-                    <p  style={{margin:0, padding:0}}>{props.product.price} INR</p>
+                    <h2  style={{margin:0, padding:0,textDecoration: 'line-through'}}>{props.product.price} INR</h2>
                 </Box>
                 <Box sx={{display:'grid',gridTemplateColumns:'1fr 1fr', alignItems:'center'}}>
                     
-                    <IncDec/>
+                <IncDec initvalue={props.product.qty} product={props.product} />
 
                     <Button
             size="small"

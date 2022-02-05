@@ -28,7 +28,7 @@ export default function ProductDetailsPage(){
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={6}  style={{display:'flex', alignItems:'center', flexDirection: 'column'}}>
-                        <Images item xs zeroMinWidth fullwidth={1}/>
+                        <Images product={productDetails} item xs zeroMinWidth fullwidth={1}/>
                     </Grid>
 
                 </Grid>

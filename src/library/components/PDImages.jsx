@@ -11,7 +11,7 @@ function srcset(image, size, rows = 1, cols = 1) {
   };
 }
 
-export default function QuiltedImageList() {
+export default function QuiltedImageList(props) {
   return (
     <ImageList
       sx={{ width: "minmax(100%,400px)", height: "100%" }}
@@ -19,32 +19,32 @@ export default function QuiltedImageList() {
       cols={1}
       rowHeight={121}
     >
-      {itemData.map((item) => (
-        <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
+    
+        <ImageListItem key={props.product.img} cols={props.product.cols || 3} rows={props.product.rows || 4}>
           <img
-            {...srcset(item.img, 121, item.rows, item.cols)}
-            alt={item.title}
+            {...srcset(props.product.img, 121, props.product.rows, props.product.cols)}
+            alt={props.product.title}
             loading="lazy"
             style={{borderRadius:"12px"}}
           />
         </ImageListItem>
-      ))}
+      
     </ImageList>
   );
 }
 
-const itemData = [
-  {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    title: 'Breakfast',
-    rows: 3,
-    cols: 4,
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-    title: 'Burger',
-    rows: 3,
-    cols: 4,
-  },
+// const itemData = [
+//   {
+//     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+//     title: 'Breakfast',
+//     rows: 3,
+//     cols: 4,
+//   },
+//   {
+//     img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+//     title: 'Burger',
+//     rows: 3,
+//     cols: 4,
+//   },
  
-];
+// ];
