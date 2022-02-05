@@ -2,7 +2,7 @@ import Grid from '@mui/material/Grid';
 import Tabs from '../library/components/Tabs';
 import Content from "../library/components/PDContent";
 import Images from '../library/components/PDImages';
-import Header from "./../library/components/Header";
+import Header from "./../library/components/HeaderWithoutDropdown";
 import { useSelector } from "react-redux";
 import Container from '@mui/material/Container';
 export default function ProductDetailsPage(){

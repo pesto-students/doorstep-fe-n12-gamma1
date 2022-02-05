@@ -1,10 +1,10 @@
 import React from "react";
 import AddressForm from "../library/components/AddressForm";
-// import Payment from "../library/components/Payment";
 import OrderSummary from "../library/components/OrderSummary";
-import Header from "../library/components/Header";
+import Header from "../library/components/HeaderWithoutDropdown";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
 
 
 export default function CheckoutPage() {
@@ -15,6 +15,7 @@ export default function CheckoutPage() {
         <Grid item xs={12}>
           <Header />
         </Grid>
+        {/* <Divider light /> */}
         <Grid item xs={12}>
           <Grid container columnSpacing={8} >
             <Grid item xs={12} sm={6}>

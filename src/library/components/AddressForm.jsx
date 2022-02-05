@@ -37,6 +37,7 @@ export default function AddressForm() {
         
         const paymentInfo = data.cartReducer.paymentInfo;
         const amt=data.cartReducer.paymentInfo.total*100;
+        const desc=`Your total bill is ${data.cartReducer.paymentInfo.total} INR`
         if(window.localStorage.getItem("user") !== null)
           userInfo=JSON.parse(window.localStorage.getItem("user"));
           const today=new Date();
@@ -186,7 +187,7 @@ export default function AddressForm() {
       amount={amt}
       currency="INR"
       email="sunitagamne16@gmail.com"
-      description="Your total bill is 3000 usd"
+      description={desc}
     >
       <Button className="Large" type="submit"> Pay</Button>
     </StripeCheckout>

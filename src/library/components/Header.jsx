@@ -14,9 +14,9 @@ import { categoryActions } from "../../app/reducers/categoryReducer";
 import Cart from "./Cart";
 import { useNavigate } from "react-router-dom";
 
-import {  withStyles} from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import { productActions } from "../../app/reducers/productReducer";
-
+import { filterActions } from "../../app/reducers/filterReducer";
 
 const CssTextField = withStyles({
   root: {
@@ -31,41 +31,53 @@ const CssTextField = withStyles({
 })(OutlinedInput);
 
 const Header = () => {
-  const [searchData, setsearchData] = React.useState("");
+  const [searchData, setSearchData] = useState("");
   const dispatch = useDispatch();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const user =
     window.localStorage.getItem("user") !== null
       ? JSON.parse(window.localStorage.getItem("user"))
       : null;
-      const [loggedIn, setLoggedIn] = useState(user ? true : false);
+  const [loggedIn, setLoggedIn] = useState(user ? true : false);
   const data = useSelector((state) => state);
   const categoryList = data.categoryReducer.categoryList.result;
   const productList = data.productReducer.productList.result;
 
-  const handleChange = (event) => {
-    setsearchData(event.target.value);
+  const fetchData = () => {
+    let apiName;
+    dispatch(filterActions.filterBySearchField(searchData));
+    if (data.filterReducer.selectedCategory)
+      apiName = `user/productList?prefix=${config.result.prefix}&category=${data.filterReducer.selectedCategory}&productName=${searchData}`;
+    else
+      apiName = `user/productList?prefix=${config.result.prefix}&productName=${searchData}`;
+    dispatch(
+      productActions.fetchProduct({
+        apiName: apiName,
+      })
+    );
   };
- 
- 
-  
+
   useEffect(() => {
     dispatch(categoryActions.fetchCategory());
   }, []);
   const logo = config.result.template_Details.logoUrl;
   const logout = () => {
     try {
-      alert("Are you sure you want to logout?")
+      alert("Are you sure you want to logout?");
       window.localStorage.clear();
       window.sessionStorage.clear();
       navigate("/");
     } catch (error) {}
   };
 
-  const goToLandingPage= () => {
+  const goToLandingPage = () => {
     navigate("/home");
-  }
- 
+  };
+
+  const resetFilter = () => {
+    dispatch(filterActions.resetfilter());
+    setSearchData("");
+  };
 
   return (
     <Grid container>
@@ -81,7 +93,12 @@ const Header = () => {
             item
             sx={{ display: "flex", alignItems: "center" }}
           >
-            <Logo src={logo} className="responsiveImg" width={120} fullwidth={1} />
+            <Logo
+              src={logo}
+              className="responsiveImg"
+              width={120}
+              fullwidth={1}
+            />
           </Grid>
           <Grid item xs={10} sx={{ display: "flex", alignItems: "center" }}>
             <Grid container>
@@ -110,17 +127,16 @@ const Header = () => {
                     <Divider
                       orientation="vertical"
                       variant="middle"
-                      sx={{}}
-                     flexItem
+                      flexItem
                     />
                     <CssTextField
                       sx={{ backgroundColor: "#F9F9F9", flex: 16 }}
-                      
                       value={searchData}
-                      
+                      onChange={(event) => setSearchData(event.target.value)}
                     />
-                    
-                    <IconButton onClick={handleChange}
+
+                    <IconButton
+                      onClick={fetchData}
                       sx={{
                         backgroundColor: `${Theme.Colors.primary}`,
                         border: "0px solid rgba(0, 0, 0, 0.23)",
@@ -132,6 +148,23 @@ const Header = () => {
                       <Icon sx={{ color: "black", fontSize: 25 }}>search</Icon>
                     </IconButton>
                   </Grid>
+                  {data.filterReducer.selectedCategory ||
+                  data.filterReducer.searchField ? (
+                    <Grid item>
+                      <IconButton onClick={resetFilter}>
+                        <Icon
+                          sx={{
+                            color: `${Theme.Colors.primary || "#2592AA"}`,
+                            fontSize: 30,
+                          }}
+                        >
+                          cancel_outlined
+                        </Icon>
+                      </IconButton>
+                    </Grid>
+                  ) : (
+                    ""
+                  )}
                 </Grid>
               </Grid>
               <Grid
@@ -163,7 +196,7 @@ const Header = () => {
                   >
                     {loggedIn ? (
                       <IconButton onClick={logout}>
-                        <Icon 
+                        <Icon
                           sx={{
                             color: `${Theme.Colors.primary || "#2592AA"}`,
                             fontSize: 30,
@@ -173,7 +206,7 @@ const Header = () => {
                         </Icon>
                       </IconButton>
                     ) : (
-                      <IconButton >
+                      <IconButton>
                         <Icon
                           sx={{
                             color: `${Theme.Colors.primary || "#2592AA"}`,
@@ -195,13 +228,6 @@ const Header = () => {
                     </IconButton>
                   </Grid>
                 </Grid>
-                {/* <Icon style={{color: 'blue' }}>home</Icon>
-                            <Icon sx={{ color: `${Theme.Colors.primary}` }}>
-                            account_circle_outlined
-                            </Icon>
-                            <Icon sx={{ color: `${Theme.Colors.primary}` }}>
-                            shopping_cart_outlined
-                            </Icon> */}
               </Grid>
             </Grid>
           </Grid>
