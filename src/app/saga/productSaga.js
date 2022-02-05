@@ -8,7 +8,6 @@ export default function* productSaga(data) {
       const response = yield call(
         service.product,data.payload
       );
-      debugger;
       if (response.status === 200) {
         if (response.data) {
           yield put(productActions.fetchProductSuccess(response.data));
@@ -17,8 +16,6 @@ export default function* productSaga(data) {
         }
       }
     } catch (e) {
-      debugger;
-      console.log("error",e)
       yield put(productActions.fetchProductFailure(e));
     }
   }

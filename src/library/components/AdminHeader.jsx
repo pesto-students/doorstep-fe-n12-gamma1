@@ -11,14 +11,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 const AdminHeader = () => {
   const navigate=useNavigate();
-  // const dispatch = useDispatch();
   const data=useSelector(state => state);
-  console.log("data",data)
   const logout=()=>{
-    console.log("Logout")
     try{
       alert("Are you sure you want to logout?")
-    // dispatch(logoutActions.fetchLogout())
     window.localStorage.clear();
     window.sessionStorage.clear();
     navigate("/admin")

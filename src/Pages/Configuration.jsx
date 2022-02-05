@@ -34,7 +34,6 @@ const Configuration = () => {
   }, [navigate, user,result]);
 
   const onFileChange = (event) => {
-    console.log("event",event.target.files[0])
     if (event.target.files && event.target.files[0]) {
       if (event.target.files[0].size > fileMaxSize) {
         alert(
@@ -54,16 +53,13 @@ const Configuration = () => {
   };
 
   const onFileUpload = async () => {
-    console.log("selectedFile",selectedFile)
     const formData = new FormData();
     formData.append("ConfigurationFile", selectedFile, selectedFile.name);
-    // const result = await postApi(ApiInfo.uploadFile, formData);
     try{
     dispatch(fileUploadActions.fileUpload(formData))
     }catch(error){
       alert(error);
     }
-    // console.log("result",result)
     
   };
 

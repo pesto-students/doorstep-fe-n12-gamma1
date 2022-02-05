@@ -5,11 +5,9 @@ import * as service from "../services/authService";
 
 export default function* logoutSaga(data) {
     try {
-      debugger;
       const response = yield call(
         service.logout
       );
-      debugger;
       if (response.status === 200) {
         if (response.data) {
           yield put(logoutActions.fetchLogoutSuccess(response.data));
@@ -18,8 +16,6 @@ export default function* logoutSaga(data) {
         }
       }
     } catch (e) {
-      debugger;
-      console.log("error",e)
       yield put(logoutActions.fetchLogoutFailure(e));
     }
   }

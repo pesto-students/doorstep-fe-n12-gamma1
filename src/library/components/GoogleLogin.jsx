@@ -50,7 +50,6 @@ const onLoginSuccess=(res)=>{
     }
  
   dispatch(authActions.fetchAuth(apiDdata))
-  debugger;
 }catch(error){
   alert(error)
 }
@@ -58,15 +57,11 @@ const onLoginSuccess=(res)=>{
   
 
 
-  const onLoginFailure = (res) => {
-    console.log("Login Failure", res);
-  };
   return (
     <CustomGoogleLogin
       clientId={clientId}
       buttonText={`Login For ${children}`}
       onSuccess={onLoginSuccess}
-      onFailure={onLoginFailure}
       cookiePolicy={"single_host_origin"}
     />
   );

@@ -9,9 +9,8 @@ import { useSelector } from "react-redux";
 export default function OrderSummary() {
   const data = useSelector((state) => state);
   const paymentInfo = data.cartReducer.paymentInfo;
-  const today=new Date();
-  const tomorrow=new Date(today.setDate(today.getDate()+1)).toDateString();
-//   console.log("today",today)
+  const today = new Date();
+  const tomorrow = new Date(today.setDate(today.getDate() + 1)).toDateString();
   return (
     <Grid container rowSpacing={5}>
       <Grid item>
@@ -27,47 +26,47 @@ export default function OrderSummary() {
           </Grid>
         </Grid>
       </Grid>
-      
+
       <Grid item xs={12}>
-        <Table  fullwidth={1} sx={{ fontWeight: "bold" }}>
+        <Table fullwidth={1} sx={{ fontWeight: "bold" }}>
           <TableBody>
-          <TableRow>
-            <TableCell sx={{ fontWeight: "bold" }}>SubTotal</TableCell>
-            <TableCell sx={{ fontWeight: "bold" }} align="right">
-              {paymentInfo.amount} INR
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell sx={{ fontWeight: "bold" }}>Tax</TableCell>
-            <TableCell sx={{ fontWeight: "bold" }} align="right">
-              12% {paymentInfo.tax} INR
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell sx={{ fontWeight: "bold" }}>Shipping</TableCell>
-            <TableCell sx={{ fontWeight: "bold" }} align="right">
-              0 INR
-            </TableCell>
-          </TableRow>
+            <TableRow>
+              <TableCell sx={{ fontWeight: "bold" }}>SubTotal</TableCell>
+              <TableCell sx={{ fontWeight: "bold" }} align="right">
+                {paymentInfo.amount} INR
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell sx={{ fontWeight: "bold" }}>Tax</TableCell>
+              <TableCell sx={{ fontWeight: "bold" }} align="right">
+                12% {paymentInfo.tax} INR
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell sx={{ fontWeight: "bold" }}>Shipping</TableCell>
+              <TableCell sx={{ fontWeight: "bold" }} align="right">
+                0 INR
+              </TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </Grid>
       <Grid item xs={12}>
-        <Table  fullwidth={1} sx={{ fontWeight: "bold" }}>
-        <TableBody>
-          <TableRow>
-            <TableCell>
-              <Typography sx={{ fontWeight: "bold" }}>Total</Typography>
-              <Typography sx={{ color: "#C1C1C1" }}>
-                Guaranteed delivery day: {tomorrow}
-              </Typography>
-            </TableCell>
-            <TableCell sx={{ fontWeight: "bold" }} align="right">
-              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                {paymentInfo.total} INR
-              </Typography>
-            </TableCell>
-          </TableRow>
+        <Table fullwidth={1} sx={{ fontWeight: "bold" }}>
+          <TableBody>
+            <TableRow>
+              <TableCell>
+                <Typography sx={{ fontWeight: "bold" }}>Total</Typography>
+                <Typography sx={{ color: "#C1C1C1" }}>
+                  Guaranteed delivery day: {tomorrow}
+                </Typography>
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold" }} align="right">
+                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                  {paymentInfo.total} INR
+                </Typography>
+              </TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </Grid>

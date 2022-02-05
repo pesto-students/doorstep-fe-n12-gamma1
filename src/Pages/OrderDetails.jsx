@@ -13,7 +13,7 @@ export default function OrderDetails() {
   const dispatch = useDispatch();
   const search = useLocation().search;
   const orderId = new URLSearchParams(search).get("orderId");
-  
+
   const apiName = `user/orderList?prefix=${config.result.prefix}&orderId=${orderId}`;
 
   useEffect(() => {
@@ -29,8 +29,7 @@ export default function OrderDetails() {
     ? data.orderReducer.orderList.result
     : null;
   let obj;
-  if (orderDetails && orderDetails.length!=0) {
-    console.log("orderDetails",orderDetails)
+  if (orderDetails && orderDetails.length != 0) {
     obj = {
       name: orderDetails[0].billingInfo.fullname,
       email: orderDetails[0].billingInfo.emailAddress,
@@ -50,7 +49,7 @@ export default function OrderDetails() {
           <Header />
         </Grid>
         <Grid item xs={12}>
-          <Grid container rowSpacing={10} >
+          <Grid container rowSpacing={10}>
             <Grid item xs={12}>
               <Grid
                 container

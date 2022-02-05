@@ -5,7 +5,6 @@ import * as service from "../services/authService";
 
 export default function* orderSaga(data) {
     try {
-        debugger;
         let response
         if(data.payload.apiName=='payment')
         response = yield call(
@@ -15,10 +14,7 @@ export default function* orderSaga(data) {
         response = yield call(
           service.order,data.payload
         );
-        
-      
-        
-      debugger;
+       
       if (response.status === 200) {
         if (response.data) {
           yield put(orderActions.fetchOrderSuccess(response.data));
@@ -27,8 +23,6 @@ export default function* orderSaga(data) {
         }
       }
     } catch (e) {
-      debugger;
-      console.log("error",e)
       yield put(orderActions.fetchOrderFailure(e));
     }
   }
