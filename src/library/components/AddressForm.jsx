@@ -11,6 +11,7 @@ import TextareaAutosize from "@mui/material/TextareaAutosize"
 // import Payment from "./Payment";
 import { useSelector, useDispatch } from "react-redux";
 import {orderActions} from "../../app/reducers/orderReducer";
+import { cartActions} from "../../app/reducers/cartReducer"
 import { useNavigate } from "react-router-dom";
 
 export default function AddressForm() {
@@ -25,15 +26,13 @@ export default function AddressForm() {
           stateCountry:'',
           zipCode:''
         });
+        // let billingDetails;
         const logo=config.result.template_Details.logoUrl;
-        let userInfo;
+        let token,userInfo;
         let navigate = useNavigate();
         const dispatch = useDispatch();
         const data=(useSelector(state => state));
-        const orderList=data.orderReducer.orderList.result;
-        console.log("orderList",orderList)
-        if(orderList && orderList.length!==0)
-            navigate(`/orderDetails?orderId=${orderList._id}`)
+       
         const productList = data.cartReducer.products;
         
         const paymentInfo = data.cartReducer.paymentInfo;
@@ -46,7 +45,8 @@ export default function AddressForm() {
         // console.log("userInfo",userInfo)
         
         useEffect(() => {
-         
+          // setStripeToken(token);
+          // setBillingInfo(billingInfo);
           const makePayment = async () => {
             try {
               dispatch(orderActions.fetchOrder({
@@ -59,7 +59,7 @@ export default function AddressForm() {
                   delivery_date:tomorrow
                 }))
 
-
+                dispatch(cartActions.emptyCart());
               
             } catch (err) {
               console.log("error", err);
@@ -70,22 +70,29 @@ export default function AddressForm() {
         }, [stripeToken]);
 
        
-      
-        const onToken = (token) => {
-          console.log("token", token);
-          setStripeToken(token);
+        const orderList=data.orderReducer.orderList.result;
+        console.log("orderList",orderList)
+        if(orderList && orderList.length!==0){
+          
+            navigate(`/orderDetails?orderId=${orderList[0]._id}`)
+        }
+        const onToken = (tok) => {
+          token=tok;
+          setStripeToken(tok);
         };
 
       let handleChange = (e) => {
         let name = e.target.name;
         let value = e.target.value
         billingInfo[name] = value.trim();
-        setBillingInfo(billingInfo);
+        
       }
     
       let handleSubmit = (e) => {
         e.preventDefault();
         console.log(billingInfo);
+
+        // setBillingInfo(billingInfo);
       }
 
   return (

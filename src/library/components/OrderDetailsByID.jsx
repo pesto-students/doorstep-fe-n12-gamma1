@@ -12,8 +12,8 @@ export default function OrderDetailsByID(props) {
   
   return (
     <Grid container rowSpacing={5}  sx={{border:'2px solid #EBEBEB', padding:'5px'}}>
-      <Grid item xs={12} fullWidth>
-        <Grid container spacing={1} fullWidth>
+      <Grid item xs={12} fullwidth={1}>
+        <Grid container spacing={1} fullwidth={1}>
         </Grid>
       </Grid>
       <Grid item fullwidth={1}>

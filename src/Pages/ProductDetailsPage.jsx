@@ -16,7 +16,7 @@ export default function ProductDetailsPage(){
                 <Header/>
             </Grid>
             <Grid  item xs={12} >
-                <Grid container columnSpacing={8} item xs zeroMinWidth>
+                <Grid container columnSpacing={8} item >
                     <Grid item xs={12} sm={6}>
                         <Grid container rowSpacing={8}>
                             <Grid item>
@@ -28,7 +28,7 @@ export default function ProductDetailsPage(){
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={6}  style={{display:'flex', alignItems:'center', flexDirection: 'column'}}>
-                        <Images product={productDetails} item xs zeroMinWidth fullwidth={1}/>
+                        <Images product={productDetails} item  fullwidth={1}/>
                     </Grid>
 
                 </Grid>
