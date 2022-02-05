@@ -17,20 +17,13 @@ const cartSlice = createSlice({
       const products = state.products.filter(
         (product) => product._id == payload._id
       );
-      let qty=1;
       let copy;
       if(products.length!=0){
         copy={...products[0]};
         copy.qty++;
-        // copy.total=copy.qty*copy.discounted_price;
-        // payload=copy
       }else{
-        // payload.qty=1;
         copy={...payload};
         copy.qty=1;
-        // copy.total=copy.qty*copy.discounted_price;
-        // // payload={...payload,qty,total}
-        // payload=copy
       }
       copy.total=copy.qty*copy.discounted_price;
       payload=copy
@@ -39,21 +32,10 @@ const cartSlice = createSlice({
       );
       state.products=[];
         state.products=[...state.products,...data,payload]
-      // state.products=[...state.products,payload]
-      
     },
     removeProductFromCart: (state,action) => {
-      debugger;
         let { payload } = action;
         state.isFetching = true;
-        // const products = state.products.filter(
-        //   (product) => product._id !== payload._id
-        // );
-        // console.log("products1",products.length)
-        // state.products=[];
-        // console.log("products2",products.length)
-        // state.products=[...state.products,...products]
-        // console.log("products3",products.length)
         const products = state.products.filter(
           (product) => product._id == payload._id
         );
@@ -71,7 +53,6 @@ const cartSlice = createSlice({
           state.products=[...state.products,...data,payload]
       },
       deleteProductEntryFromCart:(state,action)=>{
-        debugger;
         const { payload } = action;
         state.isFetching = true;
         const products = state.products.filter(
@@ -79,6 +60,10 @@ const cartSlice = createSlice({
         );
         state.products=[];
         state.products=[...state.products,...products]
+      },
+      emptyCart:(state)=>{
+        state.isFetching = true;
+        state.products=[];
       },
       viewProductDetails:(state, action) => {
         const { payload } = action;

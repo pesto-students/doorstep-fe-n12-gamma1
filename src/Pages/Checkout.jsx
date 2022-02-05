@@ -16,7 +16,7 @@ export default function CheckoutPage() {
           <Header />
         </Grid>
         <Grid item xs={12}>
-          <Grid container columnSpacing={8} item xs zeroMinWidth>
+          <Grid container columnSpacing={8} >
             <Grid item xs={12} sm={6}>
               <OrderSummary />
             </Grid>
@@ -25,9 +25,6 @@ export default function CheckoutPage() {
                 <Grid item >
                   <AddressForm />
                 </Grid>
-                {/* <Grid item>
-                  <Payment />
-                </Grid> */}
               </Grid>
             </Grid>
           </Grid>

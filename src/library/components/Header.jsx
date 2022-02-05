@@ -68,6 +68,10 @@ const Header = () => {
       navigate("/");
     } catch (error) {}
   };
+
+  const goToLandingPage= () => {
+    navigate("/home");
+  }
  
 
   return (
@@ -84,16 +88,16 @@ const Header = () => {
             item
             sx={{ display: "flex", alignItems: "center" }}
           >
-            <Logo src={logo} className="responsiveImg" width={120} fullWidth />
+            <Logo src={logo} className="responsiveImg" width={120} fullwidth={1} />
           </Grid>
           <Grid item xs={10} sx={{ display: "flex", alignItems: "center" }}>
             <Grid container>
               <Grid item xs={10}>
-                <Grid container fullWidth>
+                <Grid container fullwidth={1}>
                   <Grid
                     item
                     xs={9}
-                    fullWidth
+                    fullwidth={1}
                     sx={{
                       maxHeight: "46px",
                       display: "flex",
@@ -114,16 +118,16 @@ const Header = () => {
                       orientation="vertical"
                       variant="middle"
                       sx={{}}
-                      flexItem
+                     
                     />
                     <CssTextField
                       sx={{ backgroundColor: "#F9F9F9", flex: 16 }}
-                      flexItem
+                      
                       value={searchData}
-                      onChange={handleChange}
+                      
                     />
-                    {/* <Divider orientation="vertical" variant="middle" sx={{color:'#EBEBEB',backgroundColor:'#F9F9F9'}} flexItem/> */}
-                    <IconButton
+                    
+                    <IconButton onClick={handleChange}
                       sx={{
                         backgroundColor: `${Theme.Colors.primary}`,
                         border: "0px solid rgba(0, 0, 0, 0.23)",
@@ -148,7 +152,7 @@ const Header = () => {
                     xs={4}
                     sx={{ display: "flex", justifyContent: "flex-end" }}
                   >
-                    <IconButton>
+                    <IconButton onClick={goToLandingPage}>
                       <Icon
                         sx={{
                           color: `${Theme.Colors.primary || "#2592AA"}`,
@@ -165,8 +169,8 @@ const Header = () => {
                     sx={{ display: "flex", justifyContent: "flex-end" }}
                   >
                     {loggedIn ? (
-                      <IconButton>
-                        <Icon onClick={logout}
+                      <IconButton onClick={logout}>
+                        <Icon 
                           sx={{
                             color: `${Theme.Colors.primary || "#2592AA"}`,
                             fontSize: 30,

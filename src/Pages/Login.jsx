@@ -28,8 +28,8 @@ const Login = () => {
         <CLabel>
           <h6>Welcome {vendorName}</h6>
         </CLabel>
-        <GoogleLogin>Guest</GoogleLogin>
         <GoogleLogin>User</GoogleLogin>
+        <GoogleLogin>Guest</GoogleLogin>
       </Content>
     </Content>
   );

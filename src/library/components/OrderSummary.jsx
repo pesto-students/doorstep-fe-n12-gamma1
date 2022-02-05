@@ -1,6 +1,4 @@
 import Grid from "@mui/material/Grid";
-import SummaryCard from "./SummaryCard";
-// import '../../App.css'
 import Table from "@mui/material/Table";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
@@ -10,7 +8,6 @@ import { useSelector } from "react-redux";
 
 export default function OrderSummary() {
   const data = useSelector((state) => state);
-  const productList = data.cartReducer.products;
   const paymentInfo = data.cartReducer.paymentInfo;
   const today=new Date();
   const tomorrow=new Date(today.setDate(today.getDate()+1)).toDateString();
@@ -30,26 +27,9 @@ export default function OrderSummary() {
           </Grid>
         </Grid>
       </Grid>
-      {/* <Grid item fullwidth={1}>
-        <Grid
-          container
-          item
-          xs
-          zeroMinWidth
-          className="example"
-          sx={{ maxHeight: "55vh", overflow: "scroll" }}
-        >
-          {productList && productList.length != 0
-            ? productList.map((element, index) => (
-                <Grid item key={index}>
-                  <SummaryCard product={element}></SummaryCard>
-                </Grid>
-              ))
-            : ""}
-        </Grid>
-      </Grid> */}
+      
       <Grid item xs={12}>
-        <Table item  fullwidth={1} sx={{ fontWeight: "bold" }}>
+        <Table  fullwidth={1} sx={{ fontWeight: "bold" }}>
           <TableBody>
           <TableRow>
             <TableCell sx={{ fontWeight: "bold" }}>SubTotal</TableCell>
@@ -73,7 +53,8 @@ export default function OrderSummary() {
         </Table>
       </Grid>
       <Grid item xs={12}>
-        <Table item  fullwidth={1} sx={{ fontWeight: "bold" }}>
+        <Table  fullwidth={1} sx={{ fontWeight: "bold" }}>
+        <TableBody>
           <TableRow>
             <TableCell>
               <Typography sx={{ fontWeight: "bold" }}>Total</Typography>
@@ -87,6 +68,7 @@ export default function OrderSummary() {
               </Typography>
             </TableCell>
           </TableRow>
+          </TableBody>
         </Table>
       </Grid>
     </Grid>
