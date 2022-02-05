@@ -51,7 +51,7 @@ export default function Content(props) {
                 </tr> */}
                 <tr>
                   <td style={{color:'#C1C1C1'}}>Category:</td>
-                  <td>{props.product.categories[0]}</td>
+                  <td>{props.product.categories}</td>
                   <td style={{color:'#C1C1C1'}}>Buy By:</td>
                   <td>{props.product.unit}</td>
                 </tr>
