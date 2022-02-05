@@ -5,18 +5,17 @@ import Images from '../library/components/PDImages';
 import Header from "./../library/components/Header";
 import { useSelector } from "react-redux";
 import Container from '@mui/material/Container';
-
 export default function ProductDetailsPage(){
   const data=useSelector(state => state);
   const productDetails=data.cartReducer.viewProduct
     return (
-        <Container  justify="center">
-        <Grid container >
+        <Container  maxWidth={false}>
+        <Grid container rowSpacing={10}>
             <Grid  item xs={12}  >
                 <Header/>
             </Grid>
             <Grid  item xs={12} >
-                <Grid container columnSpacing={8} item >
+                <Grid container columnSpacing={8} >
                     <Grid item xs={12} sm={6}>
                         <Grid container rowSpacing={8}>
                             <Grid item>
@@ -28,9 +27,8 @@ export default function ProductDetailsPage(){
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={6}  style={{display:'flex', alignItems:'center', flexDirection: 'column'}}>
-                        <Images product={productDetails} item  fullwidth={1}/>
+                        <Images product={productDetails} item  />
                     </Grid>
-
                 </Grid>
             </Grid>
         </Grid>
