@@ -5,9 +5,9 @@ name: React.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 #on:
   #schedule:
     # Run every hour, on the hour. This can be customized to checking as frequently as every 5 minutes.
