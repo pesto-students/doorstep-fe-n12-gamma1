@@ -1,23 +1,17 @@
-import React from "react";
-import LoginPage from "./../Pages/Login";
-import ConfigurationPage from "./../Pages/Configuration";
+import LoginPage from "../Pages/Login";
+import ConfigurationPage from "../Pages/Configuration";
 import PageNotFound from '../Pages/PageNotFound';
-import Header from "../library/components/Header";
 import Payment from "../library/components/Payment";
 import LandingPage from "../Pages/LandingPage";
-import ViewProduct from "../Pages/ViewProduct";
 import Cart from "../Pages/Cart";
 import CheckoutPage from "../Pages/Checkout";
 import ProductDetailsPage from "../Pages/ProductDetailsPage";
+import OrderHistory from "../Pages/OrderHistory";
+import OrderDetails from "../Pages/OrderDetails";
+import Modal from "../library/components/Modal1";
+import AdminLogin from "../Pages/adminLogin";
 
-// import Test from "../library/components/DropDown";
-// import Test from "../library/components/Brands";
-// import Test from "../library/components/Grid";
-// import Test from "../library/components/Slider";
-// import Test from "../library/components/Buttons";
-// import Test from "../library/components/IncDec";
-// import Test from "../library/components/CartItem";
-import Test from "../Pages/OrderHistory";
+
 
 const Routes= [
     {
@@ -27,16 +21,16 @@ const Routes= [
         pageTitle:'Admin SignIn'
     },
     {
+      path:'/admin',
+      exact:true,
+      component:AdminLogin,
+      pageTitle:'Admin SignIn'
+  },
+    {
         path:'/configuration',
         exact:true,
         component:ConfigurationPage,
         pageTitle:'Upload Configuration excel File'
-    },
-    {
-        path:'/Header',
-        exact:true,
-        component:Header,
-        pageTitle:'Admin SignIn'
     },
     {
         path:'/Payment',
@@ -44,12 +38,20 @@ const Routes= [
         component:Payment,
         pageTitle:'Admin SignIn'
     },
-    {
-    path: "/test",
+    
+  {
+    path: "/modal",
     exact: true,
-    component: Test,
+    component: Modal,
     pageTitle: "Upload Configuration excel File",
   },
+  {
+    path: "/orderDetails",
+    exact: true,
+    component: OrderDetails,
+    pageTitle: "Upload Configuration excel File",
+  },
+
   {
     path: "/home",
     exact: true,
@@ -59,7 +61,13 @@ const Routes= [
   {
     path: "/product",
     exact: true,
-    component: ViewProduct,
+    component: ProductDetailsPage,
+    pageTitle: "Product",
+  },
+  {
+    path: "/orderHistory",
+    exact: true,
+    component: OrderHistory,
     pageTitle: "Product",
   },
   {
@@ -74,12 +82,7 @@ const Routes= [
     component: CheckoutPage,
     pageTitle: "Cart",
   },
-  {
-    path: "/pd",
-    exact: true,
-    component: ProductDetailsPage,
-    pageTitle: "Cart",
-  },
+  
   {
     path: "*",
     exact: true,

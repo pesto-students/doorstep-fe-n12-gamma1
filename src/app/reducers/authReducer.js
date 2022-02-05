@@ -15,6 +15,11 @@ const authSlice = createSlice({
       state.isFetching = false;
       state.userInfo = payload;
     },
+    fetchAuthFailure: (state, action) => {
+      const { payload } = action;
+      state.isFetching = false;
+      state.userInfo = payload;
+    }
   },
 });
 

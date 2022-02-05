@@ -25,17 +25,17 @@ const Categories = ({ values }) => {
       </Grid>
       <Grid item>
         <Grid container rowSpacing={1}>
-          {values.map((category, index) => {
+          {values && values.length!=0?values.map((category, index) => {
             return (
-              <Grid item xs={12}>
+              <Grid key={category._id} item xs={12}>
                 <Category
-                  key={category.id}
-                  name={category.name}
-                  label={category.qty}
+                  key={category._id}
+                  name={category.categoryName}
+                  label={category.number_of_product}
                 ></Category>
               </Grid>
             );
-          })}
+          }):''}
         </Grid> 
 
       </Grid>

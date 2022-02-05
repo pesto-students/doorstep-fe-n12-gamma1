@@ -1,50 +1,66 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
+import React,{useState} from "react";
+// import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import styled from "styled-components";
 import "../../App.css";
+import Theme from "../styleHelpers/customTheme";
+import Button from "./Buttons";
+import { useSelector,useDispatch } from "react-redux";
+import { cartActions } from "../../app/reducers/cartReducer";
 
-function IncDec({ initvalue, ...props }) {
-  let [value, setValue] = React.useState(initvalue);
+const Input=styled.input`
+border: 1px solid ${Theme.Colors.primary};
+`;
 
-  let value1 = 9;
-  function onIncrement() {
+const IncDec=({ initvalue,product, ...props })=>{
+  let [value, setValue] = useState(initvalue);
+  let [action, setAction] = useState(null);
+  const dispatch = useDispatch();
+  const onRemoveProductFromCart= (product) =>dispatch(cartActions.removeProductFromCart(product));
+
+  const onAddProductToCart = (product) => dispatch(cartActions.addProductToCart(product)); 
+  const data = useSelector((state) => state);
+    const productList = data.cartReducer.products; 
+    // console.log("productList",productList)
+  
+  const onIncrement=()=>{
     setValue((value) => {
       value += 1;
       return value;
     });
-    props.updateValue();
+    onAddProductToCart(product)
+    // props.onUpdateValue(action);
   }
 
-  function onDecrement() {
+  const onDecrement=()=>{
     setValue((value) => {
-      if (value <= 0) return 0;
       value -= 1;
       return value;
     });
-    props.updateValue();
+    onRemoveProductFromCart(product);
+    // props.onUpdateValue(action);
   }
 
-  const buttonStyle = {
-    minWidth: "1px",
-    width: "16.24px",
-    backgroundColor: "#2592AA",
-    height: "22.5px",
-    padding: "0 0 0 0",
-  };
+  // const buttonStyle = {
+  //   minWidth: "1px",
+  //   width: "16.24px",
+  //   backgroundColor: `${Theme.Colors.primary}`,
+  //   height: "22.5px",
+  //   padding: "0 0 0 0",
+  // };
 
-  const valueStyle = {
-    textAlign: "center",
-    width: "36.53px",
-    border: "0px",
-  };
+  // const valueStyle = {
+  //   textAlign: "center",
+  //   width: "36.53px",
+  //   border: `1px solid ${Theme.Colors.primary}`
+  // };
   return (
     <ButtonGroup aria-label="outlined primary button group">
-      <Button style={buttonStyle} variant="contained" onClick={onIncrement}>
+      <Button className="IncDecBtn" variant="contained" onClick={onIncrement}>
         +
       </Button>
-      <input
-        style={valueStyle}
+      <Input
+        className="IncInput"
         type="number"
         value={value}
         onChange={(event) => {
@@ -55,10 +71,10 @@ function IncDec({ initvalue, ...props }) {
             console.log(event.target.value);
             return event.target.value;
           });
-          props.updateValue();
+          // props.updateValue(action);
         }}
-      ></input>
-      <Button style={buttonStyle} variant="contained" onClick={onDecrement}>
+      />
+      <Button className="IncDecBtn" variant="contained" disabled={value==1} onClick={onDecrement}>
         -
       </Button>
     </ButtonGroup>

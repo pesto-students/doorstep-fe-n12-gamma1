@@ -1,0 +1,74 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: React.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+#on:
+  #schedule:
+    # Run every hour, on the hour. This can be customized to checking as frequently as every 5 minutes.
+    #- cron:  '*/16 * * * *'
+    
+defaults:
+  run:
+    working-directory: src    
+    
+jobs:
+        
+  build :
+     runs-on: ubuntu-latest
+     steps:
+      - uses: actions/checkout@v2   
+      - name: fetch data using curl
+        run: |
+           curl "https://doorstep-node-api.herokuapp.com/api/v1.0/vendor/vendorDetails" -o config.json
+           data=$(jq -r '.result' config.json)
+           if [ "$data" == null ]; then
+            echo ::set-output name=result::false
+            exit 1
+            else
+            echo ::set-output name=result::true
+           fi
+        id: fetch_data
+      # Optionally, use `jq` to pull one or more fields from the JSON to include in the SMS message
+      - name: Parse data
+        id: parse_data
+        run: |
+          echo '::set-output name=appName::'$(jq -r '.result.appName' config.json)
+          echo '::set-output name=id::'$(jq -r '.result._id' config.json)
+     
+      - name: Deploy on Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "${{ steps.parse_data.outputs.appName }}-doorstep"
+          heroku_email: "sunitagauri16@gmail.com"
+          procfile: "web: npm start"
+          
+      - name: Update Vendor Details 
+        run: |
+          curl -X PUT --header "Content-Type: application/json" "https://doorstep-node-api.herokuapp.com/api/v1.0/vendor/vendorDetails/${{steps.parse_data.outputs.id}}/${{ steps.parse_data.outputs.appName }}"
+      - name: Send mail
+        #if: always()
+        #if: steps.fetch_data.outputs.result==true
+        uses: dawidd6/action-send-mail@v2
+        with:
+          # mail server settings
+          server_address: smtp.gmail.com
+          server_port: 465
+          # user credentials
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          # email subject
+          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+          # email body as text
+          body: "There's been a change! someField is now ${{ steps.parse_data.outputs.appName }}."
+          # comma-separated string, send email to
+          to: sunitagamne16@gmail.com
+          # from email name
+          from: Gauri Bane    
+      

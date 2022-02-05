@@ -1,58 +1,70 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
 import Theme from "../styleHelpers/customTheme";
 import Icon from "./Icon";
 import { fontSize } from "@mui/system";
+import Content from "../components/Content";
 
 const CssTextField = styled(TextField)({
+  "& ": {
+    width: "100%",
+  },
   "& .MuiOutlinedInput-root": {
+    "&": {
+      height: "20px",
+    },
+    "&:focus-visible": {
+      // outline: "none",
+    },
     "& fieldset": {
       borderColor: `${Theme.Colors.primary}`,
       borderRadius: `${Theme.CommonTheme.borderRadius}`,
+      fontSize: "14%",
+      height: "23px",
+      padding: "3px",
     },
-    //   '&:hover fieldset': {
-    //     borderColor: 'yellow',
-    //   },
-    //   '&.Mui-focused fieldset': {
-    //     borderColor: 'green',
-    //   },
+    "& fieldset:focus-visible": {
+      // outline: "none",
+      // background: "blue",
+    },
   },
 });
 
 const SearchBox = styled((props) => {
-  //   const fileInputField = useRef(null);
-
   const handleSearchBtnClick = () => {};
   return (
     <>
       <CssTextField
-        placeholder="Enter Data"
+        placeholder="Search Products, Categories "
         type="text"
         onKeyUp={handleSearchBtnClick}
+        
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <Icon
+                sx={{
+                  color: `${Theme.Colors.primary}`,
+                  fontSize: 80,
+                }}
+              >
+                search
+              </Icon>
+            </InputAdornment>
+          ),
+        }}
       />
-      <Icon sx={{ color: `${Theme.Colors.warningBackground}`, fontSize: 80 }}>
-        search
-      </Icon>
     </>
   );
 })`
-  & {
-    height: ${(props) => props.style?.height};
-    width: ${(props) => props.style?.width};
-    margin: ${(props) => props.style?.margin};
-    text-align: ${(props) => props.style?.textAlign};
+  &&
+    .MuiFormControl-root.MuiTextField-root.sc-dlVxhl.ePbdyQ.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    width: 100%;
   }
-  && .Small {
-    width: 15rem;
-    height: auto;
-    margin: 5px;
-  }
-
-  && .Large {
-    width: 25rem;
-    height: auto;
-    margin: 10px;
+  &&
+    .MuiFormControl-root.MuiTextField-root.sc-dlVxhl.ePbdyQ.css-1u3bzj6-MuiFormControl-root-MuiTextField-root:focus-visible {
   }
 `;
 

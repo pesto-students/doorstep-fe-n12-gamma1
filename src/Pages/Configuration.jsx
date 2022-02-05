@@ -5,15 +5,21 @@ import Header from "../library/components/AdminHeader";
 import FileUpload from "../library/components/FileUpload";
 import Icon from "../library/components/Icon";
 import Button from "../library/components/Buttons";
-import { postApi } from "../services/ApiService";
-import ApiInfo from "../services/ApiInfoService";
+// import { postApi } from "../services/ApiService";
+// import ApiInfo from "../services/ApiInfoService";
 import Theme from "../library/styleHelpers/customTheme";
 import Link from "../library/components/Link"
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { fileUploadActions } from "../app/reducers/fileUploadReducer";
+
 
 
 const Configuration = () => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const dispatch = useDispatch();
+  const fileUploadResult=useSelector(state => state);
+  const result=fileUploadResult.fileUploadReducer.fileInfo
   const fileMaxSize = 4000000;
   const navigate=useNavigate();
   const user =
@@ -21,8 +27,11 @@ const Configuration = () => {
       ? JSON.parse(window.localStorage.getItem("user"))
       : null;
   useEffect(() => {
-    if (!user) navigate("/");
-  }, [navigate, user]);
+    if (!user) navigate("/admin");
+    if(result.statusCode===200){
+      alert("File Uploaded Successfully");
+    }
+  }, [navigate, user,result]);
 
   const onFileChange = (event) => {
     console.log("event",event.target.files[0])
@@ -48,9 +57,14 @@ const Configuration = () => {
     console.log("selectedFile",selectedFile)
     const formData = new FormData();
     formData.append("ConfigurationFile", selectedFile, selectedFile.name);
-    const result = await postApi(ApiInfo.uploadFile, formData);
-    console.log("result",result)
-    alert("File Uploaded Successfully");
+    // const result = await postApi(ApiInfo.uploadFile, formData);
+    try{
+    dispatch(fileUploadActions.fileUpload(formData))
+    }catch(error){
+      alert(error);
+    }
+    // console.log("result",result)
+    
   };
 
   // File content to be displayed after
@@ -84,6 +98,7 @@ const Configuration = () => {
   return (
     <>
       <Header />
+   
       <Content className="MainContainer">
         <Content className="Container ConfigurationContent">
           <CLabel>

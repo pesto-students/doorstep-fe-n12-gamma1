@@ -1,11 +1,13 @@
 import { call, put } from "redux-saga/effects";
 import { authActions} from "../reducers/authReducer";
-import auth from "../services/authService";
+import * as service from "../services/authService";
 
-export default function* authSaga() {
+
+export default function* authSaga(data) {
     try {
+      debugger;
       const response = yield call(
-        auth
+        service.auth,data.payload
       );
       debugger;
       if (response.status === 200) {
@@ -16,6 +18,8 @@ export default function* authSaga() {
         }
       }
     } catch (e) {
+      debugger;
+      console.log("error",e)
       yield put(authActions.fetchAuthFailure(e));
     }
   }

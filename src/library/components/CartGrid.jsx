@@ -1,10 +1,6 @@
 import * as React from "react";
-import Grid from "@mui/material/Grid";
 import CartItem from "./CartItem";
-import Card from "./Card";
 import Content from "./Content";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 export default function SpacingGrid({ values, imgUrl }) {
   const [spacing, setSpacing] = React.useState(2);
 
@@ -39,23 +35,4 @@ export default function SpacingGrid({ values, imgUrl }) {
   );
 }
 
-{
-  /* <Grid sx={{ flexGrow: 1 }} container spacing={4}>
-      <Grid item xs={12}>
-        <Grid container justifyContent="center" spacing={spacing}>
-          {values.map((product) => (
-            <Grid key={product.id} item>
-              <CartItem 
-                key={product.id}
-                imgUrl={product.imgUrl}
-                title={product.title}
-                description={product.description}
-                sellingPrice={product.sellingPrice}
-                mrp={product.mrp}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      </Grid>
-    </Grid> */
-}
+
