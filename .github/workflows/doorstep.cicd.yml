@@ -66,7 +66,7 @@ jobs:
           # email subject
           subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
           # email body as text
-          body: "There's been a change! someField is now ${{ steps.parse_data.outputs.appName }}."
+          body: "There's been a change! someField is now ${{ steps.parse_data.outputs.appName }}"
           # comma-separated string, send email to
           to: sunitagamne16@gmail.com
           # from email name
