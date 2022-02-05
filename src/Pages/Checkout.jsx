@@ -2,7 +2,7 @@ import React from "react";
 import AddressForm from "../library/components/AddressForm";
 // import Payment from "../library/components/Payment";
 import OrderSummary from "../library/components/OrderSummary";
-import Header from "../library/components/Header1";
+import Header from "../library/components/Header";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 

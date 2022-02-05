@@ -10,12 +10,6 @@ const orderSlice = createSlice({
     fetchOrder: (state) => {
       state.isFetching = true;
     },
-    // payForOrder:(state,action)=>{
-    //     debugger;
-    //   const { payload } = action;
-    //   state.isFetching = false;
-    //   state.orderList = payload;
-    // },
     fetchOrderSuccess: (state, action) => {
       const { payload } = action;
       state.isFetching = false;

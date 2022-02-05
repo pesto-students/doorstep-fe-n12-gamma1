@@ -1,19 +1,23 @@
 import React from "react";
 import GoogleLogin from "../library/components/GoogleLogin";
 import Logo from "../library/components/Logo";
-import config from "../config.json";
 import CLabel from "../library/components/Label";
 import Content from "../library/components/Content";
+import logoImg from "../library/images/logo.png";
+// import { useSelector, useDispatch } from "react-redux";
+// import { authActions } from "../app/reducers/authReducer";
+// import Snackbar from "../library/shared/Snackbar"
 
 const Login = () => {
-  const logo = config.result.template_Details.logoUrl;
-  const vendorName = config.result.vendorName;
+  // const dispatch = useDispatch();
+  // dispatch(authActions.fetchAuth())
+  // useSelector(state => console.log(state))
   return (
     
     <Content className="MainContainer">
       {/* <Snackbar/> */}
       <Content className="LogoContainer">
-        <Logo src={logo} className="responsiveImg" width={243} />
+        <Logo src={logoImg} className="responsiveImg" width={243} />
         <CLabel>
           <h6 className="ItalicFont">
             <em>We are at your service</em>
@@ -26,10 +30,9 @@ const Login = () => {
           <h2>Sign In</h2>
         </CLabel>
         <CLabel>
-          <h6>Welcome {vendorName}</h6>
+          <h6>Welcome @DoorStep!</h6>
         </CLabel>
-        <GoogleLogin>Guest</GoogleLogin>
-        <GoogleLogin>User</GoogleLogin>
+        <GoogleLogin>Admin</GoogleLogin>
       </Content>
     </Content>
   );

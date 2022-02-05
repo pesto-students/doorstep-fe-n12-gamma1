@@ -26,16 +26,24 @@ export default function AddressForm() {
           zipCode:''
         });
         const logo=config.result.template_Details.logoUrl;
+        let userInfo;
         let navigate = useNavigate();
         const dispatch = useDispatch();
         const data=(useSelector(state => state));
         const orderList=data.orderReducer.orderList.result;
         console.log("orderList",orderList)
+        if(orderList && orderList.length!==0)
+            navigate(`/orderDetails?orderId=${orderList._id}`)
         const productList = data.cartReducer.products;
-        productList.length!==0 && navigate("/orderDetails")
+        
         const paymentInfo = data.cartReducer.paymentInfo;
         const amt=data.cartReducer.paymentInfo.total*100;
-        const userInfo=data.authReducer.userInfo.result
+        if(window.localStorage.getItem("user") !== null)
+          userInfo=JSON.parse(window.localStorage.getItem("user"));
+          const today=new Date();
+          const tomorrow=new Date(today.setDate(today.getDate()+1)).toDateString();
+          
+        // console.log("userInfo",userInfo)
         
         useEffect(() => {
          
@@ -45,7 +53,10 @@ export default function AddressForm() {
                   token: stripeToken,
                   deliveryInfo:billingInfo,
                   productList:productList,
-                  paymentInfo:paymentInfo
+                  paymentInfo:paymentInfo,
+                  userInfo:userInfo,
+                  apiName:"payment",
+                  delivery_date:tomorrow
                 }))
 
 
@@ -54,23 +65,7 @@ export default function AddressForm() {
               console.log("error", err);
             }
           };
-          // const checkForBillingDetails=(data)=>{
-          //   let keys=Object.keys(data);
-          //   let flag=true;
-          //   for(let i=0;i<keys.length;i++){
-          //     if(data[keys[i]].trim().length==0){
-          //       flag=false
-          //     }
-                 
-          //   }
-          //   if(!flag){
-          //     alert("Fill all details");
-          //     return false;
-          //   }
-          //     return true;
-              
-          // }
-          // if(stripeToken && checkForBillingDetails(billingInfo))
+
           stripeToken && makePayment();
         }, [stripeToken]);
 
@@ -82,10 +77,9 @@ export default function AddressForm() {
         };
 
       let handleChange = (e) => {
-        console.log("e",e)
         let name = e.target.name;
-        let value = e.target.value;
-        billingInfo[name] = value;
+        let value = e.target.value
+        billingInfo[name] = value.trim();
         setBillingInfo(billingInfo);
       }
     

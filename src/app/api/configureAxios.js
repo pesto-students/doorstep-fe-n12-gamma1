@@ -6,9 +6,18 @@ const configureAxios = () => {
   Axios.defaults.headers.post["Accept"] = "application/json";
   Axios.defaults.headers.put["Accept"] = "application/json";
   Axios.interceptors.request.use(function (config) {
-    const token = localStorage.getItem("token");
-    config.headers.auth = token ? `${token}` : "";
-    return config;
+    let axiosConfig=null;
+    if(window.localStorage.getItem("token") !== null){
+       axiosConfig = {
+        headers: {
+          'Content-Type': 'application/json',
+          'auth': JSON.parse(window.localStorage.getItem("token"))
+        }
+      };
+    }
+    // const token = localStorage.getItem("token");
+    // config.headers.auth = token ? `${token}` : "";
+    return axiosConfig;
   });
 };
 export default configureAxios;

@@ -4,6 +4,7 @@ import SummaryCard from "./SummaryCard";
 import Table from "@mui/material/Table";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
+import TableBody from "@mui/material/TableBody";
 import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
 
@@ -49,6 +50,7 @@ export default function OrderSummary() {
       </Grid> */}
       <Grid item xs={12}>
         <Table item  fullwidth={1} sx={{ fontWeight: "bold" }}>
+          <TableBody>
           <TableRow>
             <TableCell sx={{ fontWeight: "bold" }}>SubTotal</TableCell>
             <TableCell sx={{ fontWeight: "bold" }} align="right">
@@ -67,6 +69,7 @@ export default function OrderSummary() {
               0 INR
             </TableCell>
           </TableRow>
+          </TableBody>
         </Table>
       </Grid>
       <Grid item xs={12}>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Header from "./../library/components/Header1";
+import Header from "./../library/components/Header";
 // import brands from "../services/brands";
 // import Brands from "../library/components/Brands";
 import Categories from "../library/components/Categories";
@@ -9,6 +9,7 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import { useSelector, useDispatch } from "react-redux";
 import { productActions } from "../app/reducers/productReducer";
+import config from "../config.json";
 
 const LandingPage = () => {
   // const [selectedCategory, setSelectedCategory] = useState(null);
@@ -16,8 +17,11 @@ const LandingPage = () => {
   const data = useSelector((state) => state);
   const productList = data.productReducer.productList.result;
   const categoryList = data.categoryReducer.categoryList.result;
+  const apiName=`user/productList?prefix=${config.result.prefix}`
   useEffect(() => {
-    dispatch(productActions.fetchProduct());
+    dispatch(productActions.fetchProduct({
+      apiName:apiName
+    }));
   },[]);
   return (
     <Container maxWidth="false" justify="center">

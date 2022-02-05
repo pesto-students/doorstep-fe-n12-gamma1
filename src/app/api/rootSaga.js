@@ -12,13 +12,8 @@ import { productActions } from "../reducers/productReducer";
 import productSaga from "../saga/productSaga";
 import { orderActions } from "../reducers/orderReducer";
 import orderSaga from "../saga/orderSaga";
-// export default function* rootSaga() {
-//     yield takeLatest(
-//         authActions.fetchAuth.type,
-//         authSaga
-//     )
-    
-// }
+import { logoutActions } from "../reducers/logoutReducer";
+import logoutSaga from "../saga/logoutSaga";
 
 export default function* rootSaga(){
     
@@ -28,6 +23,7 @@ export default function* rootSaga(){
         takeEvery(fileUploadActions.fileUpload.type, fileUploadSaga),
         takeEvery(categoryActions.fetchCategory.type, categorySaga),
         takeEvery(productActions.fetchProduct.type, productSaga),
-        takeEvery(orderActions.fetchOrder.type,orderSaga)
+        takeEvery(orderActions.fetchOrder.type,orderSaga),
+        takeEvery(logoutActions.fetchLogout.type,logoutSaga)
       ]);
 }

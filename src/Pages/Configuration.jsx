@@ -27,7 +27,7 @@ const Configuration = () => {
       ? JSON.parse(window.localStorage.getItem("user"))
       : null;
   useEffect(() => {
-    if (!user) navigate("/");
+    if (!user) navigate("/admin");
     if(result.statusCode===200){
       alert("File Uploaded Successfully");
     }

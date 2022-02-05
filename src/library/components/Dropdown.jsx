@@ -1,4 +1,4 @@
-import * as React from "react";
+import React,{useEffect} from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -7,6 +7,9 @@ import Select from "@mui/material/Select";
 import Content from "./Content";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { useSelector, useDispatch } from "react-redux";
+import { productActions } from "../../app/reducers/productReducer";
+import config from "../../config.json";
 
 import {
   createStyles,
@@ -33,10 +36,21 @@ const CssTextField = withStyles({
 
 export default function DropDown({ values, variant }) {
   const [value, setValue] = React.useState("");
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state);
+  const productList = data.productReducer.productList.result;
 
   const handleChange = (event) => {
+    console.log("event",event)
     setValue(event.target.value);
+    let apiName=`user/productList?prefix=${config.result.prefix}&category=${event.target.value}`;
+    dispatch(productActions.fetchProduct({
+      apiName:apiName
+    }));
   };
+
+ 
+ 
 
   return (
     <Select
@@ -55,7 +69,7 @@ export default function DropDown({ values, variant }) {
     >
       {values && values.length !== 0
         ? values.map((category, index) => (
-            <MenuItem key={index} value={category._id}>
+            <MenuItem key={index} value={category.categoryName}>
               {category.categoryName}
             </MenuItem>
           ))

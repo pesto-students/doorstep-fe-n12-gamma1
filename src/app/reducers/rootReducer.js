@@ -6,6 +6,7 @@ import { categoryReducer } from "./categoryReducer";
 import { productReducer } from "./productReducer";
 import { cartReducer } from "./cartReducer";
 import { orderReducer } from "./orderReducer";
+import { logoutReducer } from "./logoutReducer";
 
 export const rootReducer = combineReducers({ 
     authReducer,
@@ -14,5 +15,6 @@ export const rootReducer = combineReducers({
     categoryReducer,
     productReducer,
     cartReducer,
-    orderReducer
+    orderReducer,
+    logoutReducer
 })

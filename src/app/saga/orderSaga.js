@@ -6,9 +6,18 @@ import * as service from "../services/authService";
 export default function* orderSaga(data) {
     try {
         debugger;
-      const response = yield call(
-        service.payment,data.payload
-      );
+        let response
+        if(data.payload.apiName=='payment')
+        response = yield call(
+          service.payment,data.payload
+        );
+        else
+        response = yield call(
+          service.order,data.payload
+        );
+        
+      
+        
       debugger;
       if (response.status === 200) {
         if (response.data) {

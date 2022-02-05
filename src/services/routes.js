@@ -1,6 +1,5 @@
-import React from "react";
-import LoginPage from "./../Pages/Login";
-import ConfigurationPage from "./../Pages/Configuration";
+import LoginPage from "../Pages/Login";
+import ConfigurationPage from "../Pages/Configuration";
 import PageNotFound from '../Pages/PageNotFound';
 import Payment from "../library/components/Payment";
 import LandingPage from "../Pages/LandingPage";
@@ -10,15 +9,9 @@ import ProductDetailsPage from "../Pages/ProductDetailsPage";
 import OrderHistory from "../Pages/OrderHistory";
 import OrderDetails from "../Pages/OrderDetails";
 import Modal from "../library/components/Modal1";
+import AdminLogin from "../Pages/adminLogin";
 
-// import Test from "../library/components/DropDown";
-// import Test from "../library/components/Brands";
-// import Test from "../library/components/Grid";
-// import Test from "../library/components/Slider";
-// import Test from "../library/components/Buttons";
-// import Test from "../library/components/IncDec";
-// import Test from "../library/components/CartItem";
-import Test from "../Pages/OrderHistory";
+
 
 const Routes= [
     {
@@ -27,6 +20,12 @@ const Routes= [
         component:LoginPage,
         pageTitle:'Admin SignIn'
     },
+    {
+      path:'/admin',
+      exact:true,
+      component:AdminLogin,
+      pageTitle:'Admin SignIn'
+  },
     {
         path:'/configuration',
         exact:true,
@@ -39,12 +38,7 @@ const Routes= [
         component:Payment,
         pageTitle:'Admin SignIn'
     },
-    {
-    path: "/test",
-    exact: true,
-    component: Test,
-    pageTitle: "Upload Configuration excel File",
-  },
+    
   {
     path: "/modal",
     exact: true,
@@ -71,7 +65,7 @@ const Routes= [
     pageTitle: "Product",
   },
   {
-    path: "/orders",
+    path: "/orderHistory",
     exact: true,
     component: OrderHistory,
     pageTitle: "Product",
