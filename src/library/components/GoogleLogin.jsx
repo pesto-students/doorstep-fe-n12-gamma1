@@ -26,9 +26,8 @@ const GLogin = ({ children }) => {
   const clientId = config.result.envDetails.REACT_APP_CLIENT_ID;
 
   useEffect(() => {
-    debugger;
     if (
-      userInfo?.statusCode === 200 &&
+      userInfo && userInfo.statusCode === 200 &&
       window.localStorage.getItem("token") === null
     ) {
       window.localStorage.setItem("user", JSON.stringify(userInfo.result));
@@ -41,7 +40,7 @@ const GLogin = ({ children }) => {
       if (userInfo.result.role !== "Admin" && userInfo.result.role !== "User")
         navigate("/error");
     }
-  }, [userInfo, navigate]);
+  }, [userInfo]);
 
   const onLoginSuccess = (res) => {
     let apiDdata = {
@@ -52,8 +51,8 @@ const GLogin = ({ children }) => {
       if (children !== "Admin") {
         apiDdata.prefix = config.result.prefix;
       }
-
       dispatch(authActions.fetchAuth(apiDdata));
+   
     } catch (error) {
       alert(error);
     }

@@ -11,7 +11,6 @@ const cartSlice = createSlice({
   },
   reducers: {
     addProductToCart: (state, action) => {
-      debugger;
       let { payload } = action;
       state.isFetching = true;
       const products = state.products.filter(

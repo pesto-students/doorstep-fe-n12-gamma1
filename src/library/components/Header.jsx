@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import { productActions } from "../../app/reducers/productReducer";
 import { filterActions } from "../../app/reducers/filterReducer";
+import { authActions } from "../../app/reducers/authReducer";
 
 const CssTextField = withStyles({
   root: {
@@ -66,6 +67,7 @@ const Header = () => {
       alert("Are you sure you want to logout?");
       window.localStorage.clear();
       window.sessionStorage.clear();
+      dispatch(authActions.setAuth())
       navigate("/");
     } catch (error) {}
   };

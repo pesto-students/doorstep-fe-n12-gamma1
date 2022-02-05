@@ -6,12 +6,14 @@ import Theme from "../styleHelpers/customTheme";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import config from "../../config.json";
-
+import { authActions } from "../../app/reducers/authReducer";
+import { useSelector, useDispatch } from "react-redux";
 import Cart from "./Cart";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const user =
     window.localStorage.getItem("user") !== null
       ? JSON.parse(window.localStorage.getItem("user"))
@@ -23,6 +25,7 @@ const Header = () => {
       alert("Are you sure you want to logout?");
       window.localStorage.clear();
       window.sessionStorage.clear();
+      dispatch(authActions.setAuth())
       navigate("/");
     } catch (error) {}
   };
