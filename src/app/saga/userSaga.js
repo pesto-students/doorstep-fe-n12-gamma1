@@ -4,10 +4,7 @@ import * as service from "../services/userService";
 
 export default function* userSaga({creds}) {
     try {
-      debugger;
       const response = yield call(service.login,creds);
-      console.log("response",response)
-      debugger;
       if (response.status === 200) {
         if (response.data) {
           yield put(authActions.fetchAuthSuccess(response.data));
@@ -16,8 +13,6 @@ export default function* userSaga({creds}) {
         }
       }
     } catch (e) {
-      debugger;
-      console.log("error",e)
       yield put(authActions.fetchAuthFailure(e));
     }
   }

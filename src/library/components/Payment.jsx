@@ -8,8 +8,8 @@ import config from "../../config.json";
 
 export default function Payment(props) {
   const [stripeToken, setStripeToken] = useState(null);
-  const logo=config.result.template_Details.logoUrl;
-  
+  const logo = config.result.template_Details.logoUrl;
+
   useEffect(() => {
     const makePayment = async () => {
       try {
@@ -17,16 +17,13 @@ export default function Payment(props) {
           token: stripeToken,
           amount: 3000,
         });
-        console.log("result", result);
       } catch (err) {
-        console.log("error", err);
       }
     };
     stripeToken && makePayment();
   }, [stripeToken]);
 
   const onToken = (token) => {
-    console.log("token", token);
     setStripeToken(token);
   };
   return (
@@ -40,7 +37,7 @@ export default function Payment(props) {
       email="sunitagamne16@gmail.com"
       description="Your total bill is 3000 usd"
     >
-      <Button className="Large" > Pay</Button>
+      <Button className="Large"> Pay</Button>
     </StripeCheckout>
   );
 }

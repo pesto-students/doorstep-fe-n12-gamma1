@@ -8,7 +8,6 @@ export default function* categorySaga(data) {
       const response = yield call(
         service.category,data.payload
       );
-      debugger;
       if (response.status === 200) {
         if (response.data) {
           yield put(categoryActions.fetchCategorySuccess(response.data));
@@ -17,8 +16,6 @@ export default function* categorySaga(data) {
         }
       }
     } catch (e) {
-      debugger;
-      console.log("error",e)
       yield put(categoryActions.fetchCategoryFailure(e));
     }
   }

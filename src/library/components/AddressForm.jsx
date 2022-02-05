@@ -41,14 +41,9 @@ export default function AddressForm() {
           userInfo=JSON.parse(window.localStorage.getItem("user"));
           const today=new Date();
           const tomorrow=new Date(today.setDate(today.getDate()+1)).toDateString();
-          
-        // console.log("userInfo",userInfo)
         
         useEffect(() => {
-          // setStripeToken(token);
-          // setBillingInfo(billingInfo);
           const makePayment = async () => {
-            try {
               dispatch(orderActions.fetchOrder({
                   token: stripeToken,
                   deliveryInfo:billingInfo,
@@ -61,21 +56,17 @@ export default function AddressForm() {
 
                 dispatch(cartActions.emptyCart());
               
-            } catch (err) {
-              console.log("error", err);
             }
-          };
 
           stripeToken && makePayment();
         }, [stripeToken]);
 
        
         const orderList=data.orderReducer.orderList.result;
-        console.log("orderList",orderList)
-        if(orderList && orderList.length!==0){
-          
+       
+        if(orderList && orderList.length!==0)
             navigate(`/orderDetails?orderId=${orderList[0]._id}`)
-        }
+        
         const onToken = (tok) => {
           token=tok;
           setStripeToken(tok);
@@ -90,9 +81,6 @@ export default function AddressForm() {
     
       let handleSubmit = (e) => {
         e.preventDefault();
-        console.log(billingInfo);
-
-        // setBillingInfo(billingInfo);
       }
 
   return (

@@ -38,10 +38,8 @@ export default function DropDown({ values, variant }) {
   const [value, setValue] = React.useState("");
   const dispatch = useDispatch();
   const data = useSelector((state) => state);
-  const productList = data.productReducer.productList.result;
 
   const handleChange = (event) => {
-    console.log("event",event)
     setValue(event.target.value);
     let apiName=`user/productList?prefix=${config.result.prefix}&category=${event.target.value}`;
     dispatch(productActions.fetchProduct({

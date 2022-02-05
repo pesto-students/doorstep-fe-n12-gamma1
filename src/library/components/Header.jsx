@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Logo from "./Logo";
+import IconButton from "@mui/material/IconButton";
 import Icon from "@mui/material/Icon";
 import Theme from "../styleHelpers/customTheme";
 import DropDown from "./Dropdown";
@@ -7,7 +8,6 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
 import { useSelector, useDispatch } from "react-redux";
 import config from "../../config.json";
 import { categoryActions } from "../../app/reducers/categoryReducer";
@@ -44,12 +44,7 @@ const Header = () => {
   const productList = data.productReducer.productList.result;
 
   const handleChange = (event) => {
-    console.log("event",event)
     setsearchData(event.target.value);
-    // let apiName=`user/productList?prefix=${config.result.prefix}&searchField=${event.target.value}`;
-    // dispatch(productActions.fetchProduct({
-    //   apiName:apiName
-    // }));
   };
  
  
@@ -59,9 +54,7 @@ const Header = () => {
   }, []);
   const logo = config.result.template_Details.logoUrl;
   const logout = () => {
-    console.log("Logout");
     try {
-      // dispatch(logoutActions.fetchLogout())
       alert("Are you sure you want to logout?")
       window.localStorage.clear();
       window.sessionStorage.clear();
@@ -118,7 +111,7 @@ const Header = () => {
                       orientation="vertical"
                       variant="middle"
                       sx={{}}
-                     
+                     flexItem
                     />
                     <CssTextField
                       sx={{ backgroundColor: "#F9F9F9", flex: 16 }}
