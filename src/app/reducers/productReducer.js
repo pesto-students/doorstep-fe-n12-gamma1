@@ -19,8 +19,9 @@ const productSlice = createSlice({
       const { payload } = action;
       state.isFetching = false;
       state.productList = payload;
-    }
+    },
   },
 });
 
-export const { actions: productActions, reducer: productReducer } = productSlice;
+export const { actions: productActions, reducer: productReducer } =
+  productSlice;

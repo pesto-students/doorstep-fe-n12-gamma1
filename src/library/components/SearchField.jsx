@@ -40,7 +40,6 @@ const SearchBox = styled((props) => {
         placeholder="Search Products, Categories "
         type="text"
         onKeyUp={handleSearchBtnClick}
-        
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">

@@ -124,11 +124,7 @@ const Header = () => {
                       values={categoryList}
                       variant="outlined"
                     />
-                    <Divider
-                      orientation="vertical"
-                      variant="middle"
-                      flexItem
-                    />
+                    <Divider orientation="vertical" variant="middle" flexItem />
                     <CssTextField
                       sx={{ backgroundColor: "#F9F9F9", flex: 16 }}
                       value={searchData}

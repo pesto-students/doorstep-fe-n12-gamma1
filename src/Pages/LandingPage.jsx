@@ -38,14 +38,12 @@ const LandingPage = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={9} sx={{textAlign:'center'}}>
-            {resultedData && resultedData.length != 0 ? (
-              
+            <Grid item xs={9} sx={{ textAlign: "center" }}>
+              {resultedData && resultedData.length != 0 ? (
                 <ImagesGrid values={resultedData} />
-              
-            ) : (
-              <h3 >No Data</h3>
-            )}
+              ) : (
+                <h3>No Data</h3>
+              )}
             </Grid>
           </Grid>
         </Grid>

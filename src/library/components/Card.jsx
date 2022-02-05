@@ -1,5 +1,4 @@
 import React from "react";
-// import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import placeHolder from "../images/placeholder.jpg";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,8 +25,10 @@ export default function MediaCard(props) {
   };
   return (
     <Card>
-      <CardMedia image={props.product.img || placeHolder} 
-        onClick={onViewProductDetails}/>
+      <CardMedia
+        image={props.product.img || placeHolder}
+        onClick={onViewProductDetails}
+      />
       <CardContent>
         <CLabel>
           <h5 className="CardMainLabel">

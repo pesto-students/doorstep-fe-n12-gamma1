@@ -8,14 +8,14 @@ const Btn = styled(Button)`
     border: 1px solid ${Theme.Colors.primary};
     color: ${Theme.Colors.white};
     border-radius: ${Theme.CommonTheme.borderRadius};
-    background-color:${Theme.Colors.primary};
-    cursor:pointer;
+    background-color: ${Theme.Colors.primary};
+    cursor: pointer;
   }
   &&.MuiButton-root:hover {
     background-color: ${Theme.Colors.primary};
     color: ${Theme.Colors.white};
-    ursor:pointer;
-}
+    ursor: pointer;
+  }
 `;
 
 const Buttons = styled((props) => {
@@ -36,19 +36,19 @@ const Buttons = styled((props) => {
   &&.Large {
     width: min(50vw, 30vw);
     height: auto;
-    margin:10px;
+    margin: 10px;
   }
- &&.cardBtn{
-  float: right;
-  height: 36px;
-  width: 112px;
- }
-&&.IncDecBtn{
-  min-width: 1px;
-  width: 16.24px;
-  background-color: ${Theme.Colors.primary};
-  height: 22.5px;
-  padding: 0 0 0 0;
-}
+  &&.cardBtn {
+    float: right;
+    height: 36px;
+    width: 112px;
+  }
+  &&.IncDecBtn {
+    min-width: 1px;
+    width: 16.24px;
+    background-color: ${Theme.Colors.primary};
+    height: 22.5px;
+    padding: 0 0 0 0;
+  }
 `;
 export default Buttons;

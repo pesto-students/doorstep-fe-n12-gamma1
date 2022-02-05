@@ -9,9 +9,7 @@ const Login = () => {
   const logo = config.result.template_Details.logoUrl;
   const vendorName = config.result.vendorName;
   return (
-    
     <Content className="MainContainer">
-      {/* <Snackbar/> */}
       <Content className="LogoContainer">
         <Logo src={logo} className="responsiveImg" width={243} />
         <CLabel>
@@ -20,7 +18,7 @@ const Login = () => {
           </h6>
         </CLabel>
       </Content>
-      
+
       <Content className="Container LoginContent">
         <CLabel>
           <h2>Sign In</h2>

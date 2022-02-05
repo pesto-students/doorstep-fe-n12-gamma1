@@ -19,12 +19,12 @@ const CssTextField = styled(TextField)({
     },
     "& input[type=file]::file-selector-button": {
       color: `${Theme.Colors.primary}`,
-      borderWidth:"1px",
-      borderStyle:"thin",
+      borderWidth: "1px",
+      borderStyle: "thin",
       borderColor: `${Theme.Colors.primary}`,
-      boxShadow:"none",
-      borderRightColor: `${Theme.Colors.primary}`
-    }
+      boxShadow: "none",
+      borderRightColor: `${Theme.Colors.primary}`,
+    },
   },
 });
 
@@ -36,7 +36,6 @@ const FileUpload = styled((props) => {
       type="file"
       accept=".xlsx, .xls, .csv"
     />
-    //   </>
   );
 })`
   & {

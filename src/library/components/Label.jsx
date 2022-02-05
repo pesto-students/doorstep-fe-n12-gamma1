@@ -25,18 +25,18 @@ const CLabel = styled((props) => <CustomLabel {...props} />)`
     font-size: 12px;
     color: ${Theme.Colors.cardDescription};
   }
-  && .costLabel{
+  && .costLabel {
     display: inline;
     text-align: left;
     font-size: 18px;
     color: ${Theme.Colors.cardTitle};
   }
- 
-  && .strikedLabel{
+
+  && .strikedLabel {
     display: inline;
     color: ${Theme.Colors.cardDescription};
     font-size: 12px;
-    text-decoration: line-through;          
+    text-decoration: line-through;
   }
 
   &&.ItalicFont {

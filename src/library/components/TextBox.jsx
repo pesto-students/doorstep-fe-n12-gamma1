@@ -1,42 +1,30 @@
-import React,{ useRef} from 'react';
+import React, { useRef } from "react";
 import styled from "styled-components";
 import TextField from "@mui/material/TextField";
 import Theme from "../styleHelpers/customTheme";
 
-
 const CssTextField = styled(TextField)({
-    // '& label.Mui-focused': {
-    //   color: 'green',
-    // },
-    // '& .MuiInput-underline:after': {
-    //   borderBottomColor: 'green',
-    // },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: `${Theme.Colors.primary}`,
-        borderRadius: `${Theme.CommonTheme.borderRadius}`,
-      },
-    //   '&:hover fieldset': {
-    //     borderColor: 'yellow',
-    //   },
-    //   '&.Mui-focused fieldset': {
-    //     borderColor: 'green',
-    //   },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: `${Theme.Colors.primary}`,
+      borderRadius: `${Theme.CommonTheme.borderRadius}`,
     },
-  });
+  },
+});
 
 const TextBox = styled((props) => {
-    const fileInputField = useRef(null);
+  const fileInputField = useRef(null);
 
-    const handleUploadBtnClick = () => {
-        
-      };
+  const handleUploadBtnClick = () => {};
   return (
-      <>
-      <CssTextField placeholder="Enter Data" type="text" onKeyUp={handleUploadBtnClick} />
-  
-  </>
-  )
+    <>
+      <CssTextField
+        placeholder="Enter Data"
+        type="text"
+        onKeyUp={handleUploadBtnClick}
+      />
+    </>
+  );
 })`
   & {
     height: ${(props) => props.style?.height};

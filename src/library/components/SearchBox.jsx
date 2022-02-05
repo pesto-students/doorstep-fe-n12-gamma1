@@ -1,59 +1,62 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import NativeSelect from '@mui/material/NativeSelect';
-import InputBase from '@mui/material/InputBase';
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import NativeSelect from "@mui/material/NativeSelect";
+import InputBase from "@mui/material/InputBase";
 import Icon from "./Icon";
 import Theme from "./../styleHelpers/customTheme";
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
-  'label + &': {
+  "label + &": {
     marginTop: theme.spacing(3),
   },
-  '& .MuiInputBase-input': {
+  "& .MuiInputBase-input": {
     borderRadius: 4,
-    position: 'relative',
+    position: "relative",
     backgroundColor: theme.palette.background.paper,
-    border: '1px solid #ced4da',
+    border: "1px solid #ced4da",
     fontSize: 16,
-    padding: '10px 26px 10px 12px',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
+    padding: "10px 26px 10px 12px",
+    transition: theme.transitions.create(["border-color", "box-shadow"]),
     // Use the system font instead of the default Roboto font.
     fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
+      "-apple-system",
+      "BlinkMacSystemFont",
       '"Segoe UI"',
-      'Roboto',
+      "Roboto",
       '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
+      "Arial",
+      "sans-serif",
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
-    ].join(','),
-    '&:focus': {
+    ].join(","),
+    "&:focus": {
       borderRadius: 4,
-      borderColor: '#80bdff',
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
+      borderColor: "#80bdff",
+      boxShadow: "0 0 0 0.2rem rgba(0,123,255,.25)",
     },
   },
 }));
 
 export default function CustomizedSelects() {
-  const [age, setAge] = React.useState('');
+  const [age, setAge] = React.useState("");
   const handleChange = (event) => {
     setAge(event.target.value);
   };
   return (
     <div>
       <FormControl sx={{ m: 1 }} variant="standard">
-        <BootstrapInput id="demo-customized-textbox" placeholder='Search Product' >
-        <Icon  sx={{ color: `${Theme.Colors.primary}` }}>account_circle</Icon>
-            </BootstrapInput>
-        </FormControl>
+        <BootstrapInput
+          id="demo-customized-textbox"
+          placeholder="Search Product"
+        >
+          <Icon sx={{ color: `${Theme.Colors.primary}` }}>account_circle</Icon>
+        </BootstrapInput>
+      </FormControl>
     </div>
   );
 }

@@ -19,7 +19,7 @@ const orderSlice = createSlice({
       const { payload } = action;
       state.isFetching = false;
       state.orderList = payload;
-    }
+    },
   },
 });
 

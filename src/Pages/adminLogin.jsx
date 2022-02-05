@@ -4,18 +4,10 @@ import Logo from "../library/components/Logo";
 import CLabel from "../library/components/Label";
 import Content from "../library/components/Content";
 import logoImg from "../library/images/logo.png";
-// import { useSelector, useDispatch } from "react-redux";
-// import { authActions } from "../app/reducers/authReducer";
-// import Snackbar from "../library/shared/Snackbar"
 
 const Login = () => {
-  // const dispatch = useDispatch();
-  // dispatch(authActions.fetchAuth())
-  // useSelector(state => console.log(state))
   return (
-    
     <Content className="MainContainer">
-      {/* <Snackbar/> */}
       <Content className="LogoContainer">
         <Logo src={logoImg} className="responsiveImg" width={243} />
         <CLabel>
@@ -24,7 +16,7 @@ const Login = () => {
           </h6>
         </CLabel>
       </Content>
-      
+
       <Content className="Container LoginContent">
         <CLabel>
           <h2>Sign In</h2>

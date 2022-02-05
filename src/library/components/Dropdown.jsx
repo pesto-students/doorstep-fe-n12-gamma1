@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -43,19 +43,17 @@ export default function DropDown({ values, variant }) {
   const handleChange = (event) => {
     let apiName;
     setValue(event.target.value);
-    dispatch(filterActions.filterByCategory(event.target.value))
-    if(data.filterReducer.searchField)
-        apiName=`user/productList?prefix=${config.result.prefix}&category=${event.target.value}&productName=${data.filterReducer.searchField}`;
+    dispatch(filterActions.filterByCategory(event.target.value));
+    if (data.filterReducer.searchField)
+      apiName = `user/productList?prefix=${config.result.prefix}&category=${event.target.value}&productName=${data.filterReducer.searchField}`;
     else
-    apiName=`user/productList?prefix=${config.result.prefix}&category=${event.target.value}`;    
-    dispatch(productActions.fetchProduct({
-      apiName:apiName
-    }));
-    
+      apiName = `user/productList?prefix=${config.result.prefix}&category=${event.target.value}`;
+    dispatch(
+      productActions.fetchProduct({
+        apiName: apiName,
+      })
+    );
   };
-
- 
- 
 
   return (
     <Select
@@ -69,7 +67,6 @@ export default function DropDown({ values, variant }) {
       value={value}
       onChange={handleChange}
       input={<CssTextField sx={{ backgroundColor: "#F9F9F9" }} />}
-      // IconComponent = {DropDownIcon}
       IconComponent={ArrowDropDownIcon}
     >
       {values && values.length !== 0

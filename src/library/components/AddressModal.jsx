@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import AddressFrom from './AddressForm';
-import Portal from '@mui/material/Portal';
-import Button from '@mui/material/Button';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import AddressFrom from "./AddressForm";
+import Portal from "@mui/material/Portal";
+import Button from "@mui/material/Button";
 import Theme from "../styleHelpers/customTheme";
 
 export default function ClickAway() {
@@ -18,29 +18,30 @@ export default function ClickAway() {
   };
 
   const styles = {
-    position: 'fixed',
+    position: "fixed",
     width: 200,
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    border: '1px solid',
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    border: "1px solid",
     p: 1,
-    bgcolor: 'background.paper',
-  };  
+    bgcolor: "background.paper",
+  };
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
-      <Box sx={{ position: 'relative' }}>
-        <Button variant="contained" onClick={handleClick} sx={{backgroundColor:`${Theme.Colors.primary || '#2592AA'} `}}>
+      <Box sx={{ position: "relative" }}>
+        <Button
+          variant="contained"
+          onClick={handleClick}
+          sx={{ backgroundColor: `${Theme.Colors.primary || "#2592AA"} ` }}
+        >
           + Add New Address
         </Button>
         {open ? (
-          //<Portal>
-            <Box>
-              <AddressFrom/>
-            </Box>
-          //</Portal>
-
+          <Box>
+            <AddressFrom />
+          </Box>
         ) : null}
       </Box>
     </ClickAwayListener>
