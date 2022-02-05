@@ -14,12 +14,12 @@ const MainContent = styled((props) => <Main {...props} />)`
     text-align: ${(props) => props.style?.textAlign};
   }
   &&.cardActions {
-    padding: 5px; 
-    width: 100%; 
+    padding: 5px;
+    width: 100%;
     text-align: left;
   }
-  &&.costContent{
-    display: inline; 
+  &&.costContent {
+    display: inline;
     width: 50%;
     text-align: left;
   }
@@ -53,25 +53,25 @@ const MainContent = styled((props) => <Main {...props} />)`
     margin-bottom: 2em;
   }
 
-  &&.HeaderLogoContainer{
-   margin:0;
-   color: ${Theme.Colors.primary};
+  &&.HeaderLogoContainer {
+    margin: 0;
+    color: ${Theme.Colors.primary};
   }
 
-  &&.HeaderMiddleContainer{
-    margin:0;
+  &&.HeaderMiddleContainer {
+    margin: 0;
     color: ${Theme.Colors.primary};
     display: flex;
     align-items: center;
     flex-direction: row;
-   }
+  }
   &&.HeaderNav {
     width: 15%;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
-    padding:10px 0;
+    padding: 10px 0;
   }
 
   &&.SearchBar {
@@ -137,7 +137,7 @@ const MainContent = styled((props) => <Main {...props} />)`
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    margin: 1em 0 3em 0;;
+    margin: 1em 0 3em 0;
     color: ${Theme.Colors.primary};
     position: sticky;
   }

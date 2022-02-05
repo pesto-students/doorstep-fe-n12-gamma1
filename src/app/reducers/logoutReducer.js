@@ -19,7 +19,7 @@ const logoutSlice = createSlice({
       const { payload } = action;
       state.isFetching = false;
       state.userInfo = payload;
-    }
+    },
   },
 });
 

@@ -7,7 +7,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import IncDec from "./IncDec";
 import Theme from "../styleHelpers/customTheme";
 import Typography from "@mui/material/Typography";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../app/reducers/cartReducer";
 import Icon from "./Icon";
 import Button from "../components/Buttons";
@@ -24,8 +24,6 @@ function srcset(image, size, rows = 1, cols = 1) {
 function createData(srNo, imgUrl, name, price, quantity) {
   return { srNo, imgUrl, name, price, quantity };
 }
-
-
 
 const blue = {
   200: "#A5D8FF",
@@ -135,17 +133,13 @@ export default function UnstyledTable() {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const dispatch = useDispatch();
 
-  const onDeleteProductEntryFromCart=(product)=>{
+  const onDeleteProductEntryFromCart = (product) => {
     alert("Do you want to delete product from cart");
     dispatch(cartActions.deleteProductEntryFromCart(product));
-  }
+  };
 
-    const data = useSelector((state) => state);
-    const productList = data.cartReducer.products;  
-
-  // Avoid a layout jump when reaching the last page with empty rows.
-  // const emptyRows =
-  //   page > 0 ? Math.max(0, (1 + page) * rowsPerPage - productList.length) : 0;
+  const data = useSelector((state) => state);
+  const productList = data.cartReducer.products;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -157,32 +151,32 @@ export default function UnstyledTable() {
   };
 
   return (
-    <Root >
+    <Root>
       <table aria-label="custom pagination table">
         <thead>
           <tr align="center">
-            <th style={{textAlign:"center"}}>
+            <th style={{ textAlign: "center" }}>
               <Typography variant="h6">Sr. No. </Typography>
             </th>
-            <th style={{textAlign:"center"}}>
+            <th style={{ textAlign: "center" }}>
               <Typography variant="h6">Product</Typography>
             </th>
-            <th style={{textAlign:"center"}}>
+            <th style={{ textAlign: "center" }}>
               <Typography variant="h6">Product Name</Typography>
             </th>
-            <th style={{textAlign:"center"}}>
+            <th style={{ textAlign: "center" }}>
               <Typography variant="h6">Price</Typography>
             </th>
-            <th style={{textAlign:"center"}}>
+            <th style={{ textAlign: "center" }}>
               <Typography variant="h6">Discounted Price</Typography>
             </th>
-            <th style={{textAlign:"center"}}>
+            <th style={{ textAlign: "center" }}>
               <Typography variant="h6">Quantity</Typography>
             </th>
-            <th style={{textAlign:"center"}}>
+            <th style={{ textAlign: "center" }}>
               <Typography variant="h6">Total</Typography>
             </th>
-            <th style={{textAlign:"center"}}>
+            <th style={{ textAlign: "center" }}>
               <Typography variant="h6">Action</Typography>
             </th>
           </tr>
@@ -196,13 +190,16 @@ export default function UnstyledTable() {
             : productList
           ).map((product, index) => (
             <tr key={++index}>
-              <td style={{textAlign:"right"}}>
-                <Typography >{++index}</Typography>
+              <td style={{ textAlign: "right" }}>
+                <Typography>{++index}</Typography>
               </td>
-              <td style={{textAlign:"center"}}>
-                <ImageListItem sx={{ width: 50 }} key={product.title} cols={1} rows={1}>
-                {/* src={product.img}
-                    srcSet={product.img} {...srcset(product.img, 50, 1, 1)} */}
+              <td style={{ textAlign: "center" }}>
+                <ImageListItem
+                  sx={{ width: 50 }}
+                  key={product.title}
+                  cols={1}
+                  rows={1}
+                >
                   <img
                     src={product.img}
                     srcSet={product.img}
@@ -213,63 +210,35 @@ export default function UnstyledTable() {
                 </ImageListItem>
               </td>
               <td>
-                <Typography >{product.title}</Typography>
+                <Typography>{product.title}</Typography>
               </td>
-              <td style={{textAlign:"right", textDecoration: "line-through"}}>
-                <Typography >{product.price + " INR"}</Typography>
+              <td
+                style={{ textAlign: "right", textDecoration: "line-through" }}
+              >
+                <Typography>{product.price + " INR"}</Typography>
               </td>
-              <td style={{textAlign:"right"}}>
-                <Typography >{product.discounted_price + " INR"}</Typography>
+              <td style={{ textAlign: "right" }}>
+                <Typography>{product.discounted_price + " INR"}</Typography>
               </td>
-              <td  style={{textAlign:"center"}}>
+              <td style={{ textAlign: "center" }}>
                 <IncDec initvalue={product.qty} product={product} />
               </td>
-              <td  style={{textAlign:"right"}}>
-                <Typography >
-                  {product.total} INR
-                </Typography>
+              <td style={{ textAlign: "right" }}>
+                <Typography>{product.total} INR</Typography>
               </td>
-              <td  style={{color: `${Theme.Colors.primary}`,textAlign: 'center'}}>
+              <td
+                style={{
+                  color: `${Theme.Colors.primary}`,
+                  textAlign: "center",
+                }}
+              >
                 <div onClick={() => onDeleteProductEntryFromCart(product)}>
-              <Icon  >
-          delete
-        </Icon>
-        </div>
-                {/* <Button  onClick={(product) => onRemoveProductFromCart(product)} >
-                  Remove
-                </Button> */}
+                  <Icon>delete</Icon>
+                </div>
               </td>
             </tr>
           ))}
-
-          {/* {emptyRows > 0 && (
-            <tr style={{ height: 41 * emptyRows }}>
-              <td colSpan={7} />
-            </tr>
-          )} */}
         </tbody>
-        {/* <tfoot>
-          <tr>
-            <CustomTablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-              colSpan={7}
-              count={productList.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              componentsProps={{
-                select: {
-                  "aria-label": "rows per page",
-                },
-                actions: {
-                  showFirstButton: true,
-                  showLastButton: true,
-                },
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </tr>
-        </tfoot> */}
       </table>
     </Root>
   );

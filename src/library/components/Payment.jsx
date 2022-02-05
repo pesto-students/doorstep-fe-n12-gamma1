@@ -17,8 +17,7 @@ export default function Payment(props) {
           token: stripeToken,
           amount: 3000,
         });
-      } catch (err) {
-      }
+      } catch (err) {}
     };
     stripeToken && makePayment();
   }, [stripeToken]);

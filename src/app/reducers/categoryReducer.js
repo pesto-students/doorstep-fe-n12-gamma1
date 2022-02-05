@@ -19,8 +19,9 @@ const categorySlice = createSlice({
       const { payload } = action;
       state.isFetching = false;
       state.categoryList = payload;
-    }
+    },
   },
 });
 
-export const { actions: categoryActions, reducer: categoryReducer } = categorySlice;
+export const { actions: categoryActions, reducer: categoryReducer } =
+  categorySlice;

@@ -19,7 +19,7 @@ const userSlice = createSlice({
       const { payload } = action;
       state.isFetching = false;
       state.userInfo = payload;
-    }
+    },
   },
 });
 

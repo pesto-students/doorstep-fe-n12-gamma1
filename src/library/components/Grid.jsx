@@ -2,17 +2,14 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Card from "./Card";
 
-
 export default function SpacingGrid({ values }) {
-  
   return (
     <Grid
       sx={{ flexGrow: 1 }}
       container
       spacing={4}
-      
+      sx={{ maxHeight: "80vh", overflowY: "scroll" }}
     >
-      {/* sx={{ maxHeight: "85vh", overflowY: "scroll" }} */}
       <Grid item xs={12}>
         <Grid container justify="center" rowSpacing={6} columns={12}>
           {values && values.length != 0
@@ -23,7 +20,6 @@ export default function SpacingGrid({ values }) {
               ))
             : ""}
         </Grid>
-      
       </Grid>
     </Grid>
   );

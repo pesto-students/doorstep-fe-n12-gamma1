@@ -19,8 +19,9 @@ const fileUploadSlice = createSlice({
       const { payload } = action;
       state.isFetching = false;
       state.fileInfo = payload;
-    }
+    },
   },
 });
 
-export const { actions: fileUploadActions, reducer: fileUploadReducer } = fileUploadSlice;
+export const { actions: fileUploadActions, reducer: fileUploadReducer } =
+  fileUploadSlice;

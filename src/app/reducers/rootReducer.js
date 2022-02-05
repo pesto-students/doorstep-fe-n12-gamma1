@@ -7,14 +7,16 @@ import { productReducer } from "./productReducer";
 import { cartReducer } from "./cartReducer";
 import { orderReducer } from "./orderReducer";
 import { logoutReducer } from "./logoutReducer";
+import { filterReducer } from "./filterReducer";
 
-export const rootReducer = combineReducers({ 
-    authReducer,
-    userReducer,
-    fileUploadReducer,
-    categoryReducer,
-    productReducer,
-    cartReducer,
-    orderReducer,
-    logoutReducer
-})
+export const rootReducer = combineReducers({
+  authReducer,
+  userReducer,
+  fileUploadReducer,
+  categoryReducer,
+  productReducer,
+  cartReducer,
+  orderReducer,
+  logoutReducer,
+  filterReducer,
+});

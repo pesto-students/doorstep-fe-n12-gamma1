@@ -10,6 +10,10 @@ const authSlice = createSlice({
     fetchAuth: (state) => {
       state.isFetching = true;
     },
+    setAuth: (state) => {
+      state.isFetching = true;
+      state.userInfo={}
+    },
     fetchAuthSuccess: (state, action) => {
       const { payload } = action;
       state.isFetching = false;
@@ -19,7 +23,7 @@ const authSlice = createSlice({
       const { payload } = action;
       state.isFetching = false;
       state.userInfo = payload;
-    }
+    },
   },
 });
 
