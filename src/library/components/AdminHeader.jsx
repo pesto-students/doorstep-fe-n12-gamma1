@@ -7,8 +7,10 @@ import { useNavigate } from "react-router-dom";
 import logoImg from "../images/logo.png";
 import IconButton from "@mui/material/IconButton";
 import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "../../app/reducers/authReducer";
 
 const AdminHeader = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const data = useSelector((state) => state);
   const logout = () => {
@@ -16,6 +18,7 @@ const AdminHeader = () => {
       alert("Are you sure you want to logout?");
       window.localStorage.clear();
       window.sessionStorage.clear();
+      dispatch(authActions.setAuth())
       navigate("/admin");
     } catch (error) {}
   };
