@@ -2,9 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Project Deployed on github and can be accessed using the below url
+## Project website link 
 
-Project website link - https://doorstep-store-doorstep.herokuapp.com/
+https://doorstep-store-doorstep.herokuapp.com/
 
 ## Available Scripts
 
