@@ -1,74 +1,99 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<p align="center">
+    <img src="https://atdoorstep.s3.ap-south-1.amazonaws.com/DoorStep/logo.png"" alt="Logo" width="400" height="200" >
+</p>
+We are living in the age of pandemics, where taking care of personal and loved ones health is the most important. Today during the pandemic situation, the need to buy products online has become a necessity, and for small-scale vendors like grocery or medical stores or any such small shops, it becomes difficult to setup an online portal to sell their products.
+Our Objective is to build a platform that can be easily used by small-scale vendors to configure and get a unique URL for their shops, so that the end customer can purchase through online and get the goods at their DoorStep.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Project website link 
+Welcome! we hope you enjoy the site as much as we enjoyed making it.
+ 
+  
+<!-- TABLE OF CONTENTS -->
+<br/>
 
-https://doorstep-store-doorstep.herokuapp.com/
+# Table of Contents
 
-## Available Scripts
+1. [Demo](#demo)
+2. [Installation](#installation)
+3. [Technology Stack](#technology-stack)
+4. [Authors](#authors)
+5. [License](#license)
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+# Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Live Demo](https://doorstep-store-doorstep.herokuapp.com)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br/>
 
-### `npm test`
+Please Note:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. We recommend using this app in Google Chrome
+2. Use the app on Laptop/desktop only as of now.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br/>
+Test Credentials:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Use Login with Guest
+ 	
+<br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Installation
 
-### `npm run eject`
+1. Clone the repo
+    ```sh
+    git clone https://github.com/pesto-students/doorstep-fe-n12-gamma1
+    ```
+2. Set environment variables
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+REACT_APP_SERVER_URL=https://doorstep-node-api.herokuapp.com/<br />
+REACT_APP_ORG_ID=<br />
+REACT_APP_DYTE_URL=<br />
+REACT_APP_FIREBASE_API=<br />
+REACT_APP_AUTH_DOMAIN=<br />
+REACT_APP_PROJECT_ID=<br />
+REACT_APP_STORAGE_BUCKET=<br />
+REACT_APP_MESSAGING_SENDER_ID=<br />
+REACT_APP_APP_ID=<br />
+REACT_APP_MEASUREMENT_ID=<br />
+REACT_APP_PAY_ID=<br />
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Install NPM packages
+    ```sh
+    cd doorstepr-fe-n12-gamma1 && npm install
+    ```
+4. Run
+    ```sh
+    npm start
+    ```
+5. Open http://localhost:3000 to view it in the browser
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+6. Run Test cases
+    ```sh
+    npm test
+    ```
+<br/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Technology Stack
 
-## Learn More
+We tried to use a completely modern tech stack while testing out some new technologies that we had never used before. This resulted in a fast, performant, and easily-extensible web app that should be fairly future-proof for the coming next several years. We used:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Axios](https://axios-http.com/docs/intro)
+- [React](https://reactjs.org/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br/>
 
-### Code Splitting
+# Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [Gauri Bane](https://github.com/Gauribane16)
+- [Vishwanath Boga](https://github.com/VishwanathRB)
+- [Siva Lokam](https://github.com/krishnalokam)
+<br/>
 
-### Analyzing the Bundle Size
+# License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[MIT](https://opensource.org/licenses/MIT)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
