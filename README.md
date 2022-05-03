@@ -23,7 +23,7 @@ Welcome! we hope you enjoy the site as much as we enjoyed making it.
 <br/>
 
 # Demo
-[Live Demo For User](https://doorstep-store-doorstep.herokuapp.com)
+[Live Demo For User](https://doorstep-store-doorstep.herokuapp.com) <br/>
 [Live Demo For Admin](https://doorstep-store-doorstep.herokuapp.com/admin)
 
 <br/>
