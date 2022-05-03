@@ -91,16 +91,19 @@ const Configuration = () => {
           </CLabel>
           <Content className="FileUploadContainer">
             <FileUpload onChange={onFileChange}></FileUpload>
-            <Link
+            {/* <Link
               to={
                 JSON.parse(window.localStorage.getItem("user"))
                   .sampleConfigurationFileUrl
               }
-            >
+              target="_blank" rel="noopener noreferrer" download> */}
+              <a  href={JSON.parse(window.localStorage.getItem("user"))
+                  .sampleConfigurationFileUrl} target="_blank" rel="noopener noreferrer" download>
               <Icon sx={{ color: `${Theme.Colors.primary}` }}>
                 file_download
               </Icon>
-            </Link>
+              </a>
+            {/* </Link> */}
           </Content>
           <Button onClick={onFileUpload} className="Large">
             Upload

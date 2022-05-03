@@ -1,5 +1,5 @@
 import React from "react";
-import GoogleLogin from "../library/components/GoogleLogin";
+import GoogleLogin from "../library/components/GoogleLoginForAdmin";
 import Logo from "../library/components/Logo";
 import CLabel from "../library/components/Label";
 import Content from "../library/components/Content";

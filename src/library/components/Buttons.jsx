@@ -50,5 +50,16 @@ const Buttons = styled((props) => {
     height: 22.5px;
     padding: 0 0 0 0;
   }
+  &&.googleBtn {
+    width: 25vw;
+  height: auto;
+  margin: 10px;
+  box-shadow: none !important;
+  background-color:transparent!important;
+  border: 1px solid ${Theme.Colors.primary}!important;
+  color: ${Theme.Colors.primary}!important;
+  border-radius: ${Theme.CommonTheme.borderRadius}!important;
+  justify-content: center;
+  }
 `;
 export default Buttons;

@@ -36,8 +36,8 @@ const GLogin = ({ children }) => {
         "token",
         JSON.stringify(userInfo.result.token)
       );
-      userInfo.result.role === "User" && navigate("/home");
-      userInfo.result.role === "Guest" && navigate("/home");
+      userInfo.result.role === "Admin" && navigate("/configuration");
+      userInfo.result.role === "Guest" && navigate("/configuration");
       if (userInfo.result.role !== "Admin" && userInfo.result.role !== "User" && userInfo.result.role !== "Guest")
         navigate("/error");
     }
@@ -46,13 +46,10 @@ const GLogin = ({ children }) => {
   const onGuestLogin = (res) => {
     
     let apiDdata = {
-      tokenId: "",
-      role: "Guest",
-    };
+        tokenId: "",
+        role: "GuestAdmin",
+      };
     try {
-    
-        apiDdata.prefix = config.result.prefix;
-      
       dispatch(authActions.fetchAuth(apiDdata));
    
     } catch (error) {
@@ -61,15 +58,13 @@ const GLogin = ({ children }) => {
   };
 
   const onLoginSuccess = (res) => {
-   
+ 
     let apiDdata = {
       tokenId: res.tokenId,
       role: children,
     };
     try {
-
-        apiDdata.prefix = config.result.prefix;
-   
+    
       dispatch(authActions.fetchAuth(apiDdata));
    
     } catch (error) {

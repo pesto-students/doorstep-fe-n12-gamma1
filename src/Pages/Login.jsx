@@ -4,6 +4,7 @@ import Logo from "../library/components/Logo";
 import config from "../config.json";
 import CLabel from "../library/components/Label";
 import Content from "../library/components/Content";
+// import Button from "../library/components/Buttons";
 
 const Login = () => {
   const logo = config.result.template_Details.logoUrl;
@@ -27,7 +28,7 @@ const Login = () => {
           <h6>Welcome {vendorName}</h6>
         </CLabel>
         <GoogleLogin>User</GoogleLogin>
-        <GoogleLogin>Guest</GoogleLogin>
+        
       </Content>
     </Content>
   );
